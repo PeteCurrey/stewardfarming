@@ -160,7 +160,7 @@ export function PricingClient() {
   return (
     <div className="flex flex-col">
       {/* HEADER */}
-      <section className="pt-16 pb-14 bg-parchment-100 border-b border-parchment-300">
+      <section className="pt-28 pb-14 bg-parchment-100 border-b border-parchment-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <Badge variant="forest">Transparent Farm Pricing</Badge>
           

@@ -46,7 +46,7 @@ export default function HowItWorksPage() {
         HEADER
         ========================================================================
       */}
-      <section className="pt-16 pb-16 bg-parchment-100 border-b border-parchment-300">
+      <section className="pt-28 pb-16 bg-parchment-100 border-b border-parchment-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <Badge variant="forest">The Architecture of Trust</Badge>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-forest-900 leading-tight">

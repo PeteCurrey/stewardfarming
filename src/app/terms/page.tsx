@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="flex flex-col">
-      <section className="pt-16 pb-12 bg-parchment-100 border-b border-parchment-300">
+      <section className="pt-28 pb-12 bg-parchment-100 border-b border-parchment-300">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <Badge variant="forest">Terms of Service</Badge>
           <h1 className="text-4xl font-serif font-bold text-forest-900">Terms &amp; Conditions</h1>

@@ -34,161 +34,95 @@ import { AdvisorPortrait } from "@/components/ui/AdvisorPortrait";
 export default function HomePage() {
   return (
     <div className="flex flex-col">
-      {/* 
+      {/*
         ========================================================================
-        1. HERO SECTION
+        1. HERO SECTION — Full-screen UK farmland photograph
+        ========================================================================
+        Background: Unsplash — golden-hour English wheat fields.
+        The navbar is fixed/transparent so the image bleeds behind it.
         ========================================================================
       */}
-      <section className="relative pt-12 pb-20 md:pt-20 md:pb-32 bg-parchment-100 overflow-hidden border-b border-parchment-300">
-        {/* Subtle background terrain contour lines */}
-        <div className="absolute inset-0 opacity-[0.035] pointer-events-none bg-[radial-gradient(#2C4A3B_1px,transparent_1px)] [background-size:24px_24px]" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
-            {/* Hero Copy */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center space-x-2">
-                <Badge variant="forest" size="md">
-                  <span className="w-2 h-2 rounded-full bg-forest-600 mr-1.5 animate-pulse" />
-                  Purpose-Built for UK Agriculture
-                </Badge>
-                <span className="text-xs text-charcoal-600 hidden sm:inline-block font-medium">
-                  2024/2025 SFI & Defra Ready
-                </span>
-              </div>
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-forest-900 leading-[1.12] tracking-tight">
-                One AI advisor, personalised to your farm, that{" "}
-                <span className="italic font-normal text-terracotta-700 underline decoration-gold-400 decoration-wavy decoration-1 underline-offset-4">
-                  actually acts
-                </span>{" "}
-                on your behalf.
-              </h1>
+        {/* Background Image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2560&q=85"
+          alt="Rolling English wheat fields at golden hour"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          fetchPriority="high"
+        />
 
-              <p className="text-lg sm:text-xl text-charcoal-700 leading-relaxed max-w-2xl">
-                From optimising spray windows and livestock rations to submitting complex SFI
-                applications and Red Tractor records — Steward stays two steps ahead of your season,
-                backed by accredited human agronomists and vets.
-              </p>
+        {/* Layered gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-forest-950/55 via-forest-900/40 to-forest-950/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-forest-950/40 via-transparent to-transparent pointer-events-none" />
 
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
-                <Button href="/signup" variant="primary" size="lg" className="group">
-                  Start 30-Day Free Trial
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button href="/how-it-works" variant="secondary" size="lg">
-                  See How It Works
-                </Button>
-              </div>
+        {/* Hero content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 sm:pt-40 sm:pb-32 text-center">
 
-              {/* Trust badges */}
-              <div className="pt-6 border-t border-parchment-300/80 grid grid-cols-3 gap-4 max-w-xl text-xs text-charcoal-600">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-forest-700 flex-shrink-0" />
-                  <span>No long contracts</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <ShieldCheck className="w-4 h-4 text-forest-700 flex-shrink-0" />
-                  <span>You own 100% of data</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Users className="w-4 h-4 text-forest-700 flex-shrink-0" />
-                  <span>Vets & agronomists on call</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Hero Visual Area */}
-            <div className="lg:col-span-5">
-              <div className="relative">
-                {/* Visual Placeholder container */}
-                <div className="relative rounded-2xl bg-gradient-to-b from-[#FAF6EE] to-[#EAE0CD] p-6 border-2 border-parchment-300 shadow-warm-xl overflow-hidden">
-                  
-                  {/*
-                    ========================================================================
-                    VISUAL PLACEHOLDER: Hero Image Area
-                    Replace with commissioned British landscape linocut or advisor montage
-                    ========================================================================
-                  */}
-                  <div className="mb-4 flex items-center justify-between border-b border-parchment-300/80 pb-3">
-                    <div className="flex items-center space-x-2">
-                      <span className="w-3 h-3 rounded-full bg-forest-700 inline-block" />
-                      <span className="text-xs font-serif font-semibold text-forest-900">
-                        Steward Morning Field Briefing
-                      </span>
-                    </div>
-                    <Badge variant="gold" size="sm">Live Advisory</Badge>
-                  </div>
-
-                  {/* Simulated proactive card inside placeholder */}
-                  <div className="space-y-3 text-left">
-                    <div className="bg-white/90 p-4 rounded-lg border border-parchment-300 shadow-sm space-y-2">
-                      <div className="flex items-start justify-between">
-                        <div className="flex items-center space-x-2">
-                          <AlertCircle className="w-4 h-4 text-terracotta-600 mt-0.5" />
-                          <span className="text-xs font-semibold text-charcoal-800">
-                            SFI SAM3 Herbal Leys — 12 Days Remaining
-                          </span>
-                        </div>
-                        <span className="text-[10px] text-charcoal-500">07:45</span>
-                      </div>
-                      <p className="text-xs text-charcoal-600 leading-relaxed">
-                        &quot;Field 4 &amp; 7 seedbed conditions are optimal today. I have drafted your compliance log entry for Defra and verified non-overlapping payment codes with your CS agreement.&quot;
-                      </p>
-                      <div className="flex items-center space-x-2 pt-1">
-                        <span className="text-[11px] font-semibold text-forest-800 bg-forest-50 px-2 py-0.5 rounded border border-forest-200">
-                          Ready to approve
-                        </span>
-                        <span className="text-[11px] text-charcoal-500">
-                          Estimated value: £4,180/yr
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="bg-white/90 p-4 rounded-lg border border-parchment-300 shadow-sm space-y-1.5">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-forest-900 flex items-center">
-                          <Wheat className="w-3.5 h-3.5 mr-1.5 text-gold-600" />
-                          Spray Window Window Alert: Winter Wheat T1
-                        </span>
-                        <span className="text-[10px] text-forest-700 bg-forest-100 px-1.5 py-0.2 rounded font-medium">
-                          Favourable
-                        </span>
-                      </div>
-                      <p className="text-xs text-charcoal-600">
-                        Wind drops below 7mph between 14:00 and 19:30 today. Rain forecast Thursday.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Advisor banner badge */}
-                  <div className="mt-4 pt-3 border-t border-parchment-300/80 flex items-center justify-between text-xs text-charcoal-700">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-7 h-7 rounded-full bg-forest-800 text-parchment-50 flex items-center justify-center font-serif text-xs">
-                        TC
-                      </div>
-                      <div>
-                        <p className="font-semibold text-charcoal-900 leading-none">Tom Campbell</p>
-                        <p className="text-[10px] text-charcoal-500">Your Arable Advisor</p>
-                      </div>
-                    </div>
-                    <Link href="/advisors" className="text-terracotta-700 font-semibold hover:underline flex items-center text-xs">
-                      Switch farm type &rarr;
-                    </Link>
-                  </div>
-
-                </div>
-
-                {/* Subtle vintage stamp accent */}
-                <div className="absolute -bottom-4 -right-4 bg-terracotta-600 text-parchment-50 px-3 py-1.5 rounded-md shadow-warm-md text-xs font-serif font-medium tracking-wide rotate-2 border border-terracotta-700">
-                  Defra 2024/25 Ready
-                </div>
-              </div>
-            </div>
-
+          {/* Eyebrow badge */}
+          <div className="inline-flex items-center justify-center mb-6">
+            <span className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/25 text-parchment-50 text-xs font-semibold px-4 py-2 rounded-full shadow-lg tracking-wide">
+              <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
+              <span>Purpose-Built for UK Agriculture &nbsp;·&nbsp; Defra 2025/26 Ready</span>
+            </span>
           </div>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-white leading-[1.08] tracking-tight drop-shadow-md">
+            One AI advisor, personalised<br className="hidden sm:block" /> to your farm, that{" "}
+            <span className="italic font-normal text-gold-300 underline decoration-gold-400/60 decoration-wavy decoration-2 underline-offset-[6px]">
+              actually acts
+            </span>
+            <br className="hidden sm:block" />{" "}on your behalf.
+          </h1>
+
+          <p className="mt-6 text-base sm:text-xl text-parchment-100/90 leading-relaxed max-w-2xl mx-auto drop-shadow">
+            From optimising spray windows and livestock rations to submitting SFI
+            applications and Red Tractor records — Steward stays two steps ahead of your season,
+            backed by accredited agronomists and vets.
+          </p>
+
+          {/* CTAs */}
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+            <Button href="/signup" variant="gold" size="lg" className="group w-full sm:w-auto shadow-xl">
+              Start 30-Day Free Trial
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button
+              href="/how-it-works"
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto border-white/40 text-white hover:bg-white/15 backdrop-blur-sm shadow-lg"
+            >
+              See How It Works
+            </Button>
+          </div>
+
+          {/* Trust bar */}
+          <div className="mt-14 grid grid-cols-3 gap-6 max-w-lg mx-auto text-xs text-parchment-200/90">
+            <div className="flex flex-col items-center space-y-1.5">
+              <CheckCircle2 className="w-5 h-5 text-gold-300" />
+              <span>No long contracts</span>
+            </div>
+            <div className="flex flex-col items-center space-y-1.5">
+              <ShieldCheck className="w-5 h-5 text-gold-300" />
+              <span>You own 100% of data</span>
+            </div>
+            <div className="flex flex-col items-center space-y-1.5">
+              <Users className="w-5 h-5 text-gold-300" />
+              <span>Vets &amp; agronomists on call</span>
+            </div>
+          </div>
+
         </div>
+
+        {/* Scroll cue */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce opacity-60">
+          <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+
       </section>
 
       {/* 

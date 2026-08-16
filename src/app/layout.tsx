@@ -62,6 +62,11 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-parchment-100 text-charcoal-800 antialiased selection:bg-forest-200 selection:text-forest-950">
         <AuthProvider>
           <Navbar />
+          {/* 
+            The Navbar is fixed (z-50, h-20). 
+            Pages that are NOT full-screen heroes need top padding to clear it.
+            The homepage hero and dashboard shell both handle their own offset internally.
+          */}
           <main id="main-content" className="flex-grow">
             {children}
           </main>
