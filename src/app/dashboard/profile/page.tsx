@@ -367,7 +367,7 @@ export default function FarmProfilePage() {
         </div>
 
         <p className="text-xs text-charcoal-600 max-w-3xl">
-          Based on your registered parcel boundaries and crop rotations, Steward cross-references official Defra SFI 2024 specifications to highlight potential action stacks.
+          Based on your registered parcel boundaries and crop rotations, Steward cross-references official Defra Defra SFI specifications to highlight potential action stacks.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">

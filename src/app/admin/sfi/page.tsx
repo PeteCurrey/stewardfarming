@@ -122,7 +122,7 @@ export default function AdminSfiSchemesPage() {
         <div>
           <div className="flex items-center space-x-2">
             <Badge variant="forest">Defra Reference Registry</Badge>
-            <span className="text-xs text-charcoal-500 font-medium">SFI 2024 / 2025 Actions</span>
+            <span className="text-xs text-charcoal-500 font-medium">SFI Scheme Actions</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-serif font-bold text-forest-900 mt-1">
             SFI Schemes Reference CRUD

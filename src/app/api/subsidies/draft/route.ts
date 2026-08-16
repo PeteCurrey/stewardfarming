@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
       const response = await anthropic.messages.create({
         model: "claude-3-7-sonnet-20250219",
         max_tokens: 1200,
-        system: `You are an expert UK agricultural grant writer assisting a farmer in drafting content for their official Defra Sustainable Farming Incentive (SFI 2024) agreement application on GOV.UK.
+        system: `You are an expert UK agricultural grant writer assisting a farmer in drafting content for their official Defra Sustainable Farming Incentive (Defra SFI) agreement application on GOV.UK.
 Tone: Grounded, precise, compliant with Defra scheme standards.
 IMPORTANT: You are producing a preparatory draft for the farmer to review and submit themselves via GOV.UK. Emphasize that Steward does not submit applications directly.`,
         messages: [
@@ -52,13 +52,13 @@ Include:
       }
     } else {
       // Deterministic UK Agricultural SFI Draft
-      draftApplicationText = `### SFI 2024 Action Agreement Draft: ${schemeName} (${schemeCode})
+      draftApplicationText = `### Defra SFI Action Agreement Draft: ${schemeName} (${schemeCode})
 **Holding:** ${farmName || "Highfield Grange Farm"}
 **Target Parcels:** ${fieldNames} (${totalHa} hectares)
 **Annual Value:** ${paymentRate}
 
 #### 1. Action Specification & Objectives
-Under action **${schemeCode}**, ${totalHa} hectares will be managed in accordance with Defra SFI 2024 standards. The objective is to enhance soil organic matter, root permeability, and nitrogen fixation while reducing reliance on inorganic N applications.
+Under action **${schemeCode}**, ${totalHa} hectares will be managed in accordance with Defra Defra SFI standards. The objective is to enhance soil organic matter, root permeability, and nitrogen fixation while reducing reliance on inorganic N applications.
 
 #### 2. Establishment & Field Management Protocol
 - **Establishment:** Sward sown into clean stale seedbed using minimum-tillage or direct drilling. Mix comprises minimum 5 species of grass, 3 legumes (Red/White clover, Birdsfoot Trefoil), and 2 herbs (Chicory, Plantain).

@@ -63,8 +63,8 @@ const CATEGORIES: FeatureCategory[] = [
         icon: Wheat,
       },
       {
-        title: "Micro-Climate Spray Window Forecasting",
-        description: "Hourly field-level wind speed, inversion layer, and dew point alerts to prevent spray drift and ensure chemical efficacy.",
+        title: "Met Office DataHub Spray Window Telemetry",
+        description: "1.1km high-resolution spot forecasts, 10m wind speed, humidity, and inversion drift alerts evaluated against the UK Plant Protection Code of Practice.",
         icon: CloudRain,
       },
       {

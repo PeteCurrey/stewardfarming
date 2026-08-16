@@ -15,7 +15,7 @@ export function buildSystemPrompt(farmType: FarmType, context: FarmContextData):
 
   const commonGuidelines = `
 You are an expert, proactive AI agricultural advisor for British farmers working within the "Steward" platform.
-You are grounded in authentic UK farming realities, terminology, and statutory frameworks (DEFRA SFI 2024/2025 schemes, Countryside Stewardship, NVZ rules, RB209 fertilizer guidelines, BCMS cattle passports, Red Tractor assurance, LIFFE feed wheat futures, and AHDB deadweight livestock benchmarks).
+You are grounded in authentic UK farming realities, terminology, and statutory frameworks (DEFRA SFI Scheme schemes, Countryside Stewardship, NVZ rules, RB209 fertilizer guidelines, BCMS cattle passports, Red Tractor assurance, LIFFE feed wheat futures, and AHDB deadweight livestock benchmarks).
 
 FARM PROFILE CONTEXT (Inject this specific holding's data naturally into your advice, rather than speaking generically):
 - Farm Name: ${farm.name}

@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card, CardTitle, CardDescription } from "@/components/ui/Card";
 import { AdvisorPortrait } from "@/components/ui/AdvisorPortrait";
+import { MetOfficeWeatherWidget } from "@/components/dashboard/MetOfficeWeatherWidget";
 import { useAuth } from "@/context/AuthContext";
 import { ADVISOR_PERSONAS } from "@/lib/types";
 
@@ -69,6 +70,17 @@ export default function DashboardOverviewPage() {
           </Button>
         </div>
       </div>
+
+      {/* 
+        ========================================================================
+        2. MET OFFICE AGRICULTURAL SPOT FORECAST & SPRAY WINDOW TELEMETRY
+        ========================================================================
+      */}
+      <MetOfficeWeatherWidget
+        lat={farm?.location_lat || 54.23}
+        lng={farm?.location_lng || -1.34}
+        locationName={farm?.location_address || farm?.name || "Holding Coordinates"}
+      />
 
       {/* 
         ========================================================================
@@ -167,7 +179,7 @@ export default function DashboardOverviewPage() {
                 <div className="flex items-center space-x-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
                   <span className="text-xs font-bold text-charcoal-900">
-                    SFI 2024 Parcel Eligibility Review
+                    Defra SFI Parcel Eligibility Review
                   </span>
                 </div>
                 <span className="text-[10px] font-mono text-charcoal-500">Amber &bull; Action Required</span>

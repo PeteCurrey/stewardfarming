@@ -1,8 +1,18 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Sprout, ShieldCheck, HelpCircle, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
+  const pathname = usePathname();
+  const isDashboardRoute =
+    pathname.startsWith("/dashboard") || pathname.startsWith("/onboarding");
+
+  if (isDashboardRoute) {
+    return null;
+  }
   return (
     <footer className="bg-forest-950 text-parchment-200 border-t border-forest-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">

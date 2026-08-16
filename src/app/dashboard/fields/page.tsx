@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { useAuth } from "@/context/AuthContext";
 import { AddonUpsellCard } from "@/components/dashboard/AddonUpsellCard";
+import { MetOfficeWeatherWidget } from "@/components/dashboard/MetOfficeWeatherWidget";
 import { cn } from "@/lib/utils";
 
 interface FieldParcelView {
@@ -283,6 +284,13 @@ export default function FieldsSatellitePage() {
             </div>
 
           </Card>
+
+          {/* Real-time Field Weather Radar & Inversion Telemetry */}
+          <MetOfficeWeatherWidget
+            lat={farm?.location_lat || 54.23}
+            lng={farm?.location_lng || -1.34}
+            locationName={`${selectedField.name} — ${farm?.name || "Holding"}`}
+          />
         </div>
 
       </div>

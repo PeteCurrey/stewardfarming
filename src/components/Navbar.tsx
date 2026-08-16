@@ -26,6 +26,11 @@ export function Navbar() {
   const isDashboardRoute =
     pathname.startsWith("/dashboard") || pathname.startsWith("/onboarding");
 
+  // Do not render marketing navbar on dashboard or onboarding routes
+  if (isDashboardRoute) {
+    return null;
+  }
+
   // Track scroll position to transition from transparent → frosted on scroll
   useEffect(() => {
     if (!isHomePage) return;

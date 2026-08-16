@@ -130,7 +130,7 @@ export default function SubsidiesPage() {
       <div className="border-b border-parchment-300 pb-4 space-y-1">
         <div className="flex items-center space-x-2">
           <Badge variant="forest">Premium Add-on Module</Badge>
-          <span className="text-xs text-charcoal-500 font-medium">Defra SFI 2024 / 2025</span>
+          <span className="text-xs text-charcoal-500 font-medium">Defra SFI Scheme</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-serif font-bold text-forest-900">
           Subsidy &amp; Grant Concierge

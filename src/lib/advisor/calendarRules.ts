@@ -26,7 +26,7 @@ export const UK_AGRICULTURAL_CALENDAR_RULES: SeasonalReferenceRule[] = [
     month: 8,
     farmType: "all",
     category: "Compliance & Subsidies",
-    title: "SFI 2024 / 2025 Application Window Review",
+    title: "SFI Scheme Application Window Review",
     description: "Review current SFI rotational agreements (SAM3 Herbal Leys £382/ha, NUM1 Legume Fallow £593/ha). Ensure non-conflict with NVZ closed periods.",
     autonomyTier: "amber",
     actionCode: "SFI-SAM3-NUM1",

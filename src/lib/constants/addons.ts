@@ -43,7 +43,7 @@ export const ADDON_CATALOG: Record<SubscriptionAddon, AddonMetadata> = {
     tagline: "Full-service Defra SFI & Countryside Stewardship filing support.",
     description: "Auto-drafted parcel applications, scheme stacking calculations, and pre-submission audit reviews.",
     features: [
-      "SFI 2024 / 2025 multi-tier stacking",
+      "SFI Scheme multi-tier stacking",
       "Automated evidence bundle compilation",
       "Priority Defra query resolution",
     ],

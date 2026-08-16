@@ -149,9 +149,9 @@ export async function POST(req: NextRequest) {
           status: "approved",
         });
       } else if (lower.includes("sfi") || lower.includes("grant") || lower.includes("defra") || lower.includes("subsidy")) {
-        assistantReply = `For a ${fullFarmContext.farm.size_hectares} ha ${farmType} holding, stacking SFI 2024 actions delivers significant non-risk revenue. I recommend bundling SAM3 (Herbal leys at £382/ha), NUM1 (Legume fallow at £593/ha), and IPM1 (£989/yr farm baseline). I have drafted a preliminary parcel allocation agreement in your Tasks & Alerts queue for your 1-tap review.`;
+        assistantReply = `For a ${fullFarmContext.farm.size_hectares} ha ${farmType} holding, stacking Defra SFI actions delivers significant non-risk revenue. I recommend bundling SAM3 (Herbal leys at £382/ha), NUM1 (Legume fallow at £593/ha), and IPM1 (£989/yr farm baseline). I have drafted a preliminary parcel allocation agreement in your Tasks & Alerts queue for your 1-tap review.`;
         createdTasks.push({
-          title: "SFI 2024 Parcel Agreement Review",
+          title: "Defra SFI Parcel Agreement Review",
           description: `Allocated SAM3 and IPM1 across ${fullFarmContext.farm.name} boundary parcels. Estimated payment £8,450/yr.`,
           autonomy_tier: "amber",
           status: "pending",
