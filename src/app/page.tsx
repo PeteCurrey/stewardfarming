@@ -64,7 +64,7 @@ export default function HomePage() {
           <div className="inline-flex items-center justify-center mb-6">
             <span className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/25 text-parchment-50 text-xs font-semibold px-4 py-2 rounded-full shadow-lg tracking-wide">
               <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
-              <span>Purpose-Built for UK Agriculture &nbsp;·&nbsp; Defra 2025/26 Ready</span>
+              <span>Purpose-Built for UK Agriculture</span>
             </span>
           </div>
 
