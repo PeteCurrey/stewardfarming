@@ -145,6 +145,7 @@ export interface AdvisorPersona {
   specialism: string;
   greeting: string;
   avatarInitials: string;
+  avatarImage: string;
 }
 
 export const ADVISOR_PERSONAS: Record<FarmType, AdvisorPersona> = {
@@ -155,6 +156,7 @@ export const ADVISOR_PERSONAS: Record<FarmType, AdvisorPersona> = {
     specialism: "Cereal rotations, spray micro-windows, and SFI IPM/SAM3 payment tracking.",
     greeting: "Good day. I'm keeping an eye on your local spray windows, NVZ limits, and crop development.",
     avatarInitials: "TC",
+    avatarImage: "/images/advisors/tom-campbell.jpg",
   },
   livestock: {
     key: "livestock",
@@ -163,6 +165,7 @@ export const ADVISOR_PERSONAS: Record<FarmType, AdvisorPersona> = {
     specialism: "Pasture rotation, medicine withdrawal dates, welfare logs, and mart prices.",
     greeting: "Hello. I'm tracking your herd medicine records, grazing rotations, and statutory movement dates.",
     avatarInitials: "FM",
+    avatarImage: "/images/advisors/fiona-macleod.jpg",
   },
   mixed: {
     key: "mixed",
@@ -171,6 +174,7 @@ export const ADVISOR_PERSONAS: Record<FarmType, AdvisorPersona> = {
     specialism: "Integrated forage budgeting, FYM nutrient recycling, and whole-farm SFI.",
     greeting: "Good morning. I'm balancing your arable break-crops, livestock manure recycling, and grant deadlines.",
     avatarInitials: "AR",
+    avatarImage: "/images/advisors/alistair-reid.jpg",
   },
   dairy: {
     key: "dairy",
@@ -179,5 +183,6 @@ export const ADVISOR_PERSONAS: Record<FarmType, AdvisorPersona> = {
     specialism: "Milk contract bonuses, somatic cell counts, silage D-values, and herbal leys.",
     greeting: "Welcome. I'm monitoring your daily milk solids, somatic cell trends, and grassland actions.",
     avatarInitials: "EW",
+    avatarImage: "/images/advisors/eleanor-wright.jpg",
   },
 };

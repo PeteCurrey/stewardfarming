@@ -1,12 +1,15 @@
 import React from "react";
-import { Wheat, ShieldAlert, Footprints, Milk, Trees, Sprout } from "lucide-react";
+import Image from "next/image";
+import { Wheat, Footprints, Trees, Milk } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ADVISOR_PERSONAS, FarmType } from "@/lib/types";
 
 export interface AdvisorPortraitProps {
-  type: "arable" | "livestock" | "mixed" | "dairy";
-  name: string;
+  type: FarmType;
+  name?: string;
   className?: string;
   size?: "sm" | "md" | "lg";
+  showBadge?: boolean;
 }
 
 export function AdvisorPortrait({
@@ -14,109 +17,101 @@ export function AdvisorPortrait({
   name,
   className,
   size = "md",
+  showBadge = true,
 }: AdvisorPortraitProps) {
-  // Visual placeholder metadata for real hand-drawn / linocut illustration
+  const advisor = ADVISOR_PERSONAS[type] || ADVISOR_PERSONAS.arable;
+  const displayName = name || advisor.name;
+
   const configs = {
     arable: {
-      bg: "bg-[#EAE4D3]",
+      image: "/images/advisors/tom-campbell.jpg",
       border: "border-[#C9A227]",
-      accent: "#B5651D",
+      accentBg: "bg-gold-500",
       icon: Wheat,
-      iconBg: "bg-gold-100 text-gold-900",
-      caption: "Crops & Agronomy",
-      initials: "TC",
-      subtitle: "Arable Specialist",
-      landscapeColor: "#8D9B6A",
+      iconBg: "bg-gold-100 text-gold-900 border-gold-300",
+      subtitle: "Arable & Agronomy Specialist",
     },
     livestock: {
-      bg: "bg-[#E3E8DE]",
+      image: "/images/advisors/fiona-macleod.jpg",
       border: "border-[#4A6E58]",
-      accent: "#2C4A3B",
+      accentBg: "bg-forest-700",
       icon: Footprints,
-      iconBg: "bg-forest-100 text-forest-900",
-      caption: "Herds & Flocks",
-      initials: "FM",
-      subtitle: "Livestock Specialist",
-      landscapeColor: "#6B8E70",
+      iconBg: "bg-forest-100 text-forest-900 border-forest-300",
+      subtitle: "Livestock & Herd Husbandry",
     },
     mixed: {
-      bg: "bg-[#EFE8DE]",
+      image: "/images/advisors/alistair-reid.jpg",
       border: "border-[#B5651D]",
-      accent: "#B5651D",
+      accentBg: "bg-terracotta-700",
       icon: Trees,
-      iconBg: "bg-terracotta-100 text-terracotta-900",
-      caption: "Whole-Farm Systems",
-      initials: "AR",
-      subtitle: "Mixed Farm Specialist",
-      landscapeColor: "#A38F70",
+      iconBg: "bg-terracotta-100 text-terracotta-900 border-terracotta-300",
+      subtitle: "Mixed Farm Systems",
     },
     dairy: {
-      bg: "bg-[#DEE7E8]",
+      image: "/images/advisors/eleanor-wright.jpg",
       border: "border-[#3A6A75]",
-      accent: "#2C4A3B",
+      accentBg: "bg-forest-800",
       icon: Milk,
-      iconBg: "bg-forest-100 text-forest-900",
-      caption: "Ruminant & Milk Yield",
-      initials: "EW",
-      subtitle: "Dairy Specialist",
-      landscapeColor: "#64858C",
+      iconBg: "bg-forest-100 text-forest-900 border-forest-300",
+      subtitle: "Dairy Systems & Nutrition",
     },
   };
 
-  const config = configs[type];
+  const config = configs[type] || configs.arable;
   const Icon = config.icon;
 
   const sizeClasses = {
-    sm: "w-16 h-16 text-lg",
-    md: "w-28 h-28 text-2xl",
-    lg: "w-40 h-40 md:w-48 md:h-48 text-4xl",
+    sm: "w-14 h-14 min-w-[3.5rem] min-h-[3.5rem]",
+    md: "w-24 h-24 sm:w-28 sm:h-28 min-w-[6rem] min-h-[6rem]",
+    lg: "w-44 h-44 sm:w-52 sm:h-52 min-w-[11rem] min-h-[11rem]",
+  };
+
+  const badgeSizes = {
+    sm: "w-5 h-5 -bottom-1 -right-1 p-0.5",
+    md: "w-7 h-7 -bottom-1.5 -right-1.5 p-1",
+    lg: "w-9 h-9 -bottom-2 -right-2 p-1.5",
+  };
+
+  const iconSizes = {
+    sm: "w-3 h-3",
+    md: "w-4 h-4",
+    lg: "w-5 h-5",
   };
 
   return (
-    <div
-      className={cn(
-        "relative rounded-xl overflow-hidden flex flex-col items-center justify-center border-2 shadow-inner select-none",
-        config.bg,
-        config.border,
-        sizeClasses[size],
-        className
-      )}
-      role="img"
-      aria-label={`Illustrated portrait placeholder for ${name}, ${config.subtitle}`}
-    >
-      {/* 
-        ========================================================================
-        VISUAL PLACEHOLDER: Replace with commissioned editorial/linocut 
-        portrait illustration in production (e.g. SVG or WebP hand-drawn artwork)
-        ========================================================================
-      */}
-      
-      {/* Background countryside landscape subtle hills */}
-      <svg
-        className="absolute inset-0 w-full h-full opacity-20 pointer-events-none"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <path d="M0 70 Q 25 50 50 65 T 100 55 L 100 100 L 0 100 Z" fill={config.landscapeColor} />
-        <path d="M0 80 Q 40 68 70 78 T 100 72 L 100 100 L 0 100 Z" fill="#2C4A3B" />
-        <circle cx="82" cy="22" r="9" fill="#C9A227" opacity="0.6" />
-      </svg>
-
-      {/* Center avatar representation */}
-      <div className="relative z-10 flex flex-col items-center text-center p-2">
-        <div className={cn("p-2.5 rounded-full mb-1 shadow-sm border border-black/5", config.iconBg)}>
-          <Icon className={cn(size === "lg" ? "w-8 h-8" : size === "md" ? "w-5 h-5" : "w-4 h-4")} />
-        </div>
-        {size !== "sm" && (
-          <span className="font-serif font-bold tracking-wider text-charcoal-800 text-xs md:text-sm">
-            {name}
-          </span>
+    <div className={cn("relative inline-block select-none", className)}>
+      <div
+        className={cn(
+          "relative rounded-2xl overflow-hidden border-2 shadow-warm bg-parchment-200",
+          config.border,
+          sizeClasses[size]
         )}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={config.image}
+          alt={`Portrait of ${displayName}, ${config.subtitle}`}
+          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
+          loading="lazy"
+        />
+
+        {/* Subtle inner vignette for photo depth */}
+        <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl pointer-events-none" />
       </div>
 
-      {/* Linocut/Woodblock texture border overlay */}
-      <div className="absolute inset-0 border border-black/5 pointer-events-none rounded-lg" />
+      {/* Specialty icon corner badge */}
+      {showBadge && (
+        <div
+          className={cn(
+            "absolute rounded-full flex items-center justify-center shadow-md border",
+            config.iconBg,
+            badgeSizes[size]
+          )}
+          title={config.subtitle}
+        >
+          <Icon className={iconSizes[size]} />
+        </div>
+      )}
     </div>
   );
 }
