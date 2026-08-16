@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-forest: #2C4A3B;
+  --color-terracotta: #B5651D;
+  --color-parchment: #F5F0E6;
+  --color-charcoal: #2B2620;
+  --color-gold: #C9A227;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: #2B2620;
+    background-color: #F5F0E6;
+  }
+
+  body {
+    background-color: #F5F0E6;
+    color: #2B2620;
+    font-family: "Inter", "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Fraunces", "Playfair Display", Georgia, serif;
+    color: #2C4A3B;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background-color: #c2d8cb;
+    color: #122019;
+  }
+}
+
+/* Subtle organic paper texture */
+.paper-texture {
+  background-color: #F5F0E6;
+  background-image: radial-gradient(#2C4A3B 0.65px, transparent 0.65px), radial-gradient(#B5651D 0.65px, #F5F0E6 0.65px);
+  background-size: 26px 26px;
+  background-position: 0 0, 13px 13px;
+  background-opacity: 0.04;
+}
+
+.linen-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2D7C1;
+  box-shadow: 0 2px 6px rgba(43, 38, 32, 0.04), 0 1px 2px rgba(43, 38, 32, 0.02);
+}
+
+.linen-card-dark {
+  background-color: #21382c;
+  border: 1px solid #3a6a53;
+  color: #F5F0E6;
+}
+
+/* Subtle decorative rules for traditional heritage editorial look */
+.editorial-rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #DDD0BA 20%, #DDD0BA 80%, transparent);
+}
+
+.editorial-rule-forest {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #3a6a53 20%, #3a6a53 80%, transparent);
+}
