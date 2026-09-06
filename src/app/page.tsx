@@ -63,7 +63,7 @@ export default function HomePage() {
           </div>
 
           {/* Authoritative Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-medium text-white leading-[1.08] tracking-tight max-w-3xl">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-extralight text-white leading-[1.08] tracking-tight max-w-3xl">
             Agricultural Intelligence for British Farming Enterprises.
           </h1>
 
