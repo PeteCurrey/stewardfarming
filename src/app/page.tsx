@@ -43,8 +43,8 @@ export default function HomePage() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/hero_farmer_yard.jpg"
-          alt="British farmer standing proudly in farm yard with modern stone farmhouse and machinery"
-          className="absolute inset-0 w-full h-full object-cover object-[75%_center] lg:object-center pointer-events-none opacity-100 scale-100"
+          alt="British farmer standing proudly beside modern tractor in farm yard with stone farmhouse"
+          className="absolute inset-0 w-full h-full object-cover object-[70%_center] lg:object-center pointer-events-none opacity-100 scale-100"
           fetchPriority="high"
         />
 
