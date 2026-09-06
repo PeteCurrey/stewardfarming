@@ -2,31 +2,50 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: "default" | "linen" | "dark" | "terracotta-tint" | "gold-tint";
+  variant?: "default" | "hud" | "hud-gold" | "hud-volt" | "linen" | "dark" | "terracotta-tint" | "gold-tint" | "coutts-light";
   hoverEffect?: boolean;
+  cornerTicks?: boolean;
 }
 
 export function Card({
   className,
-  variant = "default",
+  variant = "hud",
   hoverEffect = false,
+  cornerTicks = false,
   children,
   ...props
 }: CardProps) {
   const variantStyles = {
-    default: "bg-white border border-parchment-300 shadow-warm text-charcoal-800",
-    linen: "bg-parchment-50 border border-parchment-300 shadow-warm text-charcoal-800",
-    dark: "bg-forest-900 border border-forest-700 text-parchment-100 shadow-warm-md",
-    "terracotta-tint": "bg-[#fdfaf7] border border-terracotta-200 text-charcoal-800 shadow-warm",
-    "gold-tint": "bg-[#fdfcf6] border border-gold-300/80 text-charcoal-800 shadow-warm",
+    // Machine-grade dark HUD chassis (John Deere precision × Obsidian)
+    hud: "bg-obsidian-900/90 border border-white/10 text-parchment-100 shadow-warm-md backdrop-blur-md",
+
+    // Coutts Imperial Gold trim card
+    "hud-gold":
+      "bg-obsidian-900/90 border border-gold-coutts/35 text-parchment-100 shadow-hud-gold backdrop-blur-md",
+
+    // High-Octane Agro Volt telemetry card
+    "hud-volt":
+      "bg-obsidian-900/90 border border-volt/35 text-parchment-100 shadow-hud backdrop-blur-md",
+
+    // Coutts Private Bank luxury light card
+    "coutts-light":
+      "bg-[#FAF7F2] border border-[#DDD0BA] text-charcoal-800 shadow-coutts-card",
+
+    // Backward compatibility variants
+    default: "bg-obsidian-900/90 border border-white/10 text-parchment-100 shadow-warm-md",
+    linen: "bg-obsidian-850/95 border border-white/10 text-parchment-100 shadow-warm",
+    dark: "bg-obsidian-950 border border-forest-800/80 text-parchment-100 shadow-warm-md",
+    "terracotta-tint": "bg-obsidian-900/90 border border-terracotta-600/40 text-parchment-100 shadow-warm",
+    "gold-tint": "bg-obsidian-900/90 border border-gold-500/40 text-parchment-100 shadow-warm",
   };
 
   return (
     <div
       className={cn(
-        "rounded-lg p-6 transition-all duration-200",
+        "rounded-panel p-6 transition-all duration-200",
         variantStyles[variant],
-        hoverEffect && "hover:shadow-warm-md hover:border-forest-400 hover:-translate-y-[2px]",
+        cornerTicks && "corner-ticks",
+        hoverEffect && "hover:border-volt/60 hover:shadow-[0_4px_24px_-2px_rgba(0,230,118,0.18)] hover:-translate-y-[2px]",
         className
       )}
       {...props}
@@ -55,7 +74,7 @@ export function CardTitle({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
-      className={cn("text-xl font-serif font-medium text-forest-800", className)}
+      className={cn("text-xl font-serif font-bold text-parchment-50 tracking-tight", className)}
       {...props}
     >
       {children}
@@ -69,7 +88,7 @@ export function CardDescription({
   ...props
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={cn("text-sm text-charcoal-600 leading-relaxed", className)} {...props}>
+    <p className={cn("text-sm text-parchment-300 leading-relaxed", className)} {...props}>
       {children}
     </p>
   );

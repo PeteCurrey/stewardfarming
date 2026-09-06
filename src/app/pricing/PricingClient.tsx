@@ -20,6 +20,8 @@ import {
   Lock,
   ChevronDown,
   ChevronUp,
+  Cpu,
+  Landmark,
 } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
@@ -37,19 +39,18 @@ interface AddonItem {
 }
 
 const BASE_PLAN = {
-  name: "Steward Advisor",
-  tagline: "The complete proactive intelligence core for your holding.",
-  monthlyPrice: 79, // Placeholder price marked for customisation
-  pricePlaceholderLabel: "£79/month per farm (Placeholder)",
+  name: "Steward Core Command",
+  tagline: "The complete autonomous agronomy core for your holding.",
+  monthlyPrice: 79,
   features: [
     "Full AI advisor access across all 4 domains (Arable, Livestock, Mixed, Dairy)",
-    "Proactive morning briefings via mobile app & SMS (weather radar, spray windows)",
-    "Low-risk task automation & pre-populated field/medicine logs",
-    "Defra SFI & Countryside Stewardship deadline & eligibility tracking",
+    "Met Office 1.1km spot radar telemetry & low-drift spray window calculations",
+    "Low-risk task automation & pre-populated chemical/medicine logs",
+    "Defra SFI Scheme deadline & multi-action parcel stacking solver",
     "RPA parcel boundary synchronization & soil series mapping",
-    "One-tap routing to accredited human vets, agronomists & accountants",
-    "Unlimited user seats for family members, farm managers & staff",
-    "100% UK agricultural data sovereignty guarantee",
+    "One-tap routing to accredited RCVS farm vets, BASIS agronomists & accountants",
+    "Unlimited user seats for farm partners, managers, and family members",
+    "100% sovereign UK agricultural data protection & zero lock-in contract",
   ],
 };
 
@@ -58,151 +59,152 @@ const ADDONS: AddonItem[] = [
     id: "machinery",
     name: "Fleet & Machinery Management",
     category: "Operations",
-    description: "Telematics sync (John Deere, Case IH, Fendt), fuel usage, and LOLER/NSTC sprayer test logs.",
+    description:
+      "Tractor & combine service intervals, MOT/LOLER certificates, telematics sync, and diesel fuel tracking.",
     monthlyPrice: 29,
     icon: Truck,
   },
   {
     id: "satellite",
-    name: "Satellite & Drone Imagery",
-    category: "Agronomy",
-    description: "Weekly NDVI crop vigor scans, weed hotspot detection, and drainage tile blockage mapping.",
-    monthlyPrice: 35,
+    name: "Sentinel-2 10m Multispectral Imagery",
+    category: "Telemetry",
+    description:
+      "Weekly NDVI vegetation health scans, chlorophyll reflectance indices, and variable-rate spreading exports.",
+    monthlyPrice: 39,
     icon: Camera,
   },
   {
-    id: "concierge",
-    name: "Subsidy & Grant Concierge",
+    id: "subsidy",
+    name: "SFI & Grant Concierge Drafting",
     category: "Subsidies",
-    description: "Dedicated specialist review of complex SFI, Landscape Recovery, and Slurry Infrastructure applications.",
-    monthlyPrice: 45,
-    icon: Award,
+    description:
+      "AI drafted grant applications (FETF, Slurry Infrastructure, CS) pre-checked against RPA parcel boundaries.",
+    monthlyPrice: 49,
+    icon: Landmark,
   },
   {
     id: "carbon",
-    name: "Carbon & Sustainability Reporting",
+    name: "Carbon & Soil Sustainability Audits",
     category: "Compliance",
-    description: "Defra-compliant whole-farm carbon auditing and Scope 3 supply chain greenhouse gas certification.",
-    monthlyPrice: 25,
+    description:
+      "IPCC Tier 1 farm greenhouse gas accounting, hedgerow biomass calculations, and supply-chain ESG reporting.",
+    monthlyPrice: 35,
     icon: Leaf,
   },
   {
     id: "market",
-    name: "Live Market Intelligence Feed",
+    name: "Grain & Livestock Market Intelligence",
     category: "Trading",
-    description: "Real-time LIFFE feed wheat futures, regional mart livestock reports, and forward contract target alerts.",
+    description:
+      "Live LIFFE wheat futures, deadweight beef/lamb regional benchmarks, and fertilizer price monitors.",
     monthlyPrice: 19,
     icon: TrendingUp,
   },
   {
-    id: "expert-priority",
-    name: "Priority Accredited Expert Access",
-    category: "Human Network",
-    description: "Guaranteed 2-hour callback SLA from BASIS agronomists, RCVS farm vets, and rural accountants.",
-    monthlyPrice: 39,
+    id: "priority_expert",
+    name: "Priority Human Specialist SLA",
+    category: "Network",
+    description:
+      "Guaranteed 2-hour callback SLA from our accredited UK agricultural specialist network for urgent matters.",
+    monthlyPrice: 45,
     icon: Headphones,
   },
 ];
 
 const FAQS = [
   {
-    q: "Can I cancel or change my plan anytime?",
-    a: "Yes. Steward operates on a simple, transparent monthly rolling subscription with no long-term lock-in. You can upgrade, downgrade, add/remove modules, or cancel your subscription at any point directly from your farm settings.",
+    q: "How does the 30-day free trial work?",
+    a: "You get full, unrestricted access to the complete Steward Advisor core and any add-on modules you select. No credit card is required to start. You can import your RPA land parcels, test spray window forecasting, and run full SFI eligibility checks with zero obligation.",
   },
   {
-    q: "Does Steward ever submit regulatory forms without my approval?",
-    a: "Never. Under our strict Agentic Autonomy framework, Steward only acts autonomously on low-risk background reminders. All statutory declarations (Defra SFI claims, BCMS livestock movements, Red Tractor audit exports) are drafted for you, and require your explicit one-tap review and approval before submission.",
+    q: "Can I add or remove add-on modules later?",
+    a: "Yes. All add-ons are completely modular and can be activated or paused directly from your holding settings at any time without penalty.",
   },
   {
-    q: "What if I farm more than one type of enterprise (e.g. arable and sheep)?",
-    a: "Your base subscription includes full access to all four advisor specialisms (Tom Campbell for arable, Fiona MacLeod for livestock, Alistair Reid for mixed farms, and Eleanor Wright for dairy). You can consult all of them freely across your different fields and enterprises without any extra charge.",
+    q: "Who owns my farm data?",
+    a: "You own 100% of your data. Steward will never sell, lease, or monetize your field maps, crop yields, herd medicine books, or financial records. Your data is stored on sovereign UK infrastructure in compliance with UK GDPR and agricultural data standards.",
   },
   {
-    q: "Is my farm data secure and private?",
-    a: "Absolutely. You own 100% of your farm data. We operate under strict UK GDPR standards and host all data within secure UK data centres. We will never sell or monetise your yield numbers, stocking densities, or subsidy payments to grain traders, chemical suppliers, or machinery manufacturers.",
+    q: "Does Steward automatically submit grant applications to Defra or the RPA?",
+    a: "Never without your explicit approval. Steward operates under a strict Traffic-Light Autonomy framework. SFI applications, financial commitments, and statutory reports are prepared as drafts (Amber Tier) requiring your deliberate 1-tap review before any official submission.",
   },
   {
-    q: "How does billing work if I manage multiple holdings or separate SBIs?",
-    a: "Each standard subscription covers a primary farm holding and its associated parcels. If you manage multiple distinct holdings under separate Single Business Identifiers (SBIs) or manage client farms as a contractor, we offer multi-holding estate discounts. Contact our team for multi-holding pricing.",
-  },
-  {
-    q: "What happens when my 30-day free trial ends?",
-    a: "During your 30-day trial, you have complete access to the full advisor suite and your selected add-ons. No credit card is required to start. When the trial concludes, you can choose to enter payment details to continue, or your account will gently pause without any surprise charges.",
+    q: "Are all four specialist advisors included in the base plan?",
+    a: "Yes. Your base subscription includes full access to all four advisor specialisms (Tom Campbell for arable, Fiona MacLeod for livestock, Alistair Reid for mixed farms, and Eleanor Wright for dairy). You can consult all of them freely across your different fields and enterprises without any extra charge.",
   },
 ];
 
 export function PricingClient() {
-  const [selectedAddons, setSelectedAddons] = useState<string[]>(["concierge"]);
-  const [isAnnual, setIsAnnual] = useState(false);
+  const [isAnnual, setIsAnnual] = useState(true);
+  const [selectedAddons, setSelectedAddons] = useState<string[]>(["satellite"]);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const toggleAddon = (id: string) => {
     setSelectedAddons((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((a) => a !== id) : [...prev, id]
     );
   };
 
-  const addonsTotalMonthly = selectedAddons.reduce((sum, id) => {
+  const baseMonthly = BASE_PLAN.monthlyPrice;
+  const addonsTotal = selectedAddons.reduce((acc, id) => {
     const addon = ADDONS.find((a) => a.id === id);
-    return sum + (addon ? addon.monthlyPrice : 0);
+    return acc + (addon?.monthlyPrice || 0);
   }, 0);
 
-  const baseMonthly = BASE_PLAN.monthlyPrice;
-  const rawTotalMonthly = baseMonthly + addonsTotalMonthly;
-  
-  // 15% discount on annual
+  const totalMonthlyRaw = baseMonthly + addonsTotal;
   const finalPrice = isAnnual
-    ? Math.round(rawTotalMonthly * 0.85)
-    : rawTotalMonthly;
+    ? Math.round(totalMonthlyRaw * 0.85)
+    : totalMonthlyRaw;
 
-  const signupUrl = `/signup?plan=advisor&annual=${isAnnual}&addons=${selectedAddons.join(",")}`;
+  const signupUrl = `/signup?addons=${selectedAddons.join(",")}&billing=${isAnnual ? "annual" : "monthly"}`;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-obsidian-950 text-parchment-100">
+      
       {/* HEADER */}
-      <section className="pt-28 pb-14 bg-parchment-100 border-b border-parchment-300">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <Badge variant="forest">Transparent Farm Pricing</Badge>
+      <section className="pt-32 pb-16 bg-obsidian-950 bg-tactical-grid border-b border-white/10 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+          <Badge variant="gold" pulse>Transparent Institutional Pricing</Badge>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-forest-900 leading-tight">
-            One subscription per farm.{" "}
-            <span className="italic font-normal text-terracotta-700 underline decoration-gold-400 decoration-1 underline-offset-4">
-              Add only what you need.
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white leading-tight tracking-tight">
+            One Core Subscription Per Holding.{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-coutts via-gold-300 to-gold-brass">
+              Add Only What You Deploy.
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-charcoal-700 leading-relaxed max-w-2xl mx-auto">
-            Every farm gets our complete core advisory suite. Configure your bespoke plan with optional modules tailored to your machinery, imagery, and specialist support needs.
+          <p className="text-base sm:text-xl text-parchment-300 leading-relaxed max-w-2xl mx-auto font-sans">
+            Every holding receives the full autonomous advisory core. Configure bespoke precision telemetry add-ons tailored to your machinery, imagery, and grant needs.
           </p>
 
           {/* Billing Interval Switcher */}
-          <div className="pt-6 flex items-center justify-center space-x-4">
-            <span className={cn("text-sm font-medium", !isAnnual ? "text-forest-900 font-bold" : "text-charcoal-600")}>
-              Monthly Billing
+          <div className="pt-6 flex items-center justify-center space-x-4 font-mono text-xs uppercase tracking-wider">
+            <span className={cn(!isAnnual ? "text-white font-bold" : "text-parchment-400")}>
+              Monthly Rolling
             </span>
             <button
               type="button"
               onClick={() => setIsAnnual(!isAnnual)}
               className={cn(
-                "relative inline-flex h-7 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-forest-700",
-                isAnnual ? "bg-forest-800" : "bg-parchment-300"
+                "relative inline-flex h-7 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-white/20 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-volt",
+                isAnnual ? "bg-volt" : "bg-obsidian-800"
               )}
               role="switch"
               aria-checked={isAnnual}
             >
               <span
                 className={cn(
-                  "pointer-events-none inline-block h-6 w-6 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out",
+                  "pointer-events-none inline-block h-6 w-6 transform rounded-full bg-obsidian-950 shadow-md transition duration-150",
                   isAnnual ? "translate-x-7" : "translate-x-0"
                 )}
               />
             </button>
-            <div className="flex items-center space-x-1.5">
-              <span className={cn("text-sm font-medium", isAnnual ? "text-forest-900 font-bold" : "text-charcoal-600")}>
-                Annual Billing
+            <div className="flex items-center space-x-2">
+              <span className={cn(isAnnual ? "text-white font-bold" : "text-parchment-400")}>
+                Annual Agreement
               </span>
-              <span className="text-[10px] uppercase tracking-wider font-bold bg-gold-200 text-gold-900 px-2 py-0.5 rounded-full border border-gold-400">
-                Save 15%
+              <span className="text-[10px] uppercase font-bold bg-volt/15 text-volt px-2 py-0.5 rounded-tech border border-volt/30">
+                15% Savings
               </span>
             </div>
           </div>
@@ -211,37 +213,36 @@ export function PricingClient() {
       </section>
 
       {/* BASE SUBSCRIPTION CARD */}
-      <Section variant="white" containerSize="lg">
+      <Section variant="grid" containerSize="lg">
         <div className="max-w-4xl mx-auto">
           <Card
-            variant="linen"
-            className="p-8 sm:p-10 border-2 border-forest-800 shadow-warm-xl relative overflow-hidden"
+            variant="hud-gold"
+            cornerTicks
+            className="p-8 sm:p-10 shadow-2xl relative overflow-hidden space-y-6"
           >
-            <div className="absolute top-0 right-0 bg-forest-800 text-parchment-50 px-5 py-1 text-xs font-serif font-bold uppercase tracking-widest rounded-bl-lg border-l border-b border-forest-900 shadow-sm">
-              Core Holding Plan
+            <div className="absolute top-0 right-0 bg-gold-coutts text-obsidian-950 px-4 py-1 text-[11px] font-mono font-bold uppercase tracking-wider rounded-bl-panel">
+              [CORE HOLDING PLAN]
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               
               <div className="lg:col-span-7 space-y-4">
-                <div className="inline-flex items-center space-x-2">
-                  <Badge variant="forest" size="sm">The Complete Foundation</Badge>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-forest-900">
+                <Badge variant="gold" size="sm">The Complete Foundation</Badge>
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
                   {BASE_PLAN.name}
                 </h2>
-                <p className="text-sm text-charcoal-700 leading-relaxed">
+                <p className="text-sm text-parchment-300 leading-relaxed font-sans">
                   {BASE_PLAN.tagline}
                 </p>
 
                 <div className="pt-4 space-y-2.5">
-                  <p className="text-xs uppercase font-serif font-bold text-charcoal-900 tracking-wider">
-                    Included in your base subscription:
+                  <p className="text-xs font-mono uppercase font-bold text-white tracking-wider">
+                    INCLUDED IN CORE SUBSCRIPTION:
                   </p>
-                  <ul className="grid grid-cols-1 gap-2 text-xs sm:text-sm text-charcoal-800">
+                  <ul className="grid grid-cols-1 gap-2 text-xs sm:text-sm text-parchment-200 font-sans">
                     {BASE_PLAN.features.map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start">
-                        <CheckCircle2 className="w-4 h-4 text-forest-700 mr-2.5 mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-volt mr-2.5 mt-0.5 flex-shrink-0" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -250,36 +251,36 @@ export function PricingClient() {
               </div>
 
               {/* Price Callout */}
-              <div className="lg:col-span-5 flex flex-col justify-between bg-parchment-50 p-6 rounded-xl border border-parchment-300 space-y-6 text-center">
-                <div className="space-y-2">
-                  <span className="text-xs text-charcoal-500 uppercase tracking-widest font-serif font-semibold">
-                    Base Farm Subscription
+              <div className="lg:col-span-5 flex flex-col justify-between bg-obsidian-950 p-6 rounded-panel border border-white/10 space-y-6 text-center">
+                <div className="space-y-2 font-mono">
+                  <span className="text-[11px] text-parchment-400 uppercase tracking-widest block">
+                    BASE HOLDING SUBSCRIPTION
                   </span>
                   <div>
-                    <span className="text-4xl sm:text-5xl font-serif font-bold text-forest-900">
+                    <span className="text-4xl sm:text-5xl font-bold text-gold-coutts">
                       £{isAnnual ? Math.round(BASE_PLAN.monthlyPrice * 0.85) : BASE_PLAN.monthlyPrice}
                     </span>
-                    <span className="text-xs text-charcoal-600 block sm:inline sm:ml-1">
-                      / month per farm
+                    <span className="text-xs text-parchment-400 block sm:inline sm:ml-1">
+                      / MONTH
                     </span>
                   </div>
-                  <p className="text-[11px] text-charcoal-500 italic">
-                    *Placeholder pricing for demonstration — adjustable per farm size
+                  <p className="text-[10px] text-parchment-400 italic font-sans">
+                    *Flat pricing per holding regardless of acreage size
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-2 border-t border-parchment-300 text-xs text-charcoal-600">
+                <div className="space-y-2 pt-2 border-t border-white/10 text-xs font-mono text-parchment-300">
                   <div className="flex items-center justify-center space-x-2">
-                    <ShieldCheck className="w-4 h-4 text-forest-700" />
-                    <span>30-Day Free Trial</span>
+                    <ShieldCheck className="w-4 h-4 text-volt" />
+                    <span>30-Day Free Holding Trial</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2">
-                    <Check className="w-4 h-4 text-forest-700" />
-                    <span>No credit card required upfront</span>
+                    <Check className="w-4 h-4 text-volt" />
+                    <span>No upfront credit card required</span>
                   </div>
                 </div>
 
-                <Button href={signupUrl} variant="primary" size="lg" className="w-full">
+                <Button href={signupUrl} variant="volt" size="lg" className="w-full shadow-hud">
                   Start Free Trial &rarr;
                 </Button>
               </div>
@@ -291,10 +292,10 @@ export function PricingClient() {
 
       {/* INTERACTIVE ADD-ON CONFIGURATOR */}
       <Section
-        variant="parchment"
-        badge={<Badge variant="terracotta">Customise Your Setup</Badge>}
-        title="Build your plan: Select optional add-ons."
-        subtitle="Only pay for the specialized tools and workflows your holding requires. Toggle add-ons below to see live price adjustments."
+        variant="obsidian"
+        badge={<Badge variant="volt">Modular Architecture</Badge>}
+        title="Customise Your Telemetry: Select Optional Add-ons."
+        subtitle="Only deploy the specialized systems your holding requires. Toggle add-ons below for real-time price updates."
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
@@ -312,19 +313,19 @@ export function PricingClient() {
                   key={addon.id}
                   onClick={() => toggleAddon(addon.id)}
                   className={cn(
-                    "p-5 rounded-xl border-2 transition-all cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm",
+                    "p-5 rounded-panel border transition-all cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm",
                     isChecked
-                      ? "bg-white border-forest-700 ring-1 ring-forest-700/20"
-                      : "bg-[#FDFCF9] border-parchment-300 hover:border-forest-400 opacity-90"
+                      ? "bg-obsidian-900 border-volt shadow-hud"
+                      : "bg-obsidian-900/60 border-white/10 hover:border-white/30"
                   )}
                 >
                   <div className="flex items-start space-x-4">
                     <div
                       className={cn(
-                        "w-6 h-6 rounded-md border flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors",
+                        "w-6 h-6 rounded-tech border flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors",
                         isChecked
-                          ? "bg-forest-800 border-forest-900 text-parchment-50"
-                          : "bg-white border-parchment-400"
+                          ? "bg-volt border-volt text-obsidian-950"
+                          : "bg-obsidian-950 border-white/20"
                       )}
                     >
                       {isChecked && <Check className="w-4 h-4 stroke-[3]" />}
@@ -332,24 +333,24 @@ export function PricingClient() {
 
                     <div className="space-y-1">
                       <div className="flex items-center space-x-2">
-                        <span className="font-serif font-bold text-forest-950 text-base">
+                        <span className="font-serif font-bold text-white text-base">
                           {addon.name}
                         </span>
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-charcoal-600 bg-parchment-200 px-2 py-0.5 rounded">
+                        <span className="text-[10px] font-mono uppercase font-bold tracking-wider text-parchment-300 bg-obsidian-950 px-2 py-0.5 rounded-tech border border-white/10">
                           {addon.category}
                         </span>
                       </div>
-                      <p className="text-xs text-charcoal-600 leading-relaxed max-w-xl">
+                      <p className="text-xs text-parchment-300 leading-relaxed max-w-xl font-sans">
                         {addon.description}
                       </p>
                     </div>
                   </div>
 
-                  <div className="sm:text-right pl-10 sm:pl-0 flex-shrink-0">
-                    <span className="text-lg font-serif font-bold text-forest-900">
+                  <div className="sm:text-right pl-10 sm:pl-0 flex-shrink-0 font-mono">
+                    <span className="text-lg font-bold text-gold-coutts">
                       +£{price}
                     </span>
-                    <span className="text-xs text-charcoal-500 block">/ month</span>
+                    <span className="text-xs text-parchment-400 block">/ MONTH</span>
                   </div>
                 </div>
               );
@@ -358,30 +359,30 @@ export function PricingClient() {
 
           {/* Sticky Summary Card */}
           <div className="lg:col-span-4 lg:sticky lg:top-24">
-            <Card variant="linen" className="border-2 border-parchment-300 shadow-warm-lg p-6 space-y-6">
+            <Card variant="hud-gold" cornerTicks className="shadow-2xl p-6 space-y-6">
               
-              <div className="border-b border-parchment-300 pb-4">
-                <h3 className="font-serif font-bold text-xl text-forest-900">
-                  Your Configured Plan
+              <div className="border-b border-white/10 pb-4">
+                <h3 className="font-serif font-bold text-xl text-white">
+                  Holding Specification
                 </h3>
-                <p className="text-xs text-charcoal-600 mt-0.5">
-                  {isAnnual ? "Annual billing (15% savings applied)" : "Monthly rolling subscription"}
+                <p className="text-xs font-mono text-parchment-400 mt-0.5">
+                  {isAnnual ? "Annual agreement (15% savings)" : "Monthly rolling agreement"}
                 </p>
               </div>
 
               {/* Price Breakdown */}
-              <div className="space-y-3 text-xs text-charcoal-700">
+              <div className="space-y-3 text-xs font-mono text-parchment-300">
                 <div className="flex justify-between items-center py-1">
-                  <span className="font-medium">Steward Advisor Core Plan</span>
-                  <span className="font-mono font-semibold">
+                  <span>Steward Core Command</span>
+                  <span className="text-white font-bold">
                     £{isAnnual ? Math.round(baseMonthly * 0.85) : baseMonthly}/mo
                   </span>
                 </div>
 
                 {selectedAddons.length > 0 ? (
-                  <div className="space-y-1.5 pt-2 border-t border-parchment-200">
-                    <span className="font-serif font-bold text-charcoal-900 text-[11px] uppercase tracking-wider block">
-                      Selected Add-ons ({selectedAddons.length}):
+                  <div className="space-y-1.5 pt-2 border-t border-white/10">
+                    <span className="text-gold-coutts text-[11px] uppercase tracking-wider block font-bold">
+                      ACTIVE ADD-ONS ({selectedAddons.length}):
                     </span>
                     {selectedAddons.map((id) => {
                       const addon = ADDONS.find((a) => a.id === id);
@@ -390,45 +391,45 @@ export function PricingClient() {
                         ? Math.round(addon.monthlyPrice * 0.85)
                         : addon.monthlyPrice;
                       return (
-                        <div key={id} className="flex justify-between items-center text-charcoal-600 pl-2">
+                        <div key={id} className="flex justify-between items-center text-parchment-400 pl-2">
                           <span className="truncate max-w-[180px]">&bull; {addon.name}</span>
-                          <span className="font-mono">+£{price}/mo</span>
+                          <span className="text-white">+£{price}/mo</span>
                         </div>
                       );
                     })}
                   </div>
                 ) : (
-                  <div className="py-2 text-[11px] text-charcoal-500 italic">
+                  <div className="py-2 text-[11px] text-parchment-400 italic font-sans">
                     No optional add-ons selected.
                   </div>
                 )}
 
-                <div className="pt-4 border-t-2 border-forest-800 flex justify-between items-baseline">
+                <div className="pt-4 border-t border-white/10 flex justify-between items-baseline">
                   <div>
-                    <span className="font-serif font-bold text-base text-forest-900 block">
-                      Total Monthly Investment:
+                    <span className="font-bold text-xs uppercase text-white block">
+                      TOTAL MONTHLY:
                     </span>
-                    <span className="text-[10px] text-charcoal-500">
+                    <span className="text-[10px] text-parchment-400">
                       Billed {isAnnual ? "annually" : "monthly"} &bull; Excl. VAT
                     </span>
                   </div>
                   <div className="text-right">
-                    <span className="text-3xl font-serif font-bold text-forest-900">
+                    <span className="text-3xl font-bold text-gold-coutts">
                       £{finalPrice}
                     </span>
-                    <span className="text-xs text-charcoal-600 block">/ month</span>
+                    <span className="text-xs text-parchment-400 block">/ MONTH</span>
                   </div>
                 </div>
               </div>
 
               {/* CTAs */}
               <div className="space-y-2 pt-2">
-                <Button href={signupUrl} variant="gold" size="lg" className="w-full">
+                <Button href={signupUrl} variant="volt" size="lg" className="w-full shadow-hud">
                   Start 30-Day Free Trial
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
-                <p className="text-[10px] text-charcoal-500 text-center">
-                  Includes full access to selected add-ons during trial period.
+                <p className="text-[10px] font-mono text-parchment-400 text-center">
+                  Includes full add-on access during 30-day trial.
                 </p>
               </div>
 
@@ -440,10 +441,10 @@ export function PricingClient() {
 
       {/* FAQ SECTION */}
       <Section
-        variant="white"
-        badge={<Badge variant="forest">Common Questions</Badge>}
+        variant="grid"
+        badge={<Badge variant="gold">Fiduciary Clarity</Badge>}
         title="Frequently Asked Questions"
-        subtitle="Clear answers on subscriptions, autonomy boundaries, and farm data security."
+        subtitle="Direct answers on telemetry boundaries, data sovereignty, and commercial agreements."
       >
         <div className="max-w-3xl mx-auto space-y-4">
           {FAQS.map((faq, idx) => {
@@ -451,25 +452,25 @@ export function PricingClient() {
             return (
               <div
                 key={idx}
-                className="rounded-xl border border-parchment-300 bg-parchment-50 overflow-hidden transition-colors"
+                className="rounded-panel border border-white/10 bg-obsidian-900 overflow-hidden transition-colors"
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between space-x-4 focus:outline-none focus:ring-2 focus:ring-forest-700"
+                  className="w-full p-5 text-left flex items-center justify-between space-x-4 focus:outline-none focus:ring-2 focus:ring-volt"
                 >
-                  <span className="font-serif font-bold text-base text-forest-900">
+                  <span className="font-serif font-bold text-base text-white">
                     {faq.q}
                   </span>
                   {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-forest-700 flex-shrink-0" />
+                    <ChevronUp className="w-5 h-5 text-volt flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-charcoal-500 flex-shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-parchment-400 flex-shrink-0" />
                   )}
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-sm text-charcoal-700 leading-relaxed border-t border-parchment-300/80 bg-white">
+                  <div className="px-5 pb-5 pt-1 text-sm text-parchment-300 leading-relaxed border-t border-white/10 bg-obsidian-950 font-sans">
                     {faq.a}
                   </div>
                 )}
@@ -478,15 +479,15 @@ export function PricingClient() {
           })}
         </div>
 
-        <div className="mt-12 text-center text-xs text-charcoal-600 space-y-2">
+        <div className="mt-12 text-center text-xs font-mono text-parchment-400 space-y-2">
           <p>
-            Have a custom estate structure or partnership holding?
+            Operating an estate structure or complex partnership holding?
           </p>
           <a
             href="mailto:enquiries@steward.co.uk"
-            className="text-terracotta-700 font-semibold hover:underline"
+            className="text-gold-coutts hover:text-white font-bold"
           >
-            Speak with our agricultural onboarding team &rarr;
+            Consult our agricultural executive team &rarr;
           </a>
         </div>
       </Section>

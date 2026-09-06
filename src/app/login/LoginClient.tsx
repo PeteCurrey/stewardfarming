@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Sprout, ShieldCheck, Mail, Lock, ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { Sprout, ShieldCheck, Mail, Lock, ArrowRight, Sparkles, CheckCircle2, Terminal } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -48,94 +48,94 @@ export function LoginClient() {
   };
 
   return (
-    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-parchment-100 flex flex-col justify-center">
+    <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 bg-obsidian-950 text-obsidian-100 flex flex-col justify-center bg-tactical-grid">
       <div className="max-w-md mx-auto w-full space-y-8">
         
         {/* Header */}
         <div className="text-center space-y-3">
-          <div className="w-12 h-12 rounded-xl bg-forest-800 flex items-center justify-center text-parchment-50 shadow-sm border border-forest-900 mx-auto">
-            <Sprout className="w-6 h-6 text-gold-400" />
+          <div className="w-12 h-12 rounded-tech bg-obsidian-900 flex items-center justify-center text-volt-400 border border-obsidian-800 mx-auto shadow-hud">
+            <Terminal className="w-6 h-6 text-volt-400" />
           </div>
-          <Badge variant="forest">Farm Account Access</Badge>
-          <h1 className="text-3xl font-serif font-bold text-forest-900">
-            Sign in to Steward
+          <Badge variant="volt">[HOLDING GATEWAY // AUTH]</Badge>
+          <h1 className="text-3xl sm:text-4xl font-serif font-normal text-obsidian-50 tracking-tight">
+            Sign In to Farm Cockpit
           </h1>
-          <p className="text-xs sm:text-sm text-charcoal-700">
-            Access your personalized agricultural advisor, field logs, and SFI trackers.
+          <p className="text-xs sm:text-sm text-obsidian-300 font-mono">
+            Access holding telemetry, autonomous approvals &amp; SFI audits.
           </p>
         </div>
 
         {magicLinkSent ? (
-          <Card variant="linen" className="text-center p-8 space-y-4 border-2 border-forest-600 shadow-warm-lg">
-            <div className="w-12 h-12 rounded-full bg-forest-800 text-parchment-50 flex items-center justify-center mx-auto shadow-sm">
-              <CheckCircle2 className="w-6 h-6 text-gold-400" />
+          <div className="hud-panel p-8 text-center space-y-4 border border-volt-500/40 bg-obsidian-900/95 shadow-hud">
+            <div className="w-12 h-12 rounded-full bg-volt-500/10 text-volt-400 border border-volt-500/30 flex items-center justify-center mx-auto">
+              <CheckCircle2 className="w-6 h-6 text-volt-400" />
             </div>
-            <h2 className="text-xl font-serif font-bold text-forest-900">
-              Magic Link Sent
+            <h2 className="text-xl font-serif font-medium text-obsidian-100">
+              Magic Link Dispatched
             </h2>
-            <p className="text-xs text-charcoal-700 leading-relaxed">
-              We&apos;ve sent a secure login link to <strong>{email}</strong>. Check your inbox to sign in with one tap.
+            <p className="text-xs text-obsidian-300 leading-relaxed font-mono">
+              Secure authentication token delivered to <strong className="text-volt-400">{email}</strong>. Select the token in your inbox to authenticate immediately.
             </p>
             <div className="pt-2">
               <Button
                 type="button"
-                variant="outline"
+                variant="volt"
                 size="sm"
                 onClick={() => router.push("/dashboard")}
               >
                 Proceed to Dashboard (Demo) &rarr;
               </Button>
             </div>
-          </Card>
+          </div>
         ) : (
-          <Card variant="linen" className="p-6 sm:p-8 shadow-warm-lg border border-parchment-300">
+          <div className="hud-panel p-6 sm:p-8 shadow-hud border border-obsidian-700 bg-obsidian-900/95 space-y-6">
             
             {/* Auth Method Switcher */}
-            <div className="grid grid-cols-2 gap-2 p-1 rounded-lg bg-parchment-200 mb-6 text-xs font-semibold">
+            <div className="grid grid-cols-2 gap-2 p-1 rounded-tech bg-obsidian-950 border border-obsidian-800 text-xs font-mono">
               <button
                 type="button"
                 onClick={() => setIsMagicLink(false)}
-                className={`py-2 rounded-md transition-all ${
+                className={`py-2 rounded-tech transition-all uppercase tracking-wider ${
                   !isMagicLink
-                    ? "bg-white text-forest-900 shadow-sm"
-                    : "text-charcoal-600 hover:text-forest-900"
+                    ? "bg-obsidian-850 text-volt-400 border border-obsidian-700 shadow-sm"
+                    : "text-obsidian-400 hover:text-obsidian-200"
                 }`}
               >
-                Password Sign In
+                Password Key
               </button>
               <button
                 type="button"
                 onClick={() => setIsMagicLink(true)}
-                className={`py-2 rounded-md transition-all ${
+                className={`py-2 rounded-tech transition-all uppercase tracking-wider ${
                   isMagicLink
-                    ? "bg-white text-forest-900 shadow-sm"
-                    : "text-charcoal-600 hover:text-forest-900"
+                    ? "bg-obsidian-850 text-volt-400 border border-obsidian-700 shadow-sm"
+                    : "text-obsidian-400 hover:text-obsidian-200"
                 }`}
               >
-                Magic Link (Passwordless)
+                Magic Link
               </button>
             </div>
 
             {error && (
-              <div className="mb-4 p-3 rounded-md bg-red-50 border border-red-200 text-xs text-red-700">
-                {error}
+              <div className="p-3 rounded-tech bg-rose-950/40 border border-rose-500/40 text-xs text-rose-300 font-mono">
+                [AUTH_FAULT]: {error}
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-serif font-bold text-charcoal-900 uppercase tracking-wider mb-1">
-                  Email Address
+                <label className="block text-xs font-mono font-bold text-obsidian-300 uppercase tracking-wider mb-1">
+                  Holding Email Identifier
                 </label>
                 <div className="relative">
-                  <Mail className="w-4 h-4 text-charcoal-400 absolute left-3.5 top-3" />
+                  <Mail className="w-4 h-4 text-obsidian-400 absolute left-3.5 top-3" />
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="farmer@holding.co.uk"
-                    className="w-full pl-10 pr-3.5 py-2.5 rounded-md bg-white border border-parchment-300 text-sm text-charcoal-800 focus:outline-none focus:ring-2 focus:ring-forest-700"
+                    className="w-full pl-10 pr-3.5 py-2.5 rounded-tech bg-obsidian-950 border border-obsidian-800 text-sm text-obsidian-100 placeholder:text-obsidian-500 focus:outline-none focus:border-volt-400 focus:ring-1 focus:ring-volt-400 font-mono"
                   />
                 </div>
               </div>
@@ -143,50 +143,50 @@ export function LoginClient() {
               {!isMagicLink && (
                 <div>
                   <div className="flex justify-between items-center mb-1">
-                    <label className="block text-xs font-serif font-bold text-charcoal-900 uppercase tracking-wider">
-                      Password
+                    <label className="block text-xs font-mono font-bold text-obsidian-300 uppercase tracking-wider">
+                      Password Secret
                     </label>
-                    <span className="text-[11px] text-terracotta-700 hover:underline cursor-pointer">
-                      Forgot password?
+                    <span className="text-[11px] font-mono text-volt-400 hover:underline cursor-pointer">
+                      Reset?
                     </span>
                   </div>
                   <div className="relative">
-                    <Lock className="w-4 h-4 text-charcoal-400 absolute left-3.5 top-3" />
+                    <Lock className="w-4 h-4 text-obsidian-400 absolute left-3.5 top-3" />
                     <input
                       type="password"
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••••••"
-                      className="w-full pl-10 pr-3.5 py-2.5 rounded-md bg-white border border-parchment-300 text-sm text-charcoal-800 focus:outline-none focus:ring-2 focus:ring-forest-700"
+                      className="w-full pl-10 pr-3.5 py-2.5 rounded-tech bg-obsidian-950 border border-obsidian-800 text-sm text-obsidian-100 placeholder:text-obsidian-500 focus:outline-none focus:border-volt-400 focus:ring-1 focus:ring-volt-400 font-mono"
                     />
                   </div>
                 </div>
               )}
 
               <div className="pt-2">
-                <Button type="submit" variant="primary" size="lg" className="w-full" disabled={loading}>
+                <Button type="submit" variant="volt" size="lg" className="w-full" disabled={loading}>
                   {loading
-                    ? "Signing in..."
+                    ? "Authenticating Holding..."
                     : isMagicLink
-                    ? "Send Magic Login Link"
+                    ? "Dispatch Magic Token"
                     : "Sign In to Farm Holding"}
                   {!loading && <ArrowRight className="w-4 h-4 ml-2" />}
                 </Button>
               </div>
 
-              <div className="pt-3 flex items-center justify-center space-x-3 text-xs text-charcoal-500 border-t border-parchment-200">
-                <ShieldCheck className="w-4 h-4 text-forest-700" />
-                <span>Encrypted UK Cloud Infrastructure</span>
+              <div className="pt-3 flex items-center justify-center space-x-3 text-xs font-mono text-obsidian-400 border-t border-obsidian-800">
+                <ShieldCheck className="w-4 h-4 text-volt-400" />
+                <span>UK Sovereignty &bull; 256-Bit TLS Fiduciary Vault</span>
               </div>
             </form>
-          </Card>
+          </div>
         )}
 
-        <div className="text-center text-xs text-charcoal-600">
-          Don&apos;t have an account yet?{" "}
-          <Link href="/signup" className="text-forest-800 font-semibold underline">
-            Start 30-Day Free Trial
+        <div className="text-center text-xs font-mono text-obsidian-400">
+          Unregistered holding?{" "}
+          <Link href="/signup" className="text-volt-400 hover:underline">
+            Initialize 30-Day Free Trial &rarr;
           </Link>
         </div>
 

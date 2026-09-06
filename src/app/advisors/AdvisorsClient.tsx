@@ -10,7 +10,6 @@ import {
   CheckCircle2,
   AlertTriangle,
   Calendar,
-  Sparkles,
   ArrowRight,
   ShieldCheck,
   PhoneCall,
@@ -18,6 +17,8 @@ import {
   Clock,
   Compass,
   FileCheck,
+  Radio,
+  Lock,
 } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
@@ -40,7 +41,8 @@ interface AdvisorData {
   name: string;
   role: string;
   badgeText: string;
-  badgeVariant: "gold" | "forest" | "terracotta";
+  code: string;
+  badgeVariant: "gold" | "forest" | "terracotta" | "volt";
   farmTypeLabel: string;
   tagline: string;
   about: string;
@@ -57,259 +59,235 @@ const ADVISORS: AdvisorData[] = [
     name: "Tom Campbell",
     role: "Arable & Combinable Crops Specialist",
     badgeText: "Arable Specialist",
+    code: "AG-01 // ARABLE",
     badgeVariant: "gold",
     farmTypeLabel: "Arable",
-    tagline: "Focused on margins per hectare, soil structure, and chemical timing.",
+    tagline: "Focused on clean rotations, spray timing, and SFI margins per hectare.",
     about:
-      "Tom looks at your farm through the combined lens of a BASIS-qualified agronomist and a seasoned grain trader. He understands that a 4-day delay in spraying T1 fungicide or missing the optimal nitrogen application window costs real yield. Rather than giving textbook agronomy advice, Tom synthesises local radar weather, soil moisture models, and Defra SFI herbal ley rules to protect your soil health and your bottom line.",
+      "Tom is calibrated specifically for UK arable enterprises. From combinable cereals (winter wheat, spring barley) to oilseeds, pulses, and cover crops, Tom evaluates daily Met Office spray windows, disease thresholds (Septoria, rusts), soil moisture deficits, and SFI stackability.",
     specialisms: [
-      "5-year combinable crop rotation planning & break crops",
-      "SFI IPM1 (Integrated Pest Management) and SAM3 Herbal Leys",
-      "Local spray window micro-forecasting (wind, temp, humidity)",
-      "Variable-rate fertiliser budgeting and NVZ N-max records",
-      "UK grain futures (LIFFE feed wheat) hedging triggers",
+      "Combinable crop rotations & gross margin optimization",
+      "Met Office 1.1km spray drift micro-window forecasting",
+      "Defra SFI IPM1, NUM1, and SAM3 herbal ley stackability",
+      "RB209 nutrient management & variable-rate spreading",
+      "Red Tractor combinable crops audit record compilation",
+      "Grain storage moisture telemetry and LIFFE futures hedges",
     ],
     monitoringItems: [
       {
-        title: "Micro-Climate Spray Opportunities",
-        detail: "Tracks hourly wind gusts, dew point, and inversion layers across your parcel boundaries so you never waste chemical.",
+        title: "Spray Window Opportunities",
+        detail: "Ingests Met Office hourly spot forecasts to identify sub-7mph wind windows with humidity above 60%.",
       },
       {
-        title: "SFI Arable Actions & Non-Overlap Rules",
-        detail: "Continuously checks payment stacking across SAM1, NUM1, AHL2, and IPM1 to ensure full Defra compliance without clawback risk.",
+        title: "SFI Parcel Allocation",
+        detail: "Tracks land parcel rules, rotation history, and soil type to suggest maximum stackable payments.",
       },
       {
-        title: "Soil Moisture & Nitrogen Timing",
-        detail: "Models soil temperature thresholds and rainfall wash-through risk before you send the spreader out.",
+        title: "Crop Growth Stages (Zadoks)",
+        detail: "Tracks T0 through T3 fungicide timing against local degree-day models and weather forecasts.",
       },
       {
-        title: "Grain Market Price Thresholds",
-        detail: "Watches ex-farm and futures pricing benchmarks to alert you when your target contract margins are hit.",
-      },
-      {
-        title: "Statutory NVZ Field Limit Books",
-        detail: "Pre-populates your annual N-Max and organic manure records ready for RPA / Environment Agency inspection.",
-      },
-      {
-        title: "Break-Crop & Cover Crop Sowing Windows",
-        detail: "Monitors declining soil temperatures in autumn to ensure seed germination before soil consolidation.",
+        title: "NVZ Closed Periods",
+        detail: "Alerts on statutory chemical and organic nitrogen application limits for your specific soil type.",
       },
     ],
     chatPreview: [
       {
-        sender: "advisor",
-        time: "06:45",
-        text: "Morning, John. Wind in the Valley field will drop below 6mph between 13:30 and 18:00 today before rain arrives on Thursday. Ideal window for your Winter Wheat T1 spray. I've cross-referenced with your remaining Revystar inventory.",
-        badge: "Proactive Field Alert",
-      },
-      {
         sender: "farmer",
-        time: "07:10",
-        text: "Thanks Tom. What about the 12 ha buffer strip along the brook under the SFI agreement?",
+        text: "Thinking about spraying the winter wheat in North Field with the T1 fungicide. What's the window looking like today?",
+        time: "07:15",
       },
       {
         sender: "advisor",
-        time: "07:11",
-        text: "Good catch. That parcel is registered under SFI IPM2 (Flower-rich grass margin). Keep a minimum 6m spray drift buffer. I've updated your spray log sheet with the geotagged exclusion zone ready for audit.",
-        actionNote: "Field log #402 drafted for your approval",
+        text: "Good morning. Looking at the Met Office spot radar for North Field (Clay Loam, 28ha), wind is currently 11mph from the SW with gusts up to 18mph — too high for safe drift compliance.",
+        time: "07:16",
+        badge: "Drift Advisory",
+      },
+      {
+        sender: "advisor",
+        text: "However, barometric stability improves significantly this afternoon. Between 14:00 and 19:30, wind drops below 6mph and humidity rises to 68%. That is your optimal low-drift window today. I have drafted your chemical application log with the statutory product details.",
+        time: "07:16",
+        actionNote: "Green Task logged: T1 Application record drafted for your approval",
       },
     ],
-    ctaText: "Set Up Your Arable Farm",
+    ctaText: "Start Arable Trial with Tom",
   },
   {
     id: "livestock",
     key: "livestock",
     name: "Fiona MacLeod",
-    role: "Beef, Sheep & Upland Husbandry Advisor",
+    role: "Livestock & Herd Husbandry Specialist",
     badgeText: "Livestock Specialist",
-    badgeVariant: "forest",
+    code: "LS-02 // LIVESTOCK",
+    badgeVariant: "volt",
     farmTypeLabel: "Livestock",
-    tagline: "Deep knowledge of herd health, grazing budgeting, and welfare compliance.",
+    tagline: "Dedicated to herd health, grazing rotations, and statutory movement compliance.",
     about:
-      "Fiona brings the steady, watchful eye of a hill farmer with decades of livestock experience. She knows that keeping sheep and cattle profitable in the UK means balancing liveweight gains, forage dry matter, and stringent veterinary medicine logs without drowning in red tape. Fiona keeps your movement records pristine, alerts you to withdrawal dates before sale days, and helps you capture every upland stewardship grant available.",
+      "Fiona is built around the daily realities of UK sheep, beef, and hill livestock production. She understands grazing plate meter curves, sward height management, statutory meat and milk withdrawal periods, BCMS/ScotEID movement notifications, and livestock mart pricing.",
     specialisms: [
-      "Grazing plate meters & rotational paddock budgeting",
-      "Veterinary medicine books & statutory withdrawal countdowns",
-      "Breeding cycle tracking, tupping schedules & scanning rates",
-      "Livestock mart price trends (deadweight beef & store lambs)",
-      "Red Tractor livestock standards & annual vet review prep",
+      "Pasture allocation, plate meter calculations & DM budgeting",
+      "Statutory medicine book & meat withdrawal countdowns",
+      "BCMS cattle passport & ScotEID movement compliance",
+      "Seasonal tupping, lambing, and calving calendar planning",
+      "Forage D-value analysis and winter ration balancing",
+      "AHDB regional deadweight beef and lamb auction pricing",
     ],
     monitoringItems: [
       {
-        title: "Statutory Medicine Withdrawal Deadlines",
-        detail: "Tracks exact withdrawal windows for antibiotics, flukicides, and wormers so stock are never moved to mart prematurely.",
+        title: "Medicine Withdrawal Dates",
+        detail: "Calculates statutory meat withholding periods for every treated group and flags clearance dates.",
       },
       {
-        title: "Pasture Growth & Grazing Budgets",
-        detail: "Estimates pasture dry matter growth curves (kg DM/ha) and recommends rotation moves before swards are overgrazed.",
+        title: "Grazing Paddock Rotation",
+        detail: "Estimates dry matter intake against sward heights to recommend ideal rest periods between moves.",
       },
       {
-        title: "Livestock Mart & Deadweight Price Benchmarks",
-        detail: "Monitors weekly AHDB deadweight lamb and R4L steer prices across northern and Welsh auction marts.",
+        title: "Movement Deadlines",
+        detail: "Alerts you within 24 hours of stock movements to ensure BCMS/ScotEID reporting rules are satisfied.",
       },
       {
-        title: "Lambing & Calving Welfare Prep",
-        detail: "Schedules colostrum supply checks, iodine supplies, and synchronisation protocols ahead of seasonal peaks.",
-      },
-      {
-        title: "Defra Animal Health & Welfare Pathway Grants",
-        detail: "Alerts you to funded annual vet reviews and biosecurity equipment grant application windows.",
-      },
-      {
-        title: "Red Tractor & APHA Movement Registries",
-        detail: "Maintains ear tag replacement logs, casualty records, and automated holding movement books.",
+        title: "Flock Welfare Milestones",
+        detail: "Tracks flystrike risk indices based on local humidity and temperature profiles.",
       },
     ],
     chatPreview: [
       {
         sender: "farmer",
-        time: "14:20",
-        text: "Fiona, planning to send 40 store bullocks to mart on Tuesday. Can you confirm medicine clearance?",
+        text: "Drenched the replacement ewe lambs with flukicide yesterday. When are they clear for the butcher if we decide to cull any?",
+        time: "08:20",
       },
       {
         sender: "advisor",
-        time: "14:22",
-        text: "Looking at your holding log: 38 head are completely clear. However, tag UK120984-600214 received Ivomec Super on the 4th; withdrawal period ends this Thursday at midnight. Leave that single beast in pen 3 until next week's sale.",
-        badge: "Welfare & Compliance Check",
-        actionNote: "APHA movement manifest drafted for 38 beasts",
+        text: "Good morning. I've pulled up your treatment record: Group '2024 Ewe Lambs' (42 head) drenched with Fasinex 240 (Triclabendazole) on 12 August at 16:30.",
+        time: "08:21",
+        badge: "Statutory Withdrawal",
       },
       {
-        sender: "farmer",
-        time: "14:35",
-        text: "Spot on. Almost missed that one. Update the movement document for 38.",
+        sender: "advisor",
+        text: "Statutory meat withdrawal for Fasinex 240 is 56 days. The clear-to-slaughter date is 7 October at 23:59. I have updated your permanent farm medicine book and set a reminder alert 3 days prior.",
+        time: "08:21",
+        actionNote: "Statutory medicine log recorded. Calendar countdown active.",
       },
     ],
-    ctaText: "Set Up Your Livestock Farm",
+    ctaText: "Start Livestock Trial with Fiona",
   },
   {
     id: "mixed",
     key: "mixed",
     name: "Alistair Reid",
-    role: "Mixed Enterprise & Whole-Farm Systems Advisor",
+    role: "Mixed Farm Systems Specialist",
     badgeText: "Mixed Farm Specialist",
+    code: "MX-03 // MIXED",
     badgeVariant: "terracotta",
-    farmTypeLabel: "Mixed Farm",
-    tagline: "Connecting arable rotations, livestock fertility, and multi-tier stewardship.",
+    farmTypeLabel: "Mixed",
+    tagline: "Balancing whole-farm nutrient cycles, break crops, and multi-tier subsidies.",
     about:
-      "Alistair specialises in the complex interplay of mixed UK holdings where arable crops feed livestock and livestock return fertility to the soil. He understands the juggling act of managing combining alongside silage cuts, calculating FYM nutrient values for NVZ plans, and maximising both arable and grassland SFI payment tiers without creating administrative chaos.",
+      "Alistair represents the interconnected thinking required on mixed holdings. He looks at the entire farm ecosystem: how sheep grazing on herbal leys improves the following wheat crop's nitrogen index, how FYM from winter cattle housing reduces the synthetic P&K fertilizer bill, and how whole-farm SFI options stack seamlessly.",
     specialisms: [
-      "Integrated enterprise gross margin balancing",
+      "Integrated crop-livestock rotation & fertility building",
       "Farmyard manure (FYM) & slurry nutrient budgeting",
-      "Multi-tier SFI & Countryside Stewardship cross-matching",
-      "Forage cover crop grazing strategies after cereals",
-      "Labour and machinery sharing between arable & stock tasks",
+      "Herbal ley establishment (SFI SAM3) with rotational grazing",
+      "Cross-enterprise cash flow and working capital forecasting",
+      "Whole-farm Defra Countryside Stewardship & SFI bundling",
+      "Red Tractor multi-enterprise combined inspection audit packs",
     ],
     monitoringItems: [
       {
-        title: "Whole-Farm Nutrient Recycling (RB209)",
-        detail: "Credits the nitrogen, phosphate, and potash in your livestock manure directly against your fertiliser orders.",
+        title: "Manure Nutrient Value",
+        detail: "Calculates available N, P, and K in your livestock dung heaps to offset synthetic fertilizer bills.",
       },
       {
-        title: "Harvest vs. Silage Scheduling Conflicts",
-        detail: "Balances contractor availability, machinery hours, and crop moisture windows across both sides of the business.",
+        title: "Break-Crop Grazing Windows",
+        detail: "Flags when cover crops or stubble turnips have sufficient biomass for overwintering hoggs.",
       },
       {
-        title: "Catch Crop & Winter Grazing Planning",
-        detail: "Identifies fields suitable for stubble turnips or diverse brassicas following winter barley harvest.",
+        title: "Enterprise Margin Allocation",
+        detail: "Compares gross margin per hectare between arable cash crops and forage livestock enterprises.",
       },
       {
-        title: "Combined SFI Arable & Grassland Stack",
-        detail: "Tracks both SAM3 herbal leys and IPM1 arable actions under a single unified Defra agreement.",
-      },
-      {
-        title: "Storage & Slurry Capacity Regulations",
-        detail: "Monitors winter slurry storage capacity against rainfall to ensure compliance with 5-month NVZ closed periods.",
-      },
-      {
-        title: "Enterprise Profitability Analysis",
-        detail: "Compares the return on capital between your livestock enterprise and combinable crop acreage.",
+        title: "Audit Trail Harmonisation",
+        detail: "Maintains unified field logs so arable and livestock evidence never conflicts during inspections.",
       },
     ],
     chatPreview: [
       {
-        sender: "advisor",
-        time: "08:15",
-        text: "Alistair here. Following your winter barley combining on the Home 40 ha parcel, we have a prime 70-day window to drill a rapid brassica mix before October sheep turn-in. This also qualifies for SFI SAM2 (Winter cover crop @ £129/ha).",
-        badge: "Enterprise Synergy",
-      },
-      {
         sender: "farmer",
-        time: "09:02",
-        text: "Will that interfere with our Spring Wheat plan next February?",
+        text: "Planning our spring break crop on Long Meadow. Should we put in spring beans or establish a 3-year SFI herbal ley and graze the hoggs?",
+        time: "11:05",
       },
       {
         sender: "advisor",
-        time: "09:04",
-        text: "Not if we graze it off by January 15th. The sheep will recycle approximately 45kg N/ha into the soil, reducing your artificial spring fertiliser requirement by £38/ha while earning £5,160 in SFI cover crop payments.",
-        actionNote: "Seed mix spec and SFI parcel log ready for review",
+        text: "Let's run the gross margin comparison for Long Meadow (18.4ha, Sandy Silt Loam). Spring beans currently budget at roughly £480/ha gross margin with market volatility on pulse contracts.",
+        time: "11:07",
+        badge: "Margin Analysis",
+      },
+      {
+        sender: "advisor",
+        text: "SFI SAM3 (Herbal Ley) pays £382/ha guaranteed annual subsidy. Combined with 45 days of spring hogg grazing, you save approximately £1,200 in concentrate feed while fixing an estimated 85kg N/ha for the 2027 winter wheat crop. The 3-year herbal ley delivers higher net margin and superior soil resilience.",
+        time: "11:07",
+        actionNote: "Comparison report generated. SFI parcel allocation drafted.",
       },
     ],
-    ctaText: "Set Up Your Mixed Farm",
+    ctaText: "Start Mixed Farm Trial with Alistair",
   },
   {
     id: "dairy",
     key: "dairy",
     name: "Eleanor Wright",
-    role: "Dairy Systems & Ruminant Nutrition Specialist",
+    role: "Dairy Systems & Nutrition Specialist",
     badgeText: "Dairy Specialist",
-    badgeVariant: "forest",
+    code: "DY-04 // DAIRY",
+    badgeVariant: "gold",
     farmTypeLabel: "Dairy",
-    tagline: "Obsessed with milk margins, cell counts, forage quality, and cow comfort.",
+    tagline: "Maximising milk contract bonuses, herd longevity, and grassland forage quality.",
     about:
-      "Eleanor is tuned directly into the daily rhythms of the parlour and the feed passage. She understands that dairy margins live and die on feed conversion efficiency, dry cow management, milk contract solids incentives, and mastitis prevention. Eleanor keeps a watchful eye on your somatic cell count trends, advises on herbal leys under SFI grassland options, and ensures your compliance with dairy hygiene regulations.",
+      "Eleanor is calibrated for modern UK dairy herds, whether high-input housed TMR systems or block-calving rotational grazing setups. She focuses on the metrics that drive the milk cheque: somatic cell count trends, butterfat and protein bonuses, silage dry matter intakes, and statutory slurry storage regulations.",
     specialisms: [
-      "Milk contract pricing, butterfat & protein solids bonuses",
-      "Somatic Cell Count (SCC) & mastitis early warning trends",
-      "Forage D-value tracking and silage cut timing",
-      "Selective dry cow therapy & antibiotic stewardship records",
-      "SFI Grassland actions (SAM3 Herbal leys & legume mixes)",
+      "Milk contract bonus optimization (butterfat & protein %)",
+      "Somatic cell count (SCC) & mastitis early warning trends",
+      "First/second cut silage timing based on D-value modeling",
+      "NVZ slurry storage capacity & statutory spreading limits",
+      "Selective dry cow therapy (SDCT) protocol record keeping",
+      "Carbon footprint per litre of milk (FPCM) benchmark tracking",
     ],
     monitoringItems: [
       {
-        title: "Daily Milk Yield & Solids Benchmarking",
-        detail: "Tracks butterfat and protein percentages against your milk buyer contract parameters to maximise pence-per-litre.",
+        title: "Milk Quality Bonuses",
+        detail: "Tracks bulk tank solids tests against your milk buyer's contract pricing schedule.",
       },
       {
-        title: "Bulk Tank Somatic Cell Count (SCC) Trends",
-        detail: "Detects creeping sub-clinical mastitis patterns early to prevent bulk tank penalty thresholds from triggering.",
+        title: "Silage Cutting Windows",
+        detail: "Correlates heat unit accumulation with forecast weather to target optimum 68+ D-value cuts.",
       },
       {
-        title: "Silage Clamp Quality & D-Value Curves",
-        detail: "Advises on optimal multi-cut silage harvesting dates based on grass sugars and weather windows.",
+        title: "Slurry Lagoon Capacity",
+        detail: "Monitors rainfall accumulation against storage volume to warn well ahead of winter closed periods.",
       },
       {
-        title: "SFI Herbal Leys on Grazing Platforms",
-        detail: "Integrates deep-rooting chicory, plantain, and red clover to reduce bloat, cut N fertiliser, and secure £382/ha.",
-      },
-      {
-        title: "Calving & Transition Cow Scheduling",
-        detail: "Monitors dry period lengths, mineral supplementation, and calving interval targets for the milking herd.",
-      },
-      {
-        title: "Clean Water & Slurry Infrastructure Rules",
-        detail: "Assists with EA agricultural diffuse pollution audits and Slurry Infrastructure Grant calculations.",
+        title: "Somatic Cell Alerts",
+        detail: "Flags upward SCC trends before clinical mastitis or milk contract penalties occur.",
       },
     ],
     chatPreview: [
       {
-        sender: "advisor",
-        time: "07:30",
-        text: "Eleanor here. Yesterday evening's bulk tank report showed butterfat dipped to 3.82% while protein held steady at 3.35%. With your First Milk contract, lifting butterfat above 4.0% adds 1.4p/litre across your daily 6,500L shipment.",
-        badge: "Contract Margin Alert",
-      },
-      {
         sender: "farmer",
-        time: "07:50",
-        text: "The cows switched to the lower clamp on Saturday. Might be lower structural fibre?",
+        text: "Bulk tank reading came in today: SCC bumped up to 195k from 140k last week. Butterfat is at 4.22%. Anything to adjust?",
+        time: "14:15",
       },
       {
         sender: "advisor",
-        time: "07:52",
-        text: "Exactly. The lower clamp test showed 38% NDF versus 44% previously. Adding 0.75kg chopped straw per head into the TMR will restore rumen cud-chewing and bring butterfat back within 72 hours. I have updated the mixer wagon sheet.",
-        actionNote: "TMR ration adjustment drafted for wagon operator",
+        text: "Good afternoon. Your Arla contract penalty threshold sits at 200k, so you remain in bonus territory, but that 55k rise in 7 days warrants immediate targeted screening.",
+        time: "14:16",
+        badge: "Cell Count Advisory",
+      },
+      {
+        sender: "advisor",
+        text: "Given the recent humid spell, I recommend California Mastitis Testing (CMT) the fresh-calved heifers in Pen 2 today. I've reviewed your parlour wash records and plant sanitation looks normal. I have created an advisory task and flagged this for your vet if counts don't normalize within 48 hours.",
+        time: "14:17",
+        actionNote: "Amber Task: CMT screening protocol logged. Vet alert on standby.",
       },
     ],
-    ctaText: "Set Up Your Dairy Farm",
+    ctaText: "Start Dairy Trial with Eleanor",
   },
 ];
 
@@ -318,48 +296,40 @@ export function AdvisorsClient() {
 
   const scrollToAdvisor = (id: string) => {
     setActiveTab(id);
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 100;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -90;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-obsidian-950 text-parchment-100">
+      
       {/* HERO / INTRODUCTION HEADER */}
-      <section className="pt-28 pb-14 bg-parchment-100 border-b border-parchment-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <Badge variant="forest" size="md">
-            The Steward Advisory Team
+      <section className="pt-32 pb-16 bg-obsidian-950 bg-tactical-grid border-b border-white/10 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+          
+          <Badge variant="gold" pulse>
+            The Steward Advisory Roster
           </Badge>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-forest-900 leading-tight max-w-4xl mx-auto">
-            Meet the advisor who understands{" "}
-            <span className="italic text-terracotta-700 font-normal underline decoration-gold-400 decoration-1 underline-offset-4">
-              your exact kind
-            </span>{" "}
-            of farm.
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white leading-tight max-w-4xl mx-auto tracking-tight">
+            Specialised Agricultural Intelligence.{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-coutts via-gold-300 to-gold-brass">
+              Calibrated to Your Exact Holding.
+            </span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-charcoal-700 max-w-3xl mx-auto leading-relaxed">
-            Farming in the UK is never one-size-fits-all. Steward pairs your holding with a dedicated,
-            deeply trained advisor persona built around the specific rhythms, crops, animals, and
-            compliance requirements of your enterprise.
+          <p className="text-base sm:text-xl text-parchment-300 max-w-3xl mx-auto leading-relaxed font-sans">
+            British farming is never one-size-fits-all. Steward configures a dedicated specialist advisor around the specific seasonal rhythms, soils, crops, animals, and statutory schemes of your enterprise.
           </p>
 
           {/* Interactive Farm Type Selector */}
           <div className="pt-8 max-w-3xl mx-auto">
-            <p className="text-xs uppercase tracking-widest font-serif font-semibold text-charcoal-600 mb-3">
-              Select your farm enterprise to view your advisor:
+            <p className="text-xs uppercase font-mono tracking-widest text-parchment-400 mb-3">
+              [SELECT ENTERPRISE DOSSIER TO INSPECT]:
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {ADVISORS.map((advisor) => {
@@ -369,17 +339,17 @@ export function AdvisorsClient() {
                     key={advisor.id}
                     onClick={() => scrollToAdvisor(advisor.id)}
                     className={cn(
-                      "p-3 rounded-lg border text-sm font-medium transition-all duration-200 flex flex-col items-center justify-center space-y-1 focus:outline-none focus:ring-2 focus:ring-forest-700",
+                      "p-3.5 rounded-panel border text-sm font-mono transition-all duration-150 flex flex-col items-center justify-center space-y-1 focus:outline-none focus:ring-2 focus:ring-volt",
                       isActive
-                        ? "bg-forest-800 text-parchment-50 border-forest-900 shadow-warm-md scale-[1.02]"
-                        : "bg-white text-charcoal-800 border-parchment-300 hover:bg-parchment-200/80 hover:border-forest-400"
+                        ? "bg-obsidian-900 text-white border-volt shadow-hud scale-[1.02]"
+                        : "bg-obsidian-950 text-parchment-300 border-white/10 hover:bg-obsidian-900 hover:border-white/30"
                     )}
                   >
-                    <span className="font-serif font-semibold text-base">{advisor.farmTypeLabel}</span>
+                    <span className="font-bold text-sm uppercase tracking-wider">{advisor.farmTypeLabel}</span>
                     <span
                       className={cn(
                         "text-[11px]",
-                        isActive ? "text-gold-300 font-medium" : "text-charcoal-500"
+                        isActive ? "text-volt font-bold" : "text-parchment-400"
                       )}
                     >
                       {advisor.name}
@@ -394,248 +364,243 @@ export function AdvisorsClient() {
       </section>
 
       {/* ADVISOR PROFILES (4 FULL SECTIONS) */}
-      <div className="divide-y divide-parchment-300">
-        {ADVISORS.map((advisor, index) => {
-          const isEven = index % 2 === 0;
-
-          return (
-            <section
-              key={advisor.id}
-              id={advisor.id}
-              className={cn(
-                "py-20 md:py-28 px-4 sm:px-6 lg:px-8 transition-colors",
-                isEven ? "bg-white" : "bg-parchment-100"
-              )}
-            >
-              <div className="max-w-7xl mx-auto space-y-16">
+      <div className="divide-y divide-white/10">
+        {ADVISORS.map((advisor) => (
+          <section
+            key={advisor.id}
+            id={advisor.id}
+            className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-obsidian-950 relative"
+          >
+            <div className="max-w-7xl mx-auto space-y-16">
+              
+              {/* Top Profile Header Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
                 
-                {/* Top Profile Header Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-                  
-                  {/* Left Column: Portrait & Quick Stats */}
-                  <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left space-y-6">
-                    <div className="relative">
-                      <AdvisorPortrait
-                        type={advisor.key}
-                        name={advisor.name}
-                        size="lg"
-                        className="shadow-warm-lg"
-                      />
-                      <div className="absolute -bottom-3 -right-3 bg-forest-800 text-parchment-50 px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider border border-forest-900 shadow-sm">
-                        Verified AI Advisor
-                      </div>
+                {/* Left Column: Portrait & Credentials */}
+                <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left space-y-6">
+                  <div className="relative">
+                    <AdvisorPortrait
+                      type={advisor.key}
+                      name={advisor.name}
+                      size="lg"
+                      className="shadow-2xl"
+                    />
+                    <div className="absolute -bottom-3 -right-3 bg-obsidian-950 text-gold-coutts px-3 py-1 rounded-tech text-[10px] uppercase font-mono font-bold tracking-wider border border-gold-coutts/40 shadow-sm">
+                      VERIFIED ADVISOR
                     </div>
+                  </div>
 
-                    <div className="space-y-1">
-                      <Badge variant={advisor.badgeVariant} size="md">
-                        {advisor.badgeText}
+                  <div className="space-y-1.5">
+                    <div className="flex items-center space-x-2 justify-center sm:justify-start font-mono">
+                      <Badge variant={advisor.badgeVariant} size="sm">
+                        {advisor.code}
                       </Badge>
-                      <h2 className="text-2xl sm:text-3xl font-serif font-bold text-forest-900 pt-1">
-                        {advisor.name}
-                      </h2>
-                      <p className="text-sm font-medium text-terracotta-700">
-                        {advisor.role}
-                      </p>
                     </div>
-
-                    <p className="text-sm text-charcoal-700 italic border-l-2 border-gold-500 pl-3 leading-relaxed">
-                      &quot;{advisor.tagline}&quot;
+                    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white pt-1">
+                      {advisor.name}
+                    </h2>
+                    <p className="text-xs font-mono uppercase tracking-wider text-gold-coutts">
+                      {advisor.role}
                     </p>
-
-                    <Button href="/signup" variant="primary" size="lg" className="w-full sm:w-auto">
-                      {advisor.ctaText} &rarr;
-                    </Button>
                   </div>
 
-                  {/* Right Column: Deep About & Core Specialisms */}
-                  <div className="lg:col-span-8 space-y-8">
-                    <div className="space-y-4">
-                      <h3 className="font-serif text-xl sm:text-2xl font-semibold text-forest-900 flex items-center">
-                        <Compass className="w-5 h-5 mr-2 text-terracotta-700" />
-                        About Your Advisor
-                      </h3>
-                      <p className="text-base sm:text-lg text-charcoal-700 leading-relaxed">
-                        {advisor.about}
-                      </p>
-                    </div>
+                  <p className="text-xs text-parchment-300 italic border-l-2 border-gold-coutts pl-3 leading-relaxed font-sans">
+                    &quot;{advisor.tagline}&quot;
+                  </p>
 
-                    <div className="space-y-3 pt-2">
-                      <h4 className="font-serif text-base font-semibold text-charcoal-900">
-                        Key Advisory Specialisms:
-                      </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-charcoal-700">
-                        {advisor.specialisms.map((spec, sIdx) => (
-                          <div key={sIdx} className="flex items-start space-x-2 bg-parchment-50 p-2.5 rounded-md border border-parchment-300/80">
-                            <CheckCircle2 className="w-4 h-4 text-forest-700 mt-0.5 flex-shrink-0" />
-                            <span>{spec}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                  <Button href="/signup" variant="volt" size="lg" className="w-full sm:w-auto">
+                    {advisor.ctaText} &rarr;
+                  </Button>
                 </div>
 
-                {/* Bottom Row: Proactive Monitoring List & Sample Chat Mockup */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pt-6 border-t border-parchment-300">
-                  
-                  {/* Proactive Monitoring */}
-                  <div className="lg:col-span-6 space-y-6">
-                    <div>
-                      <div className="inline-flex items-center space-x-2 mb-2">
-                        <Clock className="w-4 h-4 text-terracotta-700" />
-                        <span className="text-xs uppercase font-serif tracking-widest font-semibold text-terracotta-800">
-                          Continuous Intelligence
-                        </span>
-                      </div>
-                      <h3 className="text-xl sm:text-2xl font-serif font-semibold text-forest-900">
-                        What {advisor.name.split(" ")[0]} keeps an eye on for you:
-                      </h3>
-                    </div>
+                {/* Right Column: Deep Profile & Core Specialisms */}
+                <div className="lg:col-span-8 space-y-8">
+                  <div className="space-y-4">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white flex items-center">
+                      <Compass className="w-5 h-5 mr-2 text-gold-coutts" />
+                      Specialist Dossier
+                    </h3>
+                    <p className="text-base text-parchment-200 leading-relaxed font-sans">
+                      {advisor.about}
+                    </p>
+                  </div>
 
-                    <div className="space-y-3">
-                      {advisor.monitoringItems.map((item, mIdx) => (
-                        <div
-                          key={mIdx}
-                          className="p-3.5 rounded-lg bg-parchment-50 border border-parchment-300 hover:border-forest-400 transition-colors"
-                        >
-                          <div className="flex items-center space-x-2 mb-1">
-                            <span className="w-2 h-2 rounded-full bg-forest-700" />
-                            <h4 className="font-serif font-bold text-sm text-forest-950">
-                              {item.title}
-                            </h4>
-                          </div>
-                          <p className="text-xs text-charcoal-600 leading-relaxed pl-4">
-                            {item.detail}
-                          </p>
+                  <div className="space-y-3 pt-2">
+                    <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+                      CORE ADVISORY SPECIALISMS:
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-parchment-200 font-sans">
+                      {advisor.specialisms.map((spec, sIdx) => (
+                        <div key={sIdx} className="flex items-start space-x-2.5 bg-obsidian-900 p-3 rounded-panel border border-white/10">
+                          <CheckCircle2 className="w-4 h-4 text-volt mt-0.5 flex-shrink-0" />
+                          <span>{spec}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-
-                  {/* Sample Interaction Preview */}
-                  <div className="lg:col-span-6 space-y-6">
-                    <div>
-                      <div className="inline-flex items-center space-x-2 mb-2">
-                        <Sparkles className="w-4 h-4 text-gold-600" />
-                        <span className="text-xs uppercase font-serif tracking-widest font-semibold text-forest-900">
-                          Sample Exchange
-                        </span>
-                      </div>
-                      <h3 className="text-xl sm:text-2xl font-serif font-semibold text-forest-900">
-                        How daily advice feels on your phone:
-                      </h3>
-                    </div>
-
-                    <div className="rounded-2xl bg-[#FAF8F3] border-2 border-parchment-300 p-5 shadow-warm-md space-y-4">
-                      <div className="flex items-center justify-between pb-3 border-b border-parchment-300/80">
-                        <div className="flex items-center space-x-2.5">
-                          <div className="w-8 h-8 rounded-full bg-forest-800 text-parchment-50 flex items-center justify-center font-serif text-xs font-bold">
-                            {advisor.name.split(" ").map((n) => n[0]).join("")}
-                          </div>
-                          <div>
-                            <p className="text-xs font-serif font-bold text-charcoal-900 leading-none">
-                              {advisor.name}
-                            </p>
-                            <p className="text-[10px] text-forest-700 font-medium">
-                              {advisor.badgeText} &bull; Online
-                            </p>
-                          </div>
-                        </div>
-                        <span className="text-[10px] bg-white px-2 py-0.5 rounded border border-parchment-300 text-charcoal-500 font-mono">
-                          Steward Mobile
-                        </span>
-                      </div>
-
-                      <div className="space-y-3.5 pt-1">
-                        {advisor.chatPreview.map((msg, cIdx) => {
-                          const isAdvisor = msg.sender === "advisor";
-
-                          return (
-                            <div
-                              key={cIdx}
-                              className={cn(
-                                "flex flex-col",
-                                isAdvisor ? "items-start" : "items-end"
-                              )}
-                            >
-                              <div
-                                className={cn(
-                                  "max-w-[88%] p-3.5 rounded-xl text-xs sm:text-sm leading-relaxed shadow-sm space-y-1.5",
-                                  isAdvisor
-                                    ? "bg-white text-charcoal-800 border border-parchment-300 rounded-tl-none"
-                                    : "bg-forest-800 text-parchment-50 rounded-tr-none"
-                                )}
-                              >
-                                {msg.badge && (
-                                  <div className="inline-block text-[10px] uppercase font-bold tracking-wider text-terracotta-700 bg-terracotta-50 px-2 py-0.5 rounded border border-terracotta-200">
-                                    {msg.badge}
-                                  </div>
-                                )}
-                                <p>{msg.text}</p>
-                                {msg.actionNote && (
-                                  <div className="pt-1.5 border-t border-parchment-200 flex items-center text-[11px] font-medium text-forest-800">
-                                    <FileCheck className="w-3.5 h-3.5 mr-1 text-forest-700" />
-                                    {msg.actionNote}
-                                  </div>
-                                )}
-                              </div>
-                              <span className="text-[10px] text-charcoal-400 mt-1 px-1">
-                                {msg.time}
-                              </span>
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      <div className="pt-3 border-t border-parchment-300/80 flex items-center justify-between text-xs text-charcoal-500">
-                        <span className="italic">Type a question or tap voice message...</span>
-                        <div className="w-7 h-7 rounded-md bg-forest-800 text-parchment-50 flex items-center justify-center">
-                          &uarr;
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="pt-2 flex justify-between items-center text-xs text-charcoal-600">
-                      <span className="flex items-center">
-                        <ShieldCheck className="w-4 h-4 text-forest-700 mr-1" />
-                        Human specialist review 1-tap away
-                      </span>
-                      <Button href="/signup" variant="primary" size="sm">
-                        {advisor.ctaText}
-                      </Button>
-                    </div>
-                  </div>
-
                 </div>
 
               </div>
-            </section>
-          );
-        })}
+
+              {/* Bottom Row: Proactive Monitoring List & Sample Chat Mockup */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pt-8 border-t border-white/10">
+                
+                {/* Proactive Monitoring Subsystems */}
+                <div className="lg:col-span-6 space-y-6">
+                  <div>
+                    <div className="inline-flex items-center space-x-2 mb-2 font-mono">
+                      <Radio className="w-4 h-4 text-volt" />
+                      <span className="text-xs uppercase tracking-wider font-bold text-volt">
+                        AUTONOMOUS MONITORING SUBSYSTEMS
+                      </span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+                      What {advisor.name.split(" ")[0]} monitors for your holding:
+                    </h3>
+                  </div>
+
+                  <div className="space-y-3">
+                    {advisor.monitoringItems.map((item, mIdx) => (
+                      <div
+                        key={mIdx}
+                        className="p-4 rounded-panel bg-obsidian-900 border border-white/10 hover:border-volt/40 transition-colors"
+                      >
+                        <div className="flex items-center space-x-2 mb-1">
+                          <span className="w-2 h-2 rounded-full bg-volt" />
+                          <h4 className="font-mono font-bold text-xs uppercase tracking-wider text-white">
+                            {item.title}
+                          </h4>
+                        </div>
+                        <p className="text-xs text-parchment-300 leading-relaxed pl-4 font-sans">
+                          {item.detail}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Sample Mobile Interaction Preview */}
+                <div className="lg:col-span-6 space-y-6">
+                  <div>
+                    <div className="inline-flex items-center space-x-2 mb-2 font-mono">
+                      <Clock className="w-4 h-4 text-gold-coutts" />
+                      <span className="text-xs uppercase tracking-wider font-bold text-gold-coutts">
+                        TELEMETRY EXCHANGE SAMPLE
+                      </span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
+                      Real-time advice on your mobile or cab screen:
+                    </h3>
+                  </div>
+
+                  <div className="rounded-panel bg-obsidian-900 border border-white/10 p-5 shadow-2xl space-y-4">
+                    <div className="flex items-center justify-between pb-3 border-b border-white/10 font-mono">
+                      <div className="flex items-center space-x-2.5">
+                        <AdvisorPortrait type={advisor.key} name={advisor.name} size="sm" />
+                        <div>
+                          <p className="text-xs font-serif font-bold text-white leading-none">
+                            {advisor.name}
+                          </p>
+                          <p className="text-[10px] text-volt font-medium">
+                            {advisor.code} &bull; ONLINE
+                          </p>
+                        </div>
+                      </div>
+                      <span className="text-[10px] bg-obsidian-950 px-2 py-0.5 rounded-tech border border-white/10 text-parchment-400">
+                        STEWARD TELEMETRY
+                      </span>
+                    </div>
+
+                    <div className="space-y-3.5 pt-1">
+                      {advisor.chatPreview.map((msg, cIdx) => {
+                        const isAdvisor = msg.sender === "advisor";
+
+                        return (
+                          <div
+                            key={cIdx}
+                            className={cn(
+                              "flex flex-col",
+                              isAdvisor ? "items-start" : "items-end"
+                            )}
+                          >
+                            <div
+                              className={cn(
+                                "max-w-[88%] p-3.5 rounded-panel text-xs leading-relaxed shadow-sm space-y-1.5",
+                                isAdvisor
+                                  ? "bg-obsidian-950 text-parchment-200 border border-white/10 rounded-tl-none"
+                                  : "bg-forest-900 text-white border border-forest-700 rounded-tr-none"
+                              )}
+                            >
+                              {msg.badge && (
+                                <div className="inline-block text-[9px] uppercase font-mono font-bold tracking-wider text-gold-coutts bg-gold-coutts/10 px-2 py-0.5 rounded-tech border border-gold-coutts/30">
+                                  {msg.badge}
+                                </div>
+                              )}
+                              <p className="font-sans">{msg.text}</p>
+                              {msg.actionNote && (
+                                <div className="pt-1.5 border-t border-white/10 flex items-center text-[11px] font-mono text-volt">
+                                  <FileCheck className="w-3.5 h-3.5 mr-1 text-volt flex-shrink-0" />
+                                  <span>{msg.actionNote}</span>
+                                </div>
+                              )}
+                            </div>
+                            <span className="text-[10px] font-mono text-parchment-400 mt-1 px-1">
+                              {msg.time}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-parchment-400 font-mono">
+                      <span className="italic">Type advisory query or initiate voice brief...</span>
+                      <div className="w-7 h-7 rounded-tech bg-volt text-obsidian-950 flex items-center justify-center font-bold">
+                        &uarr;
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-2 flex justify-between items-center text-xs font-mono text-parchment-400">
+                    <span className="flex items-center">
+                      <ShieldCheck className="w-4 h-4 text-volt mr-1" />
+                      RCVS &bull; BASIS Human Escalation 1-Tap
+                    </span>
+                    <Button href="/signup" variant="gold" size="sm">
+                      {advisor.ctaText}
+                    </Button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+        ))}
       </div>
 
       {/* HUMAN EXPERT ESCALATION CALLOUT */}
-      <section className="py-16 bg-forest-900 text-parchment-100 border-t border-forest-800">
+      <section className="py-20 bg-obsidian-900 text-parchment-100 border-t border-white/10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <Badge variant="gold">Uncompromising Trust</Badge>
-          <h2 className="text-3xl sm:text-4xl font-serif font-medium text-parchment-50">
-            Backed by accredited British agricultural professionals.
+          <Badge variant="gold" pulse>Accredited Specialist Protocol</Badge>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
+            Backed by Accredited British Agricultural Professionals.
           </h2>
-          <p className="text-base sm:text-lg text-parchment-200 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-parchment-300 max-w-2xl mx-auto leading-relaxed font-sans">
             Your Steward advisor knows its boundaries. Whenever an unusual clinical presentation,
             contested tenancy dispute, or complex drainage claim occurs, you are immediately routed
-            to real human professionals on our network.
+            to verified RCVS vets and BASIS agronomists.
           </p>
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-            <Button href="/signup" variant="gold" size="lg">
+          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button href="/signup" variant="volt" size="lg">
               Start Free 30-Day Trial
             </Button>
-            <Button href="/about#network" variant="outline" size="lg" className="border-parchment-300 text-parchment-100 hover:bg-forest-800">
-              Learn About Human Network
+            <Button href="/about#network" variant="secondary" size="lg">
+              Examine Human Specialist Network
             </Button>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

@@ -113,135 +113,109 @@ const CATEGORIES: FeatureCategory[] = [
       },
       {
         title: "Breeding Cycles, Tupping & Calving Calendar",
-        description: "Tracks service dates, predicted calving/lambing windows, scanning percentages, and colostrum supplies.",
+        description: "Gestation tracking, expected birth dates, scanning result records, and dry-off date scheduling.",
         icon: Calendar,
       },
     ],
   },
   {
-    id: "financial-grants",
-    name: "Financial & Grants",
-    shortDesc: "Cash flow forecasts, input cost tracking, grain hedging, and capital grants.",
-    icon: TrendingUp,
-    features: [
-      {
-        title: "Enterprise-Level Profit & Loss Modelling",
-        description: "Tracks individual gross margins across wheat, barley, suckler beef, sheep, and contract farming agreements.",
-        icon: TrendingUp,
-      },
-      {
-        title: "Input Inflation & Fuel/Fertiliser Tracker",
-        description: "Live UK red diesel, ammonium nitrate, and feed price monitoring with forward purchasing advice.",
-        icon: DollarSign,
-      },
-      {
-        title: "Farming Equipment & Technology Fund (FETF) Alerts",
-        description: "Proactive notifications 60 days before Defra capital grant windows open for direct drills, slurry scrapers, and GPS units.",
-        icon: Landmark,
-      },
-      {
-        title: "Invoice & Delivery Note OCR Capture",
-        description: "Snap a photo of seed, spray, or feed dockets in the yard; Steward logs the inventory and preps your VAT ledger.",
-        icon: FileText,
-      },
-      {
-        title: "Subsidy & Grant Concierge",
-        description: "Dedicated specialist review of bespoke capital grant applications, Slurry Infrastructure Grants, and Woodland Creation agreements.",
-        icon: Headphones,
-        isAddon: true,
-      },
-    ],
-  },
-  {
     id: "compliance-subsidies",
-    name: "Compliance & Subsidies",
-    shortDesc: "SFI 2024/2025 engine, Red Tractor audits, NVZ risk maps, and RPA parcel sync.",
-    icon: FileText,
+    name: "Subsidies & Compliance",
+    shortDesc: "Defra SFI Scheme engine, Red Tractor audits, NVZ risk maps, and RPA parcel sync.",
+    icon: Landmark,
     features: [
       {
-        title: "UK SFI & Countryside Stewardship Maximiser",
-        description: "Live Defra rules engine. Maps eligible actions (SAM3 Herbal leys, NUM1 Legume fallow, IPM1, HRW1 Hedgerows) to your RPA parcels and calculates maximum annual payments.",
+        title: "SFI Multi-Action Stacking Engine",
+        description: "Identifies compatible Sustainable Farming Incentive actions per parcel, avoiding double-funding penalties.",
         icon: Landmark,
       },
       {
-        title: "SFI Stackability & Clawback Prevention",
-        description: "Prevents double-funding disqualifications by cross-referencing parcel histories and active legacy CS agreements against new SFI options.",
-        icon: ShieldCheck,
-      },
-      {
-        title: "One-Click Red Tractor & Farm Assurance Packs",
-        description: "Compiles all required spray records, livestock medicine sheets, rodent control logs, and grain store clean-down audits into a single PDF.",
+        title: "Red Tractor Audit Preparation Pack",
+        description: "One-click export of chemical store records, staff training certifications, vermin logs, and health plans.",
         icon: FileText,
       },
       {
-        title: "NVZ Risk Mapping & Slurry Closed Periods",
-        description: "Automated calculations for 170kg N/ha holding limits, field N-Max budgets, and alerts during autumn/winter spreading bans.",
+        title: "Nitrate Vulnerable Zone (NVZ) Risk Engine",
+        description: "Calculates N-max limits, slurry storage capacity, closed spreading dates, and field risk map generation.",
         icon: AlertCircle,
       },
       {
-        title: "Waste Exemptions & Environmental Permitting",
-        description: "Tracks U1, D7, and S2 agricultural waste exemption renewals with the Environment Agency.",
-        icon: CheckCircle2,
-      },
-    ],
-  },
-  {
-    id: "machinery-labour",
-    name: "Machinery & Labour",
-    shortDesc: "Fleet maintenance, telematics, contractor booking, and lone worker safety.",
-    icon: Wrench,
-    features: [
-      {
-        title: "Contractor Booking & Silage Scheduling",
-        description: "Coordinates forage harvesting, hedge cutting, and combining contractor availability against weather windows.",
-        icon: Users,
-      },
-      {
-        title: "HSE Farm Safety Briefings & Lone Worker Check-in",
-        description: "Automated SMS lone-worker safety check-ins when working alone in remote fields, plus quick safety induction forms for seasonal staff.",
-        icon: HeartHandshake,
-      },
-      {
-        title: "Fleet & Machinery Telematics Hub",
-        description: "Direct telematics sync with John Deere, Case IH, New Holland, and Fendt for live fuel consumption, engine hours, and fault codes.",
-        icon: Truck,
-        isAddon: true,
-      },
-      {
-        title: "MOT, LOLER & Sprayer Testing Logs (NSTC)",
-        description: "Maintains inspection records for telehandlers, trailers, and mandatory 3-year National Sprayer Testing Scheme certificates.",
-        icon: Wrench,
-        isAddon: true,
-      },
-    ],
-  },
-  {
-    id: "market-sustainability",
-    name: "Market & Sustainability",
-    shortDesc: "LIFFE futures, mart prices, carbon footprinting, and biodiversity metrics.",
-    icon: Leaf,
-    features: [
-      {
-        title: "Defra-Compliant Whole-Farm Carbon Footprint",
-        description: "Calculates baseline emissions per tonne of grain or kg of liveweight to meet supply chain Scope 3 carbon auditing requirements.",
-        icon: Leaf,
-      },
-      {
-        title: "Hedgerow Biomass & BNG Calculator",
-        description: "Estimates hedgerow structure, tree canopy carbon, and Biodiversity Net Gain (BNG) units for potential local authority offset sales.",
+        title: "RPA Digital Land Parcel Data Sync",
+        description: "Imports official SBI parcel boundaries, permanent grassland codes, and hedgerow lengths directly.",
         icon: Layers,
       },
       {
-        title: "Live UK Market Intelligence & Futures Feed",
-        description: "Real-time feed wheat futures (LIFFE/Euronext), AHDB regional livestock deadweight prices, and ex-farm straw indexes.",
+        title: "Grant Application Concierge",
+        description: "Drafts tailored grant application narratives for FETF, slurry infrastructure, and capital items.",
+        icon: Sparkles,
+        isAddon: true,
+      },
+    ],
+  },
+  {
+    id: "financials-markets",
+    name: "Financials & Markets",
+    shortDesc: "Cash flow forecasting, grain futures, live deadweight prices, and machinery tracking.",
+    icon: TrendingUp,
+    features: [
+      {
+        title: "Enterprise Gross Margin Accounting",
+        description: "Track seed, spray, fertiliser, and veterinary costs per hectare or per livestock head against sale revenues.",
+        icon: DollarSign,
+      },
+      {
+        title: "LIFFE Feed Wheat & Oilseed Futures Tracker",
+        description: "Daily UK combinable commodity pricing, forward contract tracking, and historical basis comparisons.",
         icon: TrendingUp,
+      },
+      {
+        title: "AHDB Deadweight Beef & Sheep Pricing",
+        description: "Weekly regional auction mart reports, deadweight abattoir prices, and carcase grading distribution metrics.",
+        icon: Scale,
+      },
+      {
+        title: "Machinery Fleet Telematics & MOT Logs",
+        description: "Tracks engine hours, service intervals, LOLER testing, and fuel consumption across tractors and combines.",
+        icon: Wrench,
         isAddon: true,
       },
       {
-        title: "Priority Accredited Expert Access",
-        description: "Guaranteed 2-hour callback SLA from BASIS agronomists, RCVS farm vets, and rural tax accountants for emergency advice.",
-        icon: Headphones,
-        isAddon: true,
+        title: "Invoice Photo Match & Bookkeeper Export",
+        description: "Snap paper receipts in the farm office; Steward extracts vendor, date, net amount, and VAT breakdown.",
+        icon: Camera,
+      },
+    ],
+  },
+  {
+    id: "human-network",
+    name: "Human Specialist Network",
+    shortDesc: "Direct escalation to accredited British vets, agronomists, accountants, and brokers.",
+    icon: Users,
+    features: [
+      {
+        title: "RCVS Accredited Farm Veterinary Escalation",
+        description: "Direct handoff with holding telemetry dossier for clinical diagnosis and statutory prescription support.",
+        icon: Activity,
+      },
+      {
+        title: "BASIS & FACTS Certified Field Agronomists",
+        description: "In-field inspection booking, weed resistance testing, and independent recommendation reviews.",
+        icon: Wheat,
+      },
+      {
+        title: "Agricultural Tax & Succession Accounting",
+        description: "Capital allowances on agricultural machinery, APR/BPR inheritance review, and partnership structures.",
+        icon: FileText,
+      },
+      {
+        title: "Farm Insurance Broker Policy Audits",
+        description: "Harvest fire coverage, environmental liability limits, and livestock disease indemnity valuations.",
+        icon: ShieldCheck,
+      },
+      {
+        title: "RABI & FCN Rural Wellbeing Confidential Check-ins",
+        description: "Integrated links to Farming Community Network and RABI support hotlines for high-stress harvest and lambing seasons.",
+        icon: HeartHandshake,
       },
     ],
   },
@@ -253,24 +227,25 @@ export function FeaturesClient() {
   const currentCategory = CATEGORIES.find((c) => c.id === activeTab) || CATEGORIES[0];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-obsidian-950 text-parchment-100">
+      
       {/* HEADER */}
-      <section className="pt-28 pb-16 bg-parchment-100 border-b border-parchment-300">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <Badge variant="forest">The Full Steward Platform</Badge>
-          <h1 className="text-4xl sm:text-5xl font-serif font-medium text-forest-900 leading-tight">
-            Comprehensive capabilities, tailored to British fields.
+      <section className="pt-32 pb-16 bg-obsidian-950 bg-tactical-grid border-b border-white/10 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+          <Badge variant="volt" pulse>Platform Subsystems</Badge>
+          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white leading-tight">
+            High-Density Agronomic Matrix. Precision Engineered for the UK.
           </h1>
-          <p className="text-lg text-charcoal-700 leading-relaxed max-w-2xl mx-auto">
-            From daily spray window forecasting to multi-year SFI subsidy planning, explore the full breadth of Steward’s agricultural intelligence suite.
+          <p className="text-base sm:text-lg text-parchment-300 leading-relaxed max-w-2xl mx-auto font-sans">
+            From Met Office spray window forecasting to multi-year SFI subsidy stacking, explore the full architectural breadth of Steward.
           </p>
         </div>
       </section>
 
       {/* TABBED CATEGORY BROWSER */}
-      <Section variant="white" containerSize="lg">
+      <Section variant="grid" containerSize="lg">
         {/* Tab Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 border-b border-parchment-300 pb-4">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 border-b border-white/10 pb-4 font-mono">
           {CATEGORIES.map((cat) => {
             const Icon = cat.icon;
             const isActive = activeTab === cat.id;
@@ -279,13 +254,13 @@ export function FeaturesClient() {
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
                 className={cn(
-                  "flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-forest-700",
+                  "flex items-center space-x-2 px-4 py-2.5 rounded-panel text-xs uppercase tracking-wider transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-volt",
                   isActive
-                    ? "bg-forest-800 text-parchment-50 shadow-warm font-serif font-semibold"
-                    : "bg-parchment-50 text-charcoal-700 hover:bg-parchment-200 border border-parchment-300"
+                    ? "bg-obsidian-900 text-white border border-volt shadow-hud font-bold"
+                    : "bg-obsidian-950 text-parchment-300 border border-white/10 hover:bg-obsidian-900 hover:border-white/30"
                 )}
               >
-                <Icon className={cn("w-4 h-4", isActive ? "text-gold-400" : "text-forest-800")} />
+                <Icon className={cn("w-4 h-4", isActive ? "text-volt" : "text-parchment-400")} />
                 <span>{cat.name}</span>
               </button>
             );
@@ -294,10 +269,10 @@ export function FeaturesClient() {
 
         {/* Active Category Header */}
         <div className="mb-10 text-center max-w-2xl mx-auto space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-forest-900">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
             {currentCategory.name}
           </h2>
-          <p className="text-sm sm:text-base text-charcoal-600">
+          <p className="text-sm sm:text-base text-parchment-300 font-sans">
             {currentCategory.shortDesc}
           </p>
         </div>
@@ -311,29 +286,30 @@ export function FeaturesClient() {
             return (
               <Card
                 key={idx}
-                variant={isHighlight ? "gold-tint" : "linen"}
+                variant={isHighlight ? "hud-gold" : "hud"}
                 hoverEffect
-                className={cn("flex flex-col justify-between relative", isHighlight && "border-2 border-gold-400")}
+                cornerTicks
+                className="flex flex-col justify-between relative space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div
                       className={cn(
-                        "p-2.5 rounded-lg border",
+                        "p-2.5 rounded-tech border",
                         isHighlight
-                          ? "bg-gold-200 text-gold-950 border-gold-400"
-                          : "bg-forest-100 text-forest-900 border-forest-200"
+                          ? "bg-obsidian-950 text-gold-coutts border-gold-coutts/40"
+                          : "bg-obsidian-950 text-volt border-volt/40"
                       )}
                     >
                       <Icon className="w-5 h-5" />
                     </div>
 
                     {feature.isAddon ? (
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-terracotta-800 bg-terracotta-100 border border-terracotta-300 px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] font-mono uppercase font-bold tracking-wider text-gold-coutts bg-gold-coutts/10 border border-gold-coutts/30 px-2 py-0.5 rounded-tech">
                         Add-on
                       </span>
                     ) : (
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-forest-800 bg-forest-100 border border-forest-200 px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] font-mono uppercase font-bold tracking-wider text-volt bg-volt/10 border border-volt/30 px-2 py-0.5 rounded-tech">
                         Core Plan
                       </span>
                     )}
@@ -343,15 +319,15 @@ export function FeaturesClient() {
                     {feature.title}
                   </CardTitle>
 
-                  <CardDescription className="text-xs sm:text-sm text-charcoal-700 leading-relaxed">
+                  <CardDescription className="text-xs text-parchment-300 leading-relaxed font-sans">
                     {feature.description}
                   </CardDescription>
                 </div>
 
                 {isHighlight && (
-                  <div className="mt-4 pt-3 border-t border-gold-300/80 flex items-center justify-between text-xs text-forest-900 font-semibold">
-                    <span>Defra 2024/2025 SFI Handbook Ready</span>
-                    <span className="text-terracotta-700">Auto-Drafting &rarr;</span>
+                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gold-coutts font-semibold">
+                    <span>Defra SFI Scheme Verified</span>
+                    <span className="text-volt">Auto-Drafting &rarr;</span>
                   </div>
                 )}
               </Card>
@@ -360,41 +336,42 @@ export function FeaturesClient() {
         </div>
 
         {/* Subscription vs Add-On Note */}
-        <div className="mt-14 p-6 rounded-xl bg-parchment-50 border border-parchment-300 max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-charcoal-700">
+        <div className="mt-14 p-6 rounded-panel bg-obsidian-900 border border-white/10 max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-parchment-300">
           <div className="space-y-1">
-            <p className="font-serif font-bold text-forest-900 text-sm">
-              Modular UK Subscription Structure
+            <p className="font-bold text-white text-sm uppercase tracking-wider">
+              [MODULAR UK HOLDING ARCHITECTURE]
             </p>
-            <p className="text-charcoal-600">
-              All core advisory, SFI subsidy tracking, and compliance logs are included in your standard plan. Specialised add-on modules (Satellite Imagery, Fleet Telematics, Concierge Grant Service) can be added as needed.
+            <p className="font-sans text-parchment-400">
+              Core agronomy, Met Office radar sync, and Defra SFI tracking are included standard. Premium telemetry add-ons (Satellite, Fleet, Concierge) activate with 1 click.
             </p>
           </div>
-          <Button href="/pricing" variant="outline" size="sm" className="whitespace-nowrap">
-            View Plan Details &rarr;
+          <Button href="/pricing" variant="secondary" size="sm" className="whitespace-nowrap">
+            View Plans &rarr;
           </Button>
         </div>
       </Section>
 
       {/* CALLOUT BANNER */}
-      <section className="py-16 bg-forest-900 text-parchment-100 border-t border-forest-800">
+      <section className="py-20 bg-obsidian-900 text-parchment-100 border-t border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <Badge variant="gold">Ready to explore?</Badge>
-          <h2 className="text-3xl sm:text-4xl font-serif font-medium text-parchment-50">
-            See how these features connect on your own farm.
+          <Badge variant="volt" pulse>Operational Readiness</Badge>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
+            Experience These Subsystems on Your Own Holding.
           </h2>
-          <p className="text-sm sm:text-base text-parchment-200 max-w-xl mx-auto">
-            Take a 30-day free trial. Link your RPA parcels and experience proactive advice tailored to your acreage.
+          <p className="text-sm sm:text-base text-parchment-300 max-w-xl mx-auto font-sans">
+            Initiate your 30-day free trial. Link your RPA parcels and experience proactive advice tailored to your acreage.
           </p>
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-            <Button href="/signup" variant="gold" size="lg">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button href="/signup" variant="volt" size="lg">
               Start 30-Day Free Trial
             </Button>
-            <Button href="/advisors" variant="outline" size="lg" className="border-parchment-300 text-parchment-100 hover:bg-forest-800">
-              Meet Your Advisor
+            <Button href="/advisors" variant="secondary" size="lg">
+              Inspect Advisory Roster
             </Button>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

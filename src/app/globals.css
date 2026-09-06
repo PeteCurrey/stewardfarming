@@ -1,72 +1,153 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-forest: #2C4A3B;
+  --color-obsidian-950: #060907;
+  --color-obsidian-900: #0A0F0D;
+  --color-obsidian-800: #141D19;
+  --color-forest: #1B3B2B;
+  --color-volt: #00E676;
+  --color-coutts-gold: #D4AF37;
   --color-terracotta: #B5651D;
   --color-parchment: #F5F0E6;
   --color-charcoal: #2B2620;
-  --color-gold: #C9A227;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
     color: #2B2620;
-    background-color: #F5F0E6;
+    background-color: #0A0F0D;
   }
 
   body {
-    background-color: #F5F0E6;
-    color: #2B2620;
-    font-family: "Inter", "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #0A0F0D;
+    color: #EAE2D2;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: "Fraunces", "Playfair Display", Georgia, serif;
-    color: #2C4A3B;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
 
   ::selection {
-    background-color: #c2d8cb;
-    color: #122019;
+    background-color: #00E676;
+    color: #060907;
   }
 }
 
-/* Subtle organic paper texture */
-.paper-texture {
-  background-color: #F5F0E6;
-  background-image: radial-gradient(#2C4A3B 0.65px, transparent 0.65px), radial-gradient(#B5651D 0.65px, #F5F0E6 0.65px);
-  background-size: 26px 26px;
-  background-position: 0 0, 13px 13px;
-  background-opacity: 0.04;
+/* 
+========================================================================
+HIGH-PRECISION HUD & COUTTS BANK AESTHETIC UTILITIES
+========================================================================
+*/
+
+/* Tactical Radar Grid Background */
+.bg-tactical-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
-.linen-card {
-  background-color: #FFFFFF;
-  border: 1px solid #E2D7C1;
-  box-shadow: 0 2px 6px rgba(43, 38, 32, 0.04), 0 1px 2px rgba(43, 38, 32, 0.02);
+.bg-tactical-grid-dense {
+  background-size: 16px 16px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 230, 118, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 230, 118, 0.06) 1px, transparent 1px);
 }
 
-.linen-card-dark {
-  background-color: #21382c;
-  border: 1px solid #3a6a53;
-  color: #F5F0E6;
+/* Machine-grade precision panels */
+.hud-panel {
+  background: rgba(14, 22, 19, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
 }
 
-/* Subtle decorative rules for traditional heritage editorial look */
-.editorial-rule {
+.hud-panel-gold {
+  background: rgba(20, 28, 23, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+.hud-panel-volt {
+  background: rgba(14, 26, 20, 0.9);
+  border: 1px solid rgba(0, 230, 118, 0.35);
+  box-shadow: 0 0 20px -4px rgba(0, 230, 118, 0.15), inset 0 1px 0 rgba(0, 230, 118, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+/* Coutts luxury paper light panel */
+.coutts-light-panel {
+  background-color: #FAF7F2;
+  border: 1px solid #DDD0BA;
+  box-shadow: 0 2px 8px -1px rgba(43, 38, 32, 0.06), 0 12px 32px -4px rgba(10, 15, 13, 0.08);
+}
+
+/* High-voltage pulse indicator */
+@keyframes volt-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+    box-shadow: 0 0 0 6px rgba(0, 230, 118, 0);
+  }
+}
+
+.animate-volt-pulse {
+  animation: volt-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Corner bracket HUD markers */
+.corner-ticks {
+  position: relative;
+}
+.corner-ticks::before,
+.corner-ticks::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-color: rgba(0, 230, 118, 0.6);
+  pointer-events: none;
+}
+.corner-ticks::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1.5px solid;
+  border-left: 1.5px solid;
+}
+.corner-ticks::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1.5px solid;
+  border-right: 1.5px solid;
+}
+
+/* Hairline technical rule */
+.hud-rule {
   height: 1px;
-  background: linear-gradient(to right, transparent, #DDD0BA 20%, #DDD0BA 80%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12) 20%, rgba(255, 255, 255, 0.12) 80%, transparent);
 }
 
-.editorial-rule-forest {
+.hud-rule-volt {
   height: 1px;
-  background: linear-gradient(to right, transparent, #3a6a53 20%, #3a6a53 80%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(0, 230, 118, 0.4) 20%, rgba(0, 230, 118, 0.4) 80%, transparent);
+}
+
+.hud-rule-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4) 20%, rgba(212, 175, 55, 0.4) 80%, transparent);
 }
