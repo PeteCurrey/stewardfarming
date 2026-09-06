@@ -51,8 +51,8 @@ export default function HomePage() {
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/80 pointer-events-none" />
 
-        {/* Hero content container */}
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-left space-y-8">
+        {/* Hero content container — matches navbar max-w-7xl + padding for logo alignment */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-left space-y-8">
 
           {/* Clean Corporate Pill */}
           <div className="inline-flex items-center">
