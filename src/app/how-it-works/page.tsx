@@ -11,19 +11,14 @@ import {
   FileText,
   PhoneCall,
   ArrowRight,
-  Sparkles,
   Users,
   Award,
   Lock,
-  Layers,
   Calendar,
   AlertTriangle,
-  HelpCircle,
   Wheat,
   Activity,
-  Zap,
-  Terminal,
-  Cpu,
+  Compass,
 } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
@@ -44,47 +39,23 @@ export const metadata: Metadata = {
 
 export default function HowItWorksPage() {
   return (
-    <div className="flex flex-col bg-obsidian-950 text-obsidian-100 min-h-screen">
+    <div className="flex flex-col bg-white text-slate-900">
       {/* 
         ========================================================================
         HEADER
         ========================================================================
       */}
-      <section className="relative pt-32 pb-20 border-b border-obsidian-800 bg-tactical-grid overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-obsidian-950/80 to-obsidian-950 pointer-events-none" />
-        
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center space-x-2">
-            <Badge variant="volt">[SYS: ARCHITECTURE // OPERATIONAL]</Badge>
-            <span className="text-[11px] font-mono text-obsidian-400 uppercase tracking-wider hidden sm:inline-block">
-              // TELEMETRY REVISION 2026.4
-            </span>
-          </div>
+      <section className="pt-32 pb-16 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+          <Badge variant="forest">System Architecture</Badge>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-normal text-obsidian-50 tracking-tight leading-[1.1]">
-            Engineering the boundary between{" "}
-            <span className="italic text-volt-400 font-sans font-medium">autonomous precision</span>{" "}
-            and fiduciary control.
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-slate-900 tracking-tight leading-tight">
+            How Steward Works Alongside Your Daily Routine.
           </h1>
 
-          <p className="text-base sm:text-lg text-obsidian-300 leading-relaxed max-w-3xl mx-auto">
-            Grounded in traditional British agricultural husbandry, powered by millimetre radar and machine intelligence, and strictly bounded by Coutts-grade fiduciary governance.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            Grounded in traditional British agricultural husbandry, accelerated by machine-grade data integration, and governed by strict human control.
           </p>
-
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-obsidian-400">
-            <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-tech bg-obsidian-900/80 border border-obsidian-800">
-              <span className="w-1.5 h-1.5 rounded-full bg-volt-400 animate-volt-pulse" />
-              RPA OS Parcel Ingestion
-            </span>
-            <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-tech bg-obsidian-900/80 border border-obsidian-800">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
-              Strict Traffic-Light Autonomy
-            </span>
-            <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-tech bg-obsidian-900/80 border border-obsidian-800">
-              <span className="w-1.5 h-1.5 rounded-full bg-volt-400" />
-              BASIS / RCVS In-Loop Triage
-            </span>
-          </div>
         </div>
       </section>
 
@@ -94,47 +65,47 @@ export default function HowItWorksPage() {
         ========================================================================
       */}
       <Section
-        variant="obsidian"
-        badge={<Badge variant="forest">[PHASE 01 // ONBOARDING]</Badge>}
-        title="Holding Initialisation: Operational in 300 Seconds."
-        subtitle="Zero 40-page legacy spreadsheets. Enter your holding fundamentals, and Steward ingests your spatial parcels and calibrates your enterprise profile autonomously."
+        variant="white"
+        badge={<Badge variant="forest">Phase 1: Setup</Badge>}
+        title="1. Holding Setup: Operational in Under Five Minutes."
+        subtitle="No 40-page spreadsheets. Enter your holding fundamentals, and Steward ingests your field boundaries and calibrates your enterprise profile automatically."
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6 space-y-5 text-obsidian-300 text-sm sm:text-base leading-relaxed">
+          <div className="lg:col-span-6 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
             <p>
-              Legacy farm management systems require weeks of tedious manual entry before generating their first insight. Steward bypasses the friction through spatial government data integration.
+              Legacy farm management systems demand weeks of manual data entry before generating their first insight. Steward connects directly with statutory data sources.
             </p>
             <p>
-              By providing your Single Business Identifier (SBI) or postcode, Steward pulls your holding boundaries, soil survey classifications, and catchment NVZ regulations directly from the Rural Payments Agency registry.
+              By providing your Single Business Identifier (SBI) or postcode, Steward pulls your holding boundaries, soil classifications, and catchment NVZ regulations directly from the Rural Payments Agency registry.
             </p>
             
             <div className="space-y-3 pt-2">
-              <div className="flex items-start space-x-3 p-3 rounded-tech bg-obsidian-900/60 border border-obsidian-800">
-                <CheckCircle2 className="w-5 h-5 text-volt-400 mt-0.5 flex-shrink-0" />
+              <div className="flex items-start space-x-3 p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
                 <div className="text-xs sm:text-sm">
-                  <strong className="text-obsidian-100 font-mono">Automated Ordnance Survey Parcel Ingestion:</strong>
-                  <p className="text-obsidian-400 mt-0.5">
+                  <strong className="text-slate-900 font-medium">Automatic RPA Parcel Boundary Import:</strong>
+                  <p className="text-slate-600 mt-0.5">
                     Instantly overlays parcel IDs, hectarage, and slope topology without manual digitization.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-3 p-3 rounded-tech bg-obsidian-900/60 border border-obsidian-800">
-                <CheckCircle2 className="w-5 h-5 text-volt-400 mt-0.5 flex-shrink-0" />
+              <div className="flex items-start space-x-3 p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
                 <div className="text-xs sm:text-sm">
-                  <strong className="text-obsidian-100 font-mono">Context-Aware Micro-Interviews:</strong>
-                  <p className="text-obsidian-400 mt-0.5">
-                    Rather than demand complete 5-year rotation records on day one, Steward queries 1–2 crucial points as seasonal operational windows open.
+                  <strong className="text-slate-900 font-medium">Context-Aware Progressive Learning:</strong>
+                  <p className="text-slate-600 mt-0.5">
+                    Rather than demand complete 5-year history on day one, Steward queries 1–2 key points as seasonal operational windows open.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-3 p-3 rounded-tech bg-obsidian-900/60 border border-obsidian-800">
-                <CheckCircle2 className="w-5 h-5 text-volt-400 mt-0.5 flex-shrink-0" />
+              <div className="flex items-start space-x-3 p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
                 <div className="text-xs sm:text-sm">
-                  <strong className="text-obsidian-100 font-mono">Dedicated Advisor Assignment:</strong>
-                  <p className="text-obsidian-400 mt-0.5">
-                    Matches your holding immediately with Tom (Arable), Fiona (Livestock), Alistair (Mixed), or Eleanor (Dairy).
+                  <strong className="text-slate-900 font-medium">Dedicated Advisor Matching:</strong>
+                  <p className="text-slate-600 mt-0.5">
+                    Pairs your enterprise immediately with Tom (Arable), Fiona (Livestock), Alistair (Mixed), or Eleanor (Dairy).
                   </p>
                 </div>
               </div>
@@ -142,45 +113,42 @@ export default function HowItWorksPage() {
           </div>
 
           <div className="lg:col-span-6">
-            <div className="hud-panel p-6 space-y-4 relative border border-obsidian-700 bg-obsidian-900/90 shadow-hud">
-              <div className="flex items-center justify-between border-b border-obsidian-800 pb-3">
-                <div className="flex items-center space-x-2">
-                  <Terminal className="w-4 h-4 text-volt-400" />
-                  <span className="font-mono text-xs uppercase tracking-wider text-obsidian-200">
-                    HOLDING_INIT // TELEMETRY_PROFILE
-                  </span>
-                </div>
-                <Badge variant="volt" size="sm">INIT: 4.8m</Badge>
+            <div className="p-6 rounded-xl border border-slate-200 bg-slate-50 space-y-4 shadow-sm">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                <span className="font-semibold text-sm text-slate-900">
+                  Sample Holding Summary
+                </span>
+                <Badge variant="forest" size="sm">Setup: 5 Mins</Badge>
               </div>
 
-              <div className="space-y-2.5 font-mono text-xs">
-                <div className="flex justify-between items-center p-2.5 rounded-tech bg-obsidian-950/80 border border-obsidian-800">
-                  <span className="text-obsidian-400">ENTERPRISE_CLASS:</span>
-                  <span className="text-volt-300 font-semibold">MIXED (ARABLE &amp; FLOCK)</span>
+              <div className="space-y-2 text-xs">
+                <div className="flex justify-between items-center p-2.5 rounded bg-white border border-slate-200">
+                  <span className="text-slate-500">Enterprise Class:</span>
+                  <span className="text-slate-900 font-semibold">Mixed (Arable &amp; Sheep)</span>
                 </div>
-                <div className="flex justify-between items-center p-2.5 rounded-tech bg-obsidian-950/80 border border-obsidian-800">
-                  <span className="text-obsidian-400">PARISH_COORD:</span>
-                  <span className="text-obsidian-200">54.232° N, 1.341° W (THIRSK)</span>
+                <div className="flex justify-between items-center p-2.5 rounded bg-white border border-slate-200">
+                  <span className="text-slate-500">Location:</span>
+                  <span className="text-slate-900">North Yorkshire (Thirsk)</span>
                 </div>
-                <div className="flex justify-between items-center p-2.5 rounded-tech bg-obsidian-950/80 border border-obsidian-800">
-                  <span className="text-obsidian-400">HOLDING_EXTENT:</span>
-                  <span className="text-obsidian-200">420.4 HA // 18 RPA PARCELS</span>
+                <div className="flex justify-between items-center p-2.5 rounded bg-white border border-slate-200">
+                  <span className="text-slate-500">Holding Size:</span>
+                  <span className="text-slate-900">420.4 ha (18 RPA Parcels)</span>
                 </div>
-                <div className="flex justify-between items-center p-2.5 rounded-tech bg-obsidian-950/80 border border-obsidian-800">
-                  <span className="text-obsidian-400">RADAR_BEACON:</span>
-                  <span className="text-volt-400">MET OFFICE LEEMING (1.1KM GRID)</span>
+                <div className="flex justify-between items-center p-2.5 rounded bg-white border border-slate-200">
+                  <span className="text-slate-500">Weather Station:</span>
+                  <span className="text-emerald-700 font-medium">Met Office Leeming (1.1km Grid)</span>
                 </div>
-                <div className="flex justify-between items-center p-2.5 rounded-tech bg-obsidian-950/80 border border-gold-500/30">
-                  <span className="text-gold-400">SPECIALIST_CORE:</span>
-                  <span className="text-gold-300 font-semibold">ALISTAIR REID [AG-03]</span>
+                <div className="flex justify-between items-center p-2.5 rounded bg-white border border-amber-200 bg-amber-50/40">
+                  <span className="text-amber-900 font-medium">Assigned Advisor:</span>
+                  <span className="text-amber-900 font-semibold">Alistair Reid (Mixed Specialist)</span>
                 </div>
               </div>
 
-              <div className="pt-2 text-[11px] font-mono text-obsidian-400 border-t border-obsidian-800 flex items-center justify-between">
-                <span>[SYNC: RPA SOVEREIGN LINK]</span>
-                <span className="text-volt-400 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-volt-400 animate-volt-pulse" />
-                  LIVE
+              <div className="pt-2 text-xs text-slate-500 border-t border-slate-200 flex items-center justify-between">
+                <span>RPA Ordnance Survey Synced</span>
+                <span className="text-emerald-700 font-medium flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+                  Active
                 </span>
               </div>
             </div>
@@ -194,78 +162,76 @@ export default function HowItWorksPage() {
         ========================================================================
       */}
       <Section
-        variant="grid"
-        badge={<Badge variant="gold">[PHASE 02 // PROACTIVE SURVEILLANCE]</Badge>}
-        title="Continuous Radar &amp; Telemetry Surveillance"
-        subtitle="You shouldn't have to navigate five fragmented apps before sunrise. Steward correlates multi-spectral radar, regulatory calendars, and market feeds continuously."
+        variant="parchment"
+        badge={<Badge variant="forest">Phase 2: Proactive Monitoring</Badge>}
+        title="2. Continuous Weather &amp; Regulatory Surveillance"
+        subtitle="You shouldn't have to check five separate apps before breakfast. Steward continuously correlates weather radars, regulatory calendars, and crop growth."
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card variant="hud" hoverEffect>
-            <div className="p-2.5 rounded-tech bg-volt-500/10 text-volt-400 border border-volt-500/30 w-fit mb-3">
+          <Card className="space-y-2 hover:shadow-md transition-shadow">
+            <div className="p-2 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-100 w-fit mb-2">
               <CloudRain className="w-5 h-5" />
             </div>
-            <CardTitle className="text-base font-serif text-obsidian-100">1.1km Weather Radar</CardTitle>
-            <CardDescription className="text-xs text-obsidian-300">
-              Correlates ground moisture deficit, wind shear at boom height, and surface temp to calculate ultra-precise 4-hour chemical application windows.
+            <CardTitle className="text-base font-serif">1.1km Weather Radar</CardTitle>
+            <CardDescription className="text-xs">
+              Correlates ground moisture deficit, wind speed at boom height, and surface temp to calculate precise 4-hour chemical application windows.
             </CardDescription>
           </Card>
 
-          <Card variant="hud" hoverEffect>
-            <div className="p-2.5 rounded-tech bg-gold-500/10 text-gold-400 border border-gold-500/30 w-fit mb-3">
+          <Card className="space-y-2 hover:shadow-md transition-shadow">
+            <div className="p-2 rounded-lg bg-amber-50 text-amber-800 border border-amber-100 w-fit mb-2">
               <Calendar className="w-5 h-5" />
             </div>
-            <CardTitle className="text-base font-serif text-obsidian-100">Statutory Chronometers</CardTitle>
-            <CardDescription className="text-xs text-obsidian-300">
-              Calculates NVZ closed spreading periods, SFI multi-year agreement anniversary filings, BCMS movement deadlines, and Red Tractor renewals.
+            <CardTitle className="text-base font-serif">Statutory Deadlines</CardTitle>
+            <CardDescription className="text-xs">
+              Calculates NVZ closed spreading dates, SFI agreement anniversary filings, BCMS cattle movement deadlines, and Red Tractor renewals.
             </CardDescription>
           </Card>
 
-          <Card variant="hud" hoverEffect>
-            <div className="p-2.5 rounded-tech bg-volt-500/10 text-volt-400 border border-volt-500/30 w-fit mb-3">
+          <Card className="space-y-2 hover:shadow-md transition-shadow">
+            <div className="p-2 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-100 w-fit mb-2">
               <Wheat className="w-5 h-5" />
             </div>
-            <CardTitle className="text-base font-serif text-obsidian-100">Sentinel-2 NDVI Telemetry</CardTitle>
-            <CardDescription className="text-xs text-obsidian-300">
-              Evaluates 5-day multi-spectral biomass decline, canopy nitrogen uptake curves, somatically elevated herd risks, and silage clamp D-values.
+            <CardTitle className="text-base font-serif">Sentinel-2 NDVI</CardTitle>
+            <CardDescription className="text-xs">
+              Evaluates multi-spectral biomass decline, canopy nitrogen uptake curves, somatically elevated herd risks, and silage clamp D-values.
             </CardDescription>
           </Card>
 
-          <Card variant="hud" hoverEffect>
-            <div className="p-2.5 rounded-tech bg-gold-500/10 text-gold-400 border border-gold-500/30 w-fit mb-3">
+          <Card className="space-y-2 hover:shadow-md transition-shadow">
+            <div className="p-2 rounded-lg bg-amber-50 text-amber-800 border border-amber-100 w-fit mb-2">
               <TrendingUp className="w-5 h-5" />
             </div>
-            <CardTitle className="text-base font-serif text-obsidian-100">Commodity Matrix</CardTitle>
-            <CardDescription className="text-xs text-obsidian-300">
-              Pushes immediate alerts when ICE/LIFFE feed wheat futures breach your calculated break-even margins or regional deadweight lamb bids peak.
+            <CardTitle className="text-base font-serif">Commodity Markets</CardTitle>
+            <CardDescription className="text-xs">
+              Alerts you when LIFFE feed wheat futures breach your calculated cost-of-production break-even margins or regional livestock mart prices peak.
             </CardDescription>
           </Card>
         </div>
 
         {/* Morning Field Briefing Mockup */}
-        <div className="mt-12 hud-panel p-6 sm:p-8 max-w-3xl mx-auto space-y-4 border border-obsidian-700 bg-obsidian-900/90 shadow-hud">
-          <div className="flex items-center justify-between border-b border-obsidian-800 pb-3">
+        <div className="mt-12 p-6 sm:p-8 rounded-xl border border-slate-200 bg-white shadow-sm max-w-3xl mx-auto space-y-3">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
             <div className="flex items-center space-x-2">
-              <Cpu className="w-4 h-4 text-volt-400" />
-              <span className="font-mono font-bold text-xs text-obsidian-200 uppercase tracking-wider">
-                TACTICAL_DISPATCH // 06:30 MORNING BRIEFING
+              <span className="font-semibold text-xs uppercase tracking-wider text-slate-800">
+                Sample Morning Briefing (SMS / Push)
               </span>
             </div>
-            <span className="text-[11px] font-mono text-volt-400 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-volt-400 animate-volt-pulse" />
-              SMS / ENCRYPTED APN
+            <span className="text-xs text-slate-500 font-medium">
+              Today 06:30 GMT
             </span>
           </div>
           
-          <div className="font-mono text-xs sm:text-sm text-obsidian-200 leading-relaxed bg-obsidian-950 p-4 rounded-tech border border-obsidian-800">
-            <span className="text-volt-400 font-bold">[ALISTAIR REID // 06:30 GMT]</span>
+          <div className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <span className="text-slate-900 font-semibold">Alistair Reid:</span>
             <br />
             &quot;Morning Peter. Three items for today:
             <br />
-            <span className="text-obsidian-300">1) Spray Window:</span> Lower 30ha opens at 14:00 (wind shear drops below 5mph; ground temp stable at 9.4°C).
+            1) <strong>Spray Window:</strong> Lower 30ha opens at 14:00 (wind drops below 6mph; surface temp 9.4°C).
             <br />
-            <span className="text-obsidian-300">2) SFI SAM3:</span> Herbal ley seed delivery confirmed for tomorrow 09:00; parcel evidence log pre-filled.
+            2) <strong>SFI SAM3:</strong> Herbal ley seed delivery confirmed for tomorrow 09:00; parcel evidence log pre-filled.
             <br />
-            <span className="text-obsidian-300">3) Livestock:</span> Deadweight lamb at York Mart climbed 18p/kg yesterday; recommend drafting Pen 2 for Tuesday auction.&quot;
+            3) <strong>Livestock:</strong> Deadweight lamb at York Mart climbed 18p/kg yesterday; recommend drafting Pen 2 for Tuesday.&quot;
           </div>
         </div>
       </Section>
@@ -276,145 +242,133 @@ export default function HowItWorksPage() {
         ========================================================================
       */}
       <Section
-        variant="obsidian"
-        badge={<Badge variant="volt">[PHASE 03 // TRAFFIC-LIGHT AUTONOMY]</Badge>}
-        title="Honest Autonomy: What Steward Executes vs. What You Sign Off"
-        subtitle="No hallucinated actions. A strict, legally-bounded framework engineered with machine-grade discipline and Coutts-level risk governance."
+        variant="white"
+        badge={<Badge variant="forest">Phase 3: Autonomy Framework</Badge>}
+        title="3. Traffic-Light Autonomy: What Steward Does vs. What You Sign Off"
+        subtitle="A clear, legally bounded framework. Steward automates background record keeping, but never spends money or files official documents without your approval."
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
           {/* GREEN TIER */}
-          <div className="hud-panel p-6 space-y-4 border border-volt-500/30 bg-obsidian-900/90 shadow-hud flex flex-col justify-between">
+          <div className="p-6 rounded-xl border border-emerald-200 bg-emerald-50/40 space-y-4 flex flex-col justify-between">
             <div className="space-y-3">
-              <div className="flex items-center justify-between border-b border-obsidian-800 pb-2">
-                <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-volt-400 animate-volt-pulse shadow-[0_0_8px_#00E676]" />
-                  <span className="font-mono font-bold text-sm text-volt-400">TIER 01: GREEN</span>
-                </div>
-                <Badge variant="volt" size="sm">AUTONOMOUS</Badge>
+              <div className="flex items-center justify-between border-b border-emerald-200 pb-2">
+                <span className="font-bold text-sm text-emerald-800">Green Tier</span>
+                <Badge variant="forest" size="sm">Automated</Badge>
               </div>
 
-              <h3 className="font-serif font-medium text-obsidian-100 text-lg">
-                Continuous Telemetry Sync
+              <h3 className="font-serif font-medium text-slate-900 text-lg">
+                Continuous Background Sync
               </h3>
               
-              <p className="text-xs text-obsidian-300 leading-relaxed font-mono">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Low-risk sensory feeds and passive computational tasks executed automatically without distracting the farmer:
               </p>
 
-              <ul className="space-y-2 text-xs text-obsidian-300 pt-2 border-t border-obsidian-800 font-mono">
+              <ul className="space-y-2 text-xs text-slate-700 pt-2 border-t border-emerald-200/80">
                 <li className="flex items-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-volt-400 mr-2 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />
                   Hourly 1.1km Met Office radar sync
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-volt-400 mr-2 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />
                   Machinery service countdown logging
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-volt-400 mr-2 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />
                   Veterinary medicine withdrawal countdowns
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-volt-400 mr-2 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mr-2 mt-0.5 flex-shrink-0" />
                   Defra SFI payment rate indexation
                 </li>
               </ul>
             </div>
 
-            <div className="pt-4 border-t border-obsidian-800 text-[11px] font-mono text-volt-400 flex items-center justify-between">
-              <span>[EXECUTION: ZERO FRICTION]</span>
-              <span>100% PASSIVE</span>
+            <div className="pt-3 border-t border-emerald-200 text-xs text-emerald-800 font-medium">
+              ✓ 100% passive, zero manual friction
             </div>
           </div>
 
           {/* AMBER TIER */}
-          <div className="hud-panel p-6 space-y-4 border border-gold-500/40 bg-obsidian-900/90 shadow-hud flex flex-col justify-between">
+          <div className="p-6 rounded-xl border border-amber-200 bg-amber-50/40 space-y-4 flex flex-col justify-between">
             <div className="space-y-3">
-              <div className="flex items-center justify-between border-b border-obsidian-800 pb-2">
-                <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-gold-400 shadow-[0_0_8px_#D4AF37]" />
-                  <span className="font-mono font-bold text-sm text-gold-400">TIER 02: AMBER</span>
-                </div>
-                <Badge variant="gold" size="sm">SUPERVISED</Badge>
+              <div className="flex items-center justify-between border-b border-amber-200 pb-2">
+                <span className="font-bold text-sm text-amber-900">Amber Tier</span>
+                <Badge variant="gold" size="sm">Supervised</Badge>
               </div>
 
-              <h3 className="font-serif font-medium text-obsidian-100 text-lg">
+              <h3 className="font-serif font-medium text-slate-900 text-lg">
                 Steward Drafts, You Sign Off
               </h3>
 
-              <p className="text-xs text-obsidian-300 leading-relaxed font-mono">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Steward pre-compiles full compliance dossiers and field calculations, presenting a 1-tap review dialog:
               </p>
 
-              <ul className="space-y-2 text-xs text-obsidian-300 pt-2 border-t border-obsidian-800 font-mono">
+              <ul className="space-y-2 text-xs text-slate-700 pt-2 border-t border-amber-200/80">
                 <li className="flex items-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-gold-400 mr-2 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-700 mr-2 mt-0.5 flex-shrink-0" />
                   SFI &amp; CS scheme application drafts
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-gold-400 mr-2 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-700 mr-2 mt-0.5 flex-shrink-0" />
                   Field spray logs &amp; NVZ fertiliser budgets
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-gold-400 mr-2 mt-0.5 flex-shrink-0" />
-                  Contractor dispatch notifications
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-700 mr-2 mt-0.5 flex-shrink-0" />
+                  Contractor dispatch briefings
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-gold-400 mr-2 mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-700 mr-2 mt-0.5 flex-shrink-0" />
                   Herd ration &amp; mineral adjustments
                 </li>
               </ul>
             </div>
 
-            <div className="pt-4 border-t border-obsidian-800 text-[11px] font-mono text-gold-400 flex items-center justify-between">
-              <span>[GATEWAY: EXPLICIT CONFIRM]</span>
-              <span>1-TAP APPROVAL</span>
+            <div className="pt-3 border-t border-amber-200 text-xs text-amber-900 font-medium">
+              ⚠️ Nothing submitted without 1-tap review
             </div>
           </div>
 
           {/* RED TIER */}
-          <div className="hud-panel p-6 space-y-4 border border-rose-500/40 bg-obsidian-900/90 shadow-hud flex flex-col justify-between">
+          <div className="p-6 rounded-xl border border-rose-200 bg-rose-50/40 space-y-4 flex flex-col justify-between">
             <div className="space-y-3">
-              <div className="flex items-center justify-between border-b border-obsidian-800 pb-2">
-                <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-[0_0_8px_#F43F5E]" />
-                  <span className="font-mono font-bold text-sm text-rose-400">TIER 03: RED</span>
-                </div>
-                <Badge variant="outline" size="sm" className="border-rose-500 text-rose-400">LOCKED</Badge>
+              <div className="flex items-center justify-between border-b border-rose-200 pb-2">
+                <span className="font-bold text-sm text-rose-900">Red Tier</span>
+                <Badge variant="terracotta" size="sm">Restricted</Badge>
               </div>
 
-              <h3 className="font-serif font-medium text-obsidian-100 text-lg">
+              <h3 className="font-serif font-medium text-slate-900 text-lg">
                 Strictly Non-Autonomous
               </h3>
 
-              <p className="text-xs text-obsidian-300 leading-relaxed font-mono">
-                High-stakes financial and legal transactions that Steward is hardcoded <strong>never to execute</strong> automatically:
+              <p className="text-xs text-slate-600 leading-relaxed">
+                High-stakes financial and statutory transactions that Steward will <strong>never execute</strong> automatically:
               </p>
 
-              <ul className="space-y-2 text-xs text-obsidian-300 pt-2 border-t border-obsidian-800 font-mono">
+              <ul className="space-y-2 text-xs text-slate-700 pt-2 border-t border-rose-200/80">
                 <li className="flex items-start">
-                  <AlertTriangle className="w-3.5 h-3.5 text-rose-400 mr-2 mt-0.5 flex-shrink-0" />
+                  <AlertTriangle className="w-3.5 h-3.5 text-rose-600 mr-2 mt-0.5 flex-shrink-0" />
                   Direct legal filings to Defra, RPA or HMRC
                 </li>
                 <li className="flex items-start">
-                  <AlertTriangle className="w-3.5 h-3.5 text-rose-400 mr-2 mt-0.5 flex-shrink-0" />
-                  Direct fund transfers or chemical purchase orders
+                  <AlertTriangle className="w-3.5 h-3.5 text-rose-600 mr-2 mt-0.5 flex-shrink-0" />
+                  Direct fund transfers or purchase orders
                 </li>
                 <li className="flex items-start">
-                  <AlertTriangle className="w-3.5 h-3.5 text-rose-400 mr-2 mt-0.5 flex-shrink-0" />
-                  Grain forward contracts or tenancy signatures
+                  <AlertTriangle className="w-3.5 h-3.5 text-rose-600 mr-2 mt-0.5 flex-shrink-0" />
+                  Grain forward contracts or tenancy agreements
                 </li>
                 <li className="flex items-start">
-                  <AlertTriangle className="w-3.5 h-3.5 text-rose-400 mr-2 mt-0.5 flex-shrink-0" />
+                  <AlertTriangle className="w-3.5 h-3.5 text-rose-600 mr-2 mt-0.5 flex-shrink-0" />
                   Autonomous veterinary diagnostic prescriptions
                 </li>
               </ul>
             </div>
 
-            <div className="pt-4 border-t border-obsidian-800 text-[11px] font-mono text-rose-400 flex items-center justify-between">
-              <span>[FIDUCIARY HARD LOCK]</span>
-              <span>100% FARMER CONTROL</span>
+            <div className="pt-3 border-t border-rose-200 text-xs text-rose-800 font-medium">
+              🛑 100% farmer control guaranteed
             </div>
           </div>
 
@@ -427,66 +381,63 @@ export default function HowItWorksPage() {
         ========================================================================
       */}
       <Section
-        variant="grid"
-        badge={<Badge variant="gold">[PHASE 04 // SPECIALIST ESCALATION]</Badge>}
-        title="Accredited UK Human Specialist Escalation"
-        subtitle="AI has clinical limits. When complex veterinary pathologies, statutory appeals, or high-value tenancy restructuring arise, verified UK professionals are one tap away."
+        variant="parchment"
+        badge={<Badge variant="forest">Phase 4: Accredited Human Specialists</Badge>}
+        title="4. Seamless Specialist Escalation"
+        subtitle="AI has clear boundaries. When complex veterinary pathologies, statutory tax appeals, or tenancy restructuring arise, verified UK specialists are one tap away."
       >
-        <div className="max-w-5xl mx-auto space-y-12">
+        <div className="max-w-5xl mx-auto space-y-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-            <div className="hud-panel p-6 space-y-2 border border-obsidian-700 bg-obsidian-900/80">
-              <Award className="w-8 h-8 text-gold-400 mx-auto" />
-              <h3 className="font-serif font-medium text-obsidian-100 text-base">RCVS Farm Vets</h3>
-              <p className="text-xs text-obsidian-400 font-mono">Complex herd pathologies, disease outbreaks &amp; biosecurity plans.</p>
+            <div className="p-6 rounded-xl border border-slate-200 bg-white space-y-2 shadow-sm">
+              <Award className="w-8 h-8 text-forest-800 mx-auto" />
+              <h3 className="font-serif font-medium text-slate-900 text-base">RCVS Farm Vets</h3>
+              <p className="text-xs text-slate-600">Herd pathology, disease outbreak triage &amp; export certs.</p>
             </div>
 
-            <div className="hud-panel p-6 space-y-2 border border-obsidian-700 bg-obsidian-900/80">
-              <Wheat className="w-8 h-8 text-volt-400 mx-auto" />
-              <h3 className="font-serif font-medium text-obsidian-100 text-base">BASIS Agronomists</h3>
-              <p className="text-xs text-obsidian-400 font-mono">Herbicide resistance, rare fungal disease &amp; nitrogen audits.</p>
+            <div className="p-6 rounded-xl border border-slate-200 bg-white space-y-2 shadow-sm">
+              <Wheat className="w-8 h-8 text-forest-800 mx-auto" />
+              <h3 className="font-serif font-medium text-slate-900 text-base">BASIS Agronomists</h3>
+              <p className="text-xs text-slate-600">Herbicide resistance, rare fungal disease &amp; nutrient budgets.</p>
             </div>
 
-            <div className="hud-panel p-6 space-y-2 border border-obsidian-700 bg-obsidian-900/80">
-              <ShieldCheck className="w-8 h-8 text-gold-400 mx-auto" />
-              <h3 className="font-serif font-medium text-obsidian-100 text-base">ICAEW Accountants</h3>
-              <p className="text-xs text-obsidian-400 font-mono">Agricultural Property Relief (APR), machinery tax &amp; restructuring.</p>
+            <div className="p-6 rounded-xl border border-slate-200 bg-white space-y-2 shadow-sm">
+              <ShieldCheck className="w-8 h-8 text-forest-800 mx-auto" />
+              <h3 className="font-serif font-medium text-slate-900 text-base">ICAEW Accountants</h3>
+              <p className="text-xs text-slate-600">Agricultural Property Relief (APR), machinery tax &amp; succession.</p>
             </div>
 
-            <div className="hud-panel p-6 space-y-2 border border-obsidian-700 bg-obsidian-900/80">
-              <Users className="w-8 h-8 text-volt-400 mx-auto" />
-              <h3 className="font-serif font-medium text-obsidian-100 text-base">CAAV Surveyors</h3>
-              <p className="text-xs text-obsidian-400 font-mono">RPA dispute mitigation, tenancy agreements &amp; environmental covenants.</p>
+            <div className="p-6 rounded-xl border border-slate-200 bg-white space-y-2 shadow-sm">
+              <Users className="w-8 h-8 text-forest-800 mx-auto" />
+              <h3 className="font-serif font-medium text-slate-900 text-base">CAAV Surveyors</h3>
+              <p className="text-xs text-slate-600">Tenancy renewals, easements &amp; RPA spatial boundary disputes.</p>
             </div>
           </div>
 
           {/* Flow Visual */}
-          <div className="hud-panel p-8 space-y-6 border border-obsidian-700 bg-obsidian-900/90 shadow-hud">
-            <h3 className="text-xl font-serif font-normal text-obsidian-100 text-center tracking-tight">
+          <div className="p-8 rounded-xl border border-slate-200 bg-white shadow-sm space-y-6">
+            <h3 className="text-xl font-serif font-medium text-slate-900 text-center">
               Pre-Packaged Specialist Escalation Flow
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-obsidian-300">
-              <div className="space-y-2 p-4 rounded-tech bg-obsidian-950/80 border border-obsidian-800">
-                <div className="font-mono text-xs text-volt-400 font-semibold uppercase">[STEP 01 // DISPATCH]</div>
-                <span className="font-serif font-medium text-obsidian-100 text-sm">One-Tap In-App Triage</span>
-                <p className="text-xs leading-relaxed text-obsidian-400">
-                  Tap &quot;Escalate to Agronomist&quot; or &quot;Escalate to Vet&quot; directly from any field record, spray sheet, or diagnostic screen.
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-600">
+              <div className="space-y-2 p-4 rounded-lg bg-slate-50 border border-slate-200">
+                <span className="font-medium text-slate-900 text-sm block">Step 1: One-Tap In-App Request</span>
+                <p className="text-xs leading-relaxed">
+                  Tap &quot;Ask an Agronomist&quot; or &quot;Ask a Vet&quot; from any field record, spray sheet, or health log.
                 </p>
               </div>
 
-              <div className="space-y-2 p-4 rounded-tech bg-obsidian-950/80 border border-obsidian-800">
-                <div className="font-mono text-xs text-gold-400 font-semibold uppercase">[STEP 02 // DOSSIER]</div>
-                <span className="font-serif font-medium text-obsidian-100 text-sm">Context Pre-Packaging</span>
-                <p className="text-xs leading-relaxed text-obsidian-400">
-                  Steward automatically packages relevant soil tests, historical chemical applications, and NDVI imagery so the specialist starts with complete clarity.
+              <div className="space-y-2 p-4 rounded-lg bg-slate-50 border border-slate-200">
+                <span className="font-medium text-slate-900 text-sm block">Step 2: Context Pre-Packaged</span>
+                <p className="text-xs leading-relaxed">
+                  Steward compiles relevant soil tests, historical chemical applications, and NDVI imagery so the specialist starts with complete clarity.
                 </p>
               </div>
 
-              <div className="space-y-2 p-4 rounded-tech bg-obsidian-950/80 border border-obsidian-800">
-                <div className="font-mono text-xs text-volt-400 font-semibold uppercase">[STEP 03 // RESOLUTION]</div>
-                <span className="font-serif font-medium text-obsidian-100 text-sm">Direct Professional Callback</span>
-                <p className="text-xs leading-relaxed text-obsidian-400">
-                  An accredited UK specialist contacts you directly via secure call or written advisory note, directly bound to your holding records.
+              <div className="space-y-2 p-4 rounded-lg bg-slate-50 border border-slate-200">
+                <span className="font-medium text-slate-900 text-sm block">Step 3: Direct Specialist Callback</span>
+                <p className="text-xs leading-relaxed">
+                  An accredited UK specialist responds directly via call or written advisory note, directly linked to your holding records.
                 </p>
               </div>
             </div>
@@ -499,20 +450,20 @@ export default function HowItWorksPage() {
         FINAL CTA
         ========================================================================
       */}
-      <section className="py-24 bg-obsidian-950 text-obsidian-100 border-t border-obsidian-800 text-center relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
-          <Badge variant="volt">[DEPLOYMENT READY]</Badge>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-normal text-obsidian-50 tracking-tight">
-            Deploy machine precision to your holding today.
+      <section className="py-20 bg-forest-900 text-white text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <Badge variant="gold">Get Started</Badge>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-white">
+            Put Steward to Work on Your Holding.
           </h2>
-          <p className="text-base sm:text-lg text-obsidian-300 max-w-xl mx-auto font-mono text-sm">
-            Experience complete agricultural intelligence risk-free for 30 days. No long-term lock-in, zero external hardware required.
+          <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto">
+            Experience complete agricultural intelligence risk-free for 30 days. No long-term lock-in, zero hardware installation.
           </p>
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/signup" variant="volt" size="lg">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button href="/signup" variant="white" size="lg">
               Start 30-Day Free Trial
             </Button>
-            <Button href="/advisors" variant="outline" size="lg" className="border-obsidian-700 text-obsidian-200 hover:bg-obsidian-900">
+            <Button href="/advisors" variant="outline" size="lg" className="text-white border-white/30 hover:bg-white/10">
               Meet Your Advisor
             </Button>
           </div>

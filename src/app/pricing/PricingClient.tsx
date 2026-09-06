@@ -4,23 +4,16 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {
   CheckCircle2,
-  HelpCircle,
   ShieldCheck,
-  Sparkles,
   ArrowRight,
-  Plus,
   Check,
-  Info,
   Truck,
   Camera,
   Headphones,
   Leaf,
   TrendingUp,
-  Award,
-  Lock,
   ChevronDown,
   ChevronUp,
-  Cpu,
   Landmark,
 } from "lucide-react";
 import { Section } from "@/components/ui/Section";
@@ -39,16 +32,16 @@ interface AddonItem {
 }
 
 const BASE_PLAN = {
-  name: "Steward Core Command",
-  tagline: "The complete autonomous agronomy core for your holding.",
+  name: "Steward Core Holding",
+  tagline: "The complete agricultural intelligence core for your farm holding.",
   monthlyPrice: 79,
   features: [
-    "Full AI advisor access across all 4 domains (Arable, Livestock, Mixed, Dairy)",
+    "Full advisor access across all 4 domains (Arable, Livestock, Mixed, Dairy)",
     "Met Office 1.1km spot radar telemetry & low-drift spray window calculations",
-    "Low-risk task automation & pre-populated chemical/medicine logs",
-    "Defra SFI Scheme deadline & multi-action parcel stacking solver",
-    "RPA parcel boundary synchronization & soil series mapping",
-    "One-tap routing to accredited RCVS farm vets, BASIS agronomists & accountants",
+    "Low-risk task automation & pre-populated chemical and veterinary logs",
+    "Defra SFI Scheme deadline tracking & multi-action parcel stacking solver",
+    "RPA parcel boundary synchronization & soil series classification",
+    "One-tap escalation to accredited RCVS vets, BASIS agronomists & accountants",
     "Unlimited user seats for farm partners, managers, and family members",
     "100% sovereign UK agricultural data protection & zero lock-in contract",
   ],
@@ -103,7 +96,7 @@ const ADDONS: AddonItem[] = [
   {
     id: "priority_expert",
     name: "Priority Human Specialist SLA",
-    category: "Network",
+    category: "Support",
     description:
       "Guaranteed 2-hour callback SLA from our accredited UK agricultural specialist network for urgent matters.",
     monthlyPrice: 45,
@@ -122,7 +115,7 @@ const FAQS = [
   },
   {
     q: "Who owns my farm data?",
-    a: "You own 100% of your data. Steward will never sell, lease, or monetize your field maps, crop yields, herd medicine books, or financial records. Your data is stored on sovereign UK infrastructure in compliance with UK GDPR and agricultural data standards.",
+    a: "You own 100% of your data. Steward will never sell, lease, or commercialise your field maps, crop yields, herd medicine books, or financial records. Your data is stored on sovereign UK infrastructure in compliance with UK GDPR and agricultural data standards.",
   },
   {
     q: "Does Steward automatically submit grant applications to Defra or the RPA?",
@@ -159,52 +152,49 @@ export function PricingClient() {
   const signupUrl = `/signup?addons=${selectedAddons.join(",")}&billing=${isAnnual ? "annual" : "monthly"}`;
 
   return (
-    <div className="flex flex-col bg-obsidian-950 text-parchment-100">
+    <div className="flex flex-col bg-white text-slate-900">
       
       {/* HEADER */}
-      <section className="pt-32 pb-16 bg-obsidian-950 bg-tactical-grid border-b border-white/10 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-          <Badge variant="gold" pulse>Transparent Institutional Pricing</Badge>
+      <section className="pt-32 pb-16 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+          <Badge variant="forest">Simple Transparent Pricing</Badge>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white leading-tight tracking-tight">
-            One Core Subscription Per Holding.{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-coutts via-gold-300 to-gold-brass">
-              Add Only What You Deploy.
-            </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-slate-900 leading-tight tracking-tight">
+            One Core Subscription Per Holding. Add Only What You Need.
           </h1>
 
-          <p className="text-base sm:text-xl text-parchment-300 leading-relaxed max-w-2xl mx-auto font-sans">
-            Every holding receives the full autonomous advisory core. Configure bespoke precision telemetry add-ons tailored to your machinery, imagery, and grant needs.
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Every holding receives the full agricultural advisory core. Configure optional precision telemetry add-ons tailored to your machinery, imagery, and grant needs.
           </p>
 
           {/* Billing Interval Switcher */}
-          <div className="pt-6 flex items-center justify-center space-x-4 font-mono text-xs uppercase tracking-wider">
-            <span className={cn(!isAnnual ? "text-white font-bold" : "text-parchment-400")}>
+          <div className="pt-6 flex items-center justify-center space-x-3 text-sm">
+            <span className={cn(!isAnnual ? "text-slate-900 font-semibold" : "text-slate-500")}>
               Monthly Rolling
             </span>
             <button
               type="button"
               onClick={() => setIsAnnual(!isAnnual)}
               className={cn(
-                "relative inline-flex h-7 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-white/20 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-volt",
-                isAnnual ? "bg-volt" : "bg-obsidian-800"
+                "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none",
+                isAnnual ? "bg-forest-900" : "bg-slate-300"
               )}
               role="switch"
               aria-checked={isAnnual}
             >
               <span
                 className={cn(
-                  "pointer-events-none inline-block h-6 w-6 transform rounded-full bg-obsidian-950 shadow-md transition duration-150",
-                  isAnnual ? "translate-x-7" : "translate-x-0"
+                  "pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow transition duration-200 ease-in-out",
+                  isAnnual ? "translate-x-5" : "translate-x-0"
                 )}
               />
             </button>
             <div className="flex items-center space-x-2">
-              <span className={cn(isAnnual ? "text-white font-bold" : "text-parchment-400")}>
-                Annual Agreement
+              <span className={cn(isAnnual ? "text-slate-900 font-semibold" : "text-slate-500")}>
+                Annual Billing
               </span>
-              <span className="text-[10px] uppercase font-bold bg-volt/15 text-volt px-2 py-0.5 rounded-tech border border-volt/30">
-                15% Savings
+              <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+                Save 15%
               </span>
             </div>
           </div>
@@ -213,36 +203,28 @@ export function PricingClient() {
       </section>
 
       {/* BASE SUBSCRIPTION CARD */}
-      <Section variant="grid" containerSize="lg">
+      <Section variant="white" containerSize="lg">
         <div className="max-w-4xl mx-auto">
-          <Card
-            variant="hud-gold"
-            cornerTicks
-            className="p-8 sm:p-10 shadow-2xl relative overflow-hidden space-y-6"
-          >
-            <div className="absolute top-0 right-0 bg-gold-coutts text-obsidian-950 px-4 py-1 text-[11px] font-mono font-bold uppercase tracking-wider rounded-bl-panel">
-              [CORE HOLDING PLAN]
-            </div>
-
+          <div className="p-8 sm:p-10 rounded-2xl border border-slate-200 bg-white shadow-sm space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               
               <div className="lg:col-span-7 space-y-4">
-                <Badge variant="gold" size="sm">The Complete Foundation</Badge>
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
+                <Badge variant="forest" size="sm">The Core Plan</Badge>
+                <h2 className="text-3xl font-serif font-medium text-slate-900">
                   {BASE_PLAN.name}
                 </h2>
-                <p className="text-sm text-parchment-300 leading-relaxed font-sans">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {BASE_PLAN.tagline}
                 </p>
 
-                <div className="pt-4 space-y-2.5">
-                  <p className="text-xs font-mono uppercase font-bold text-white tracking-wider">
-                    INCLUDED IN CORE SUBSCRIPTION:
+                <div className="pt-2 space-y-2.5">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-800">
+                    Included in Core Plan:
                   </p>
-                  <ul className="grid grid-cols-1 gap-2 text-xs sm:text-sm text-parchment-200 font-sans">
+                  <ul className="space-y-2 text-sm text-slate-700">
                     {BASE_PLAN.features.map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start">
-                        <CheckCircle2 className="w-4 h-4 text-volt mr-2.5 mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 mr-2.5 mt-0.5 flex-shrink-0" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -251,56 +233,56 @@ export function PricingClient() {
               </div>
 
               {/* Price Callout */}
-              <div className="lg:col-span-5 flex flex-col justify-between bg-obsidian-950 p-6 rounded-panel border border-white/10 space-y-6 text-center">
-                <div className="space-y-2 font-mono">
-                  <span className="text-[11px] text-parchment-400 uppercase tracking-widest block">
-                    BASE HOLDING SUBSCRIPTION
+              <div className="lg:col-span-5 flex flex-col justify-between bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-6 text-center">
+                <div className="space-y-1">
+                  <span className="text-xs font-medium text-slate-500 uppercase tracking-wider block">
+                    Holding Subscription
                   </span>
                   <div>
-                    <span className="text-4xl sm:text-5xl font-bold text-gold-coutts">
+                    <span className="text-4xl sm:text-5xl font-serif font-bold text-slate-900">
                       £{isAnnual ? Math.round(BASE_PLAN.monthlyPrice * 0.85) : BASE_PLAN.monthlyPrice}
                     </span>
-                    <span className="text-xs text-parchment-400 block sm:inline sm:ml-1">
-                      / MONTH
+                    <span className="text-sm text-slate-500 ml-1">
+                      / month
                     </span>
                   </div>
-                  <p className="text-[10px] text-parchment-400 italic font-sans">
-                    *Flat pricing per holding regardless of acreage size
+                  <p className="text-xs text-slate-500 italic">
+                    Flat fee per holding &bull; All 4 advisors included
                   </p>
                 </div>
 
-                <div className="space-y-2 pt-2 border-t border-white/10 text-xs font-mono text-parchment-300">
+                <div className="space-y-2 pt-2 border-t border-slate-200 text-xs text-slate-600">
                   <div className="flex items-center justify-center space-x-2">
-                    <ShieldCheck className="w-4 h-4 text-volt" />
+                    <ShieldCheck className="w-4 h-4 text-emerald-600" />
                     <span>30-Day Free Holding Trial</span>
                   </div>
                   <div className="flex items-center justify-center space-x-2">
-                    <Check className="w-4 h-4 text-volt" />
-                    <span>No upfront credit card required</span>
+                    <Check className="w-4 h-4 text-emerald-600" />
+                    <span>No card required to start</span>
                   </div>
                 </div>
 
-                <Button href={signupUrl} variant="volt" size="lg" className="w-full shadow-hud">
+                <Button href={signupUrl} variant="primary" size="lg" className="w-full">
                   Start Free Trial &rarr;
                 </Button>
               </div>
 
             </div>
-          </Card>
+          </div>
         </div>
       </Section>
 
       {/* INTERACTIVE ADD-ON CONFIGURATOR */}
       <Section
-        variant="obsidian"
-        badge={<Badge variant="volt">Modular Architecture</Badge>}
-        title="Customise Your Telemetry: Select Optional Add-ons."
-        subtitle="Only deploy the specialized systems your holding requires. Toggle add-ons below for real-time price updates."
+        variant="parchment"
+        badge={<Badge variant="forest">Optional Add-ons</Badge>}
+        title="Customise Your Holding: Select Modular Upgrades"
+        subtitle="Only deploy the modules your farm holding requires. Toggle add-ons below for real-time price updates."
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Add-ons List */}
-          <div className="lg:col-span-8 space-y-4">
+          <div className="lg:col-span-8 space-y-3">
             {ADDONS.map((addon) => {
               const Icon = addon.icon;
               const isChecked = selectedAddons.includes(addon.id);
@@ -313,44 +295,44 @@ export function PricingClient() {
                   key={addon.id}
                   onClick={() => toggleAddon(addon.id)}
                   className={cn(
-                    "p-5 rounded-panel border transition-all cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm",
+                    "p-5 rounded-xl border transition-all cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white",
                     isChecked
-                      ? "bg-obsidian-900 border-volt shadow-hud"
-                      : "bg-obsidian-900/60 border-white/10 hover:border-white/30"
+                      ? "border-forest-800 shadow-sm ring-1 ring-forest-800"
+                      : "border-slate-200 hover:border-slate-300"
                   )}
                 >
-                  <div className="flex items-start space-x-4">
+                  <div className="flex items-start space-x-3.5">
                     <div
                       className={cn(
-                        "w-6 h-6 rounded-tech border flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors",
+                        "w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors",
                         isChecked
-                          ? "bg-volt border-volt text-obsidian-950"
-                          : "bg-obsidian-950 border-white/20"
+                          ? "bg-forest-900 border-forest-900 text-white"
+                          : "bg-white border-slate-300"
                       )}
                     >
-                      {isChecked && <Check className="w-4 h-4 stroke-[3]" />}
+                      {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                     </div>
 
-                    <div className="space-y-1">
+                    <div className="space-y-0.5">
                       <div className="flex items-center space-x-2">
-                        <span className="font-serif font-bold text-white text-base">
+                        <span className="font-medium text-slate-900 text-sm sm:text-base">
                           {addon.name}
                         </span>
-                        <span className="text-[10px] font-mono uppercase font-bold tracking-wider text-parchment-300 bg-obsidian-950 px-2 py-0.5 rounded-tech border border-white/10">
+                        <span className="text-[11px] font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
                           {addon.category}
                         </span>
                       </div>
-                      <p className="text-xs text-parchment-300 leading-relaxed max-w-xl font-sans">
+                      <p className="text-xs text-slate-600 leading-relaxed max-w-xl">
                         {addon.description}
                       </p>
                     </div>
                   </div>
 
-                  <div className="sm:text-right pl-10 sm:pl-0 flex-shrink-0 font-mono">
-                    <span className="text-lg font-bold text-gold-coutts">
+                  <div className="sm:text-right pl-8 sm:pl-0 flex-shrink-0">
+                    <span className="text-base font-semibold text-slate-900">
                       +£{price}
                     </span>
-                    <span className="text-xs text-parchment-400 block">/ MONTH</span>
+                    <span className="text-xs text-slate-500 block">/ mo</span>
                   </div>
                 </div>
               );
@@ -359,118 +341,95 @@ export function PricingClient() {
 
           {/* Sticky Summary Card */}
           <div className="lg:col-span-4 lg:sticky lg:top-24">
-            <Card variant="hud-gold" cornerTicks className="shadow-2xl p-6 space-y-6">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 space-y-6 shadow-sm">
               
-              <div className="border-b border-white/10 pb-4">
-                <h3 className="font-serif font-bold text-xl text-white">
-                  Holding Specification
+              <div className="border-b border-slate-200 pb-4">
+                <h3 className="font-serif font-medium text-xl text-slate-900">
+                  Plan Summary
                 </h3>
-                <p className="text-xs font-mono text-parchment-400 mt-0.5">
-                  {isAnnual ? "Annual agreement (15% savings)" : "Monthly rolling agreement"}
+                <p className="text-xs text-slate-500 mt-0.5">
+                  {isAnnual ? "Annual agreement (15% savings applied)" : "Monthly rolling agreement"}
                 </p>
               </div>
 
               {/* Price Breakdown */}
-              <div className="space-y-3 text-xs font-mono text-parchment-300">
-                <div className="flex justify-between items-center py-1">
-                  <span>Steward Core Command</span>
-                  <span className="text-white font-bold">
+              <div className="space-y-2.5 text-xs text-slate-700">
+                <div className="flex justify-between items-center py-1 border-b border-slate-100">
+                  <span>Steward Core Holding</span>
+                  <span className="font-semibold text-slate-900">
                     £{isAnnual ? Math.round(baseMonthly * 0.85) : baseMonthly}/mo
                   </span>
                 </div>
 
-                {selectedAddons.length > 0 ? (
-                  <div className="space-y-1.5 pt-2 border-t border-white/10">
-                    <span className="text-gold-coutts text-[11px] uppercase tracking-wider block font-bold">
-                      ACTIVE ADD-ONS ({selectedAddons.length}):
-                    </span>
-                    {selectedAddons.map((id) => {
-                      const addon = ADDONS.find((a) => a.id === id);
-                      if (!addon) return null;
-                      const price = isAnnual
-                        ? Math.round(addon.monthlyPrice * 0.85)
-                        : addon.monthlyPrice;
-                      return (
-                        <div key={id} className="flex justify-between items-center text-parchment-400 pl-2">
-                          <span className="truncate max-w-[180px]">&bull; {addon.name}</span>
-                          <span className="text-white">+£{price}/mo</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <div className="py-2 text-[11px] text-parchment-400 italic font-sans">
-                    No optional add-ons selected.
-                  </div>
-                )}
+                {selectedAddons.map((id) => {
+                  const addon = ADDONS.find((a) => a.id === id);
+                  if (!addon) return null;
+                  const price = isAnnual
+                    ? Math.round(addon.monthlyPrice * 0.85)
+                    : addon.monthlyPrice;
+                  return (
+                    <div key={id} className="flex justify-between items-center py-0.5 text-slate-600">
+                      <span className="truncate pr-2">{addon.name}</span>
+                      <span className="font-medium text-slate-900">+£{price}/mo</span>
+                    </div>
+                  );
+                })}
 
-                <div className="pt-4 border-t border-white/10 flex justify-between items-baseline">
-                  <div>
-                    <span className="font-bold text-xs uppercase text-white block">
-                      TOTAL MONTHLY:
-                    </span>
-                    <span className="text-[10px] text-parchment-400">
-                      Billed {isAnnual ? "annually" : "monthly"} &bull; Excl. VAT
-                    </span>
-                  </div>
+                <div className="pt-4 border-t border-slate-200 flex justify-between items-baseline">
+                  <span className="font-medium text-slate-900 text-sm">Total Monthly</span>
                   <div className="text-right">
-                    <span className="text-3xl font-bold text-gold-coutts">
+                    <span className="text-2xl font-serif font-bold text-slate-900">
                       £{finalPrice}
                     </span>
-                    <span className="text-xs text-parchment-400 block">/ MONTH</span>
+                    <span className="text-slate-500 text-xs">/ month</span>
                   </div>
                 </div>
               </div>
 
-              {/* CTAs */}
-              <div className="space-y-2 pt-2">
-                <Button href={signupUrl} variant="volt" size="lg" className="w-full shadow-hud">
-                  Start 30-Day Free Trial
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-                <p className="text-[10px] font-mono text-parchment-400 text-center">
-                  Includes full add-on access during 30-day trial.
-                </p>
-              </div>
+              <Button href={signupUrl} variant="primary" size="lg" className="w-full">
+                Start 30-Day Free Trial
+              </Button>
 
-            </Card>
+              <p className="text-[11px] text-center text-slate-500">
+                Cancel anytime &bull; No hardware required &bull; UK GDPR compliant
+              </p>
+            </div>
           </div>
 
         </div>
       </Section>
 
-      {/* FAQ SECTION */}
-      <Section
-        variant="grid"
-        badge={<Badge variant="gold">Fiduciary Clarity</Badge>}
-        title="Frequently Asked Questions"
-        subtitle="Direct answers on telemetry boundaries, data sovereignty, and commercial agreements."
-      >
-        <div className="max-w-3xl mx-auto space-y-4">
+      {/* FAQS */}
+      <Section variant="white" containerSize="md">
+        <div className="text-center space-y-3 mb-10">
+          <Badge variant="forest">Frequently Asked Questions</Badge>
+          <h2 className="text-3xl font-serif font-medium text-slate-900">
+            Answers to Common Queries
+          </h2>
+        </div>
+
+        <div className="space-y-3">
           {FAQS.map((faq, idx) => {
             const isOpen = openFaq === idx;
             return (
               <div
                 key={idx}
-                className="rounded-panel border border-white/10 bg-obsidian-900 overflow-hidden transition-colors"
+                className="border border-slate-200 rounded-xl overflow-hidden bg-white"
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between space-x-4 focus:outline-none focus:ring-2 focus:ring-volt"
+                  className="w-full p-5 text-left font-medium text-sm sm:text-base text-slate-900 flex items-center justify-between hover:bg-slate-50 transition-colors"
                 >
-                  <span className="font-serif font-bold text-base text-white">
-                    {faq.q}
-                  </span>
+                  <span>{faq.q}</span>
                   {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-volt flex-shrink-0" />
+                    <ChevronUp className="w-4 h-4 text-slate-500 flex-shrink-0 ml-2" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-parchment-400 flex-shrink-0" />
+                    <ChevronDown className="w-4 h-4 text-slate-500 flex-shrink-0 ml-2" />
                   )}
                 </button>
-
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-sm text-parchment-300 leading-relaxed border-t border-white/10 bg-obsidian-950 font-sans">
+                  <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
                     {faq.a}
                   </div>
                 )}
@@ -478,19 +437,8 @@ export function PricingClient() {
             );
           })}
         </div>
-
-        <div className="mt-12 text-center text-xs font-mono text-parchment-400 space-y-2">
-          <p>
-            Operating an estate structure or complex partnership holding?
-          </p>
-          <a
-            href="mailto:enquiries@steward.co.uk"
-            className="text-gold-coutts hover:text-white font-bold"
-          >
-            Consult our agricultural executive team &rarr;
-          </a>
-        </div>
       </Section>
+
     </div>
   );
 }

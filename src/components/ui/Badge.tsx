@@ -9,42 +9,44 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 export function Badge({
   className,
-  variant = "volt",
+  variant = "forest",
   size = "md",
   pulse = false,
   children,
   ...props
 }: BadgeProps) {
   const baseStyles =
-    "inline-flex items-center font-mono tracking-wider uppercase transition-colors rounded-tech border select-none";
+    "inline-flex items-center font-sans tracking-tight transition-colors rounded-full border select-none font-medium";
 
   const sizeStyles = {
-    sm: "text-[10px] px-2 py-0.5 font-semibold",
-    md: "text-xs px-2.5 py-1 font-semibold",
+    sm: "text-[11px] px-2 py-0.5",
+    md: "text-xs px-2.5 py-0.5",
   };
 
   const variantStyles = {
-    // High-Octane Agro Volt HUD badge
-    volt: "bg-volt/10 text-volt border-volt/30 shadow-[0_0_8px_rgba(0,230,118,0.15)]",
+    // Heritage Forest / Clean Agricultural Green
+    forest: "bg-emerald-50 text-emerald-900 border-emerald-200/80",
 
-    // Coutts Gold badge
-    gold: "bg-gold-coutts/15 text-gold-300 border-gold-coutts/40 shadow-[0_0_8px_rgba(212,175,55,0.15)]",
+    // Active Green / Operational
+    volt: "bg-emerald-50 text-emerald-800 border-emerald-200",
 
-    // Racing Green telemetry badge
-    forest: "bg-forest-800/80 text-parchment-100 border-forest-600/70",
+    // Coutts Gold / Fiduciary Accent
+    gold: "bg-amber-50/80 text-amber-900 border-amber-200",
 
-    // Terracotta Alert badge
-    terracotta: "bg-terracotta-900/60 text-terracotta-300 border-terracotta-600/60",
+    // Warning / Red Tier Alert
+    terracotta: "bg-rose-50 text-rose-800 border-rose-200",
 
-    // Matte Obsidian chassis badge
-    obsidian: "bg-obsidian-850 text-parchment-300 border-white/10",
+    // Executive Slate
+    obsidian: "bg-slate-100 text-slate-800 border-slate-200",
 
-    // Subtle Outline
-    outline: "bg-transparent text-parchment-200 border-white/20",
+    // Clean Corporate Outline
+    outline: "bg-transparent text-slate-700 border-slate-300",
 
-    // Light theme backwards compatibility
-    parchment: "bg-parchment-200 text-charcoal-800 border-parchment-400",
-    charcoal: "bg-charcoal-100 text-charcoal-900 border-charcoal-300",
+    // Warm Neutral
+    parchment: "bg-stone-100 text-stone-800 border-stone-200",
+
+    // Dark Solid Executive
+    charcoal: "bg-slate-900 text-white border-slate-800",
   };
 
   return (
@@ -55,14 +57,12 @@ export function Badge({
       {pulse && (
         <span
           className={cn(
-            "w-1.5 h-1.5 rounded-full mr-1.5 animate-pulse",
-            variant === "volt"
-              ? "bg-volt"
+            "w-1.5 h-1.5 rounded-full mr-1.5",
+            variant === "terracotta"
+              ? "bg-rose-600"
               : variant === "gold"
-              ? "bg-gold-coutts"
-              : variant === "terracotta"
-              ? "bg-terracotta-400"
-              : "bg-emerald-400"
+              ? "bg-amber-600"
+              : "bg-emerald-600"
           )}
         />
       )}

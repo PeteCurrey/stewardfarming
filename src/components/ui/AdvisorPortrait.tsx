@@ -24,39 +24,35 @@ export function AdvisorPortrait({
   const configs = {
     arable: {
       image: "/images/advisors/tom-campbell.jpg",
-      border: "border-gold-coutts/40 group-hover:border-gold-coutts",
-      accentBg: "bg-gold-coutts",
+      borderColor: "border-slate-200 group-hover:border-forest-700",
       icon: Wheat,
-      iconBg: "bg-obsidian-900 text-gold-300 border-gold-coutts/50",
+      iconBg: "bg-forest-900 text-white border-white",
       subtitle: "Arable & Agronomy Specialist",
-      code: "AG-01 // ARABLE",
+      code: "Arable",
     },
     livestock: {
       image: "/images/advisors/fiona-macleod.jpg",
-      border: "border-forest-500/50 group-hover:border-volt",
-      accentBg: "bg-volt",
+      borderColor: "border-slate-200 group-hover:border-forest-700",
       icon: Footprints,
-      iconBg: "bg-obsidian-900 text-volt border-volt/50",
+      iconBg: "bg-forest-900 text-white border-white",
       subtitle: "Livestock & Herd Husbandry",
-      code: "LS-02 // LIVESTOCK",
+      code: "Livestock",
     },
     mixed: {
       image: "/images/advisors/alistair-reid.jpg",
-      border: "border-terracotta-600/50 group-hover:border-terracotta-400",
-      accentBg: "bg-terracotta-600",
+      borderColor: "border-slate-200 group-hover:border-forest-700",
       icon: Trees,
-      iconBg: "bg-obsidian-900 text-terracotta-300 border-terracotta-500/50",
+      iconBg: "bg-forest-900 text-white border-white",
       subtitle: "Mixed Farm Systems",
-      code: "MX-03 // MIXED",
+      code: "Mixed",
     },
     dairy: {
       image: "/images/advisors/eleanor-wright.jpg",
-      border: "border-sky-500/50 group-hover:border-sky-400",
-      accentBg: "bg-sky-500",
+      borderColor: "border-slate-200 group-hover:border-forest-700",
       icon: Milk,
-      iconBg: "bg-obsidian-900 text-sky-300 border-sky-400/50",
+      iconBg: "bg-forest-900 text-white border-white",
       subtitle: "Dairy Systems & Nutrition",
-      code: "DY-04 // DAIRY",
+      code: "Dairy",
     },
   };
 
@@ -64,9 +60,9 @@ export function AdvisorPortrait({
   const Icon = config.icon;
 
   const sizeClasses = {
-    sm: "w-12 h-12 min-w-[3rem] min-h-[3rem] rounded-tech",
-    md: "w-24 h-24 sm:w-28 sm:h-28 min-w-[6rem] min-h-[6rem] rounded-panel",
-    lg: "w-44 h-44 sm:w-52 sm:h-52 min-w-[11rem] min-h-[11rem] rounded-card",
+    sm: "w-12 h-12 min-w-[3rem] min-h-[3rem] rounded-full",
+    md: "w-24 h-24 sm:w-28 sm:h-28 min-w-[6rem] min-h-[6rem] rounded-2xl",
+    lg: "w-44 h-44 sm:w-48 sm:h-48 min-w-[11rem] min-h-[11rem] rounded-2xl",
   };
 
   const badgeSizes = {
@@ -85,8 +81,8 @@ export function AdvisorPortrait({
     <div className={cn("relative inline-block select-none group", className)}>
       <div
         className={cn(
-          "relative overflow-hidden border-2 shadow-2xl bg-obsidian-950 transition-all duration-300",
-          config.border,
+          "relative overflow-hidden border bg-slate-100 shadow-sm transition-all duration-200",
+          config.borderColor,
           sizeClasses[size]
         )}
       >
@@ -94,20 +90,16 @@ export function AdvisorPortrait({
         <img
           src={config.image}
           alt={`Portrait of ${displayName}, ${config.subtitle}`}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
         />
-
-        {/* Tactical vignette and scanline sheen */}
-        <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/80 via-transparent to-transparent pointer-events-none" />
-        <div className="absolute inset-0 ring-1 ring-inset ring-white/10 pointer-events-none" />
       </div>
 
       {/* Specialty icon corner badge */}
       {showBadge && (
         <div
           className={cn(
-            "absolute rounded-full flex items-center justify-center shadow-lg border",
+            "absolute rounded-full flex items-center justify-center shadow border-2",
             config.iconBg,
             badgeSizes[size]
           )}

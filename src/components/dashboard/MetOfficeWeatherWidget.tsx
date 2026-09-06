@@ -7,13 +7,10 @@ import {
   Droplets,
   Thermometer,
   ShieldCheck,
-  AlertTriangle,
-  Clock,
   MapPin,
   CheckCircle2,
   RefreshCw,
   Radio,
-  Compass,
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -59,18 +56,18 @@ export function MetOfficeWeatherWidget({
 
   if (loading && !weather) {
     return (
-      <Card variant="hud" className={cn("p-6 space-y-4 border border-white/10 shadow-2xl", className)}>
+      <div className={cn("p-6 rounded-xl border border-slate-200 bg-white shadow-sm space-y-4", className)}>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Radio className="w-5 h-5 text-volt animate-pulse" />
-            <span className="font-mono text-xs uppercase tracking-wider font-bold text-white">
-              [MET OFFICE SPOT RADAR // 1.1KM]
+            <Radio className="w-5 h-5 text-emerald-600 animate-pulse" />
+            <span className="text-xs uppercase font-semibold text-slate-800">
+              Met Office Agricultural Spot Radar (1.1km)
             </span>
           </div>
-          <span className="text-xs font-mono text-parchment-400">Locking holding telemetry...</span>
+          <span className="text-xs text-slate-500">Connecting radar feed...</span>
         </div>
-        <div className="h-28 bg-obsidian-950/80 rounded-panel animate-pulse border border-white/5" />
-      </Card>
+        <div className="h-28 bg-slate-100 rounded-lg animate-pulse" />
+      </div>
     );
   }
 
@@ -78,26 +75,26 @@ export function MetOfficeWeatherWidget({
   const activeSprayWindow = weather?.sprayWindows?.[0];
 
   return (
-    <Card variant="hud-volt" cornerTicks className={cn("p-6 sm:p-7 space-y-6 shadow-2xl relative", className)}>
+    <div className={cn("p-6 rounded-xl border border-slate-200 bg-white shadow-sm space-y-6", className)}>
       
-      {/* HUD Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
         <div className="flex items-center space-x-3">
-          <div className="w-9 h-9 rounded-tech bg-obsidian-950 flex items-center justify-center text-volt border border-volt/40 shadow-sm">
+          <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-200">
             <Radio className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <h3 className="font-serif font-bold text-lg text-white">
+              <h3 className="font-serif font-medium text-lg text-slate-900">
                 Met Office Agricultural Spot Radar
               </h3>
-              <Badge variant="volt" size="sm" pulse>
-                1.1KM GRID
+              <Badge variant="forest" size="sm">
+                1.1km Grid
               </Badge>
             </div>
-            <p className="text-xs font-mono text-parchment-400 flex items-center mt-0.5">
-              <MapPin className="w-3 h-3 text-gold-coutts mr-1" />
-              {locationName} &bull; <span className="text-volt ml-1">SYNCED {lastRefreshed || "LIVE"}</span>
+            <p className="text-xs text-slate-500 flex items-center mt-0.5">
+              <MapPin className="w-3.5 h-3.5 text-slate-400 mr-1" />
+              {locationName} &bull; Synced {lastRefreshed || "Live"}
             </p>
           </div>
         </div>
@@ -105,78 +102,78 @@ export function MetOfficeWeatherWidget({
         <button
           type="button"
           onClick={fetchWeather}
-          className="text-xs font-mono uppercase tracking-wider font-bold text-parchment-200 hover:text-white flex items-center self-start sm:self-auto bg-obsidian-950 hover:bg-obsidian-900 border border-white/15 px-3 py-1.5 rounded-tech transition-colors"
+          className="text-xs font-medium text-slate-700 hover:text-slate-900 flex items-center self-start sm:self-auto bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors"
         >
-          <RefreshCw className={cn("w-3.5 h-3.5 mr-1.5 text-volt", loading && "animate-spin")} />
+          <RefreshCw className={cn("w-3.5 h-3.5 mr-1.5 text-slate-600", loading && "animate-spin")} />
           Sync Radar
         </button>
       </div>
 
-      {/* Current Conditions Telemetry Readouts */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono">
+      {/* Current Conditions */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         
-        <div className="p-4 bg-obsidian-950 rounded-panel border border-white/10 space-y-1">
-          <span className="text-[10px] text-parchment-400 uppercase font-bold tracking-wider flex items-center">
-            <Thermometer className="w-3.5 h-3.5 mr-1 text-gold-coutts" />
-            SCREEN TEMP
+        <div className="p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+          <span className="text-xs text-slate-500 uppercase font-medium flex items-center">
+            <Thermometer className="w-3.5 h-3.5 mr-1 text-slate-500" />
+            Air Temp
           </span>
-          <div className="text-2xl font-bold text-white">
-            {current?.tempC ?? 18}<span className="text-sm font-normal text-parchment-400">°C</span>
+          <div className="text-2xl font-semibold text-slate-900">
+            {current?.tempC ?? 18}<span className="text-sm font-normal text-slate-500">°C</span>
           </div>
-          <span className="text-[10px] text-parchment-400 block font-sans">Ground Screen Level</span>
+          <span className="text-xs text-slate-500 block">Ground screen level</span>
         </div>
 
-        <div className="p-4 bg-obsidian-950 rounded-panel border border-white/10 space-y-1">
-          <span className="text-[10px] text-parchment-400 uppercase font-bold tracking-wider flex items-center">
-            <Wind className="w-3.5 h-3.5 mr-1 text-volt" />
-            WIND SPEED (10M)
+        <div className="p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+          <span className="text-xs text-slate-500 uppercase font-medium flex items-center">
+            <Wind className="w-3.5 h-3.5 mr-1 text-slate-500" />
+            Wind Speed
           </span>
-          <div className="text-2xl font-bold text-white flex items-baseline space-x-1">
+          <div className="text-2xl font-semibold text-slate-900 flex items-baseline space-x-1">
             <span>{current?.windMph ?? 5}</span>
-            <span className="text-xs text-parchment-400">MPH</span>
+            <span className="text-xs text-slate-500">mph</span>
           </div>
-          <span className="text-[10px] text-volt block font-sans font-semibold">Low-Drift Optimal</span>
+          <span className="text-xs text-emerald-700 block font-medium">Low drift risk</span>
         </div>
 
-        <div className="p-4 bg-obsidian-950 rounded-panel border border-white/10 space-y-1">
-          <span className="text-[10px] text-parchment-400 uppercase font-bold tracking-wider flex items-center">
-            <Droplets className="w-3.5 h-3.5 mr-1 text-sky-400" />
-            HUMIDITY
+        <div className="p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+          <span className="text-xs text-slate-500 uppercase font-medium flex items-center">
+            <Droplets className="w-3.5 h-3.5 mr-1 text-slate-500" />
+            Humidity
           </span>
-          <div className="text-2xl font-bold text-white">
-            {current?.humidity ?? 68}<span className="text-sm font-normal text-parchment-400">%</span>
+          <div className="text-2xl font-semibold text-slate-900">
+            {current?.humidity ?? 68}<span className="text-sm font-normal text-slate-500">%</span>
           </div>
-          <span className="text-[10px] text-parchment-400 block font-sans">Droplet Retention</span>
+          <span className="text-xs text-slate-500 block">Optimal droplet retention</span>
         </div>
 
-        <div className="p-4 bg-obsidian-950 rounded-panel border border-white/10 space-y-1">
-          <span className="text-[10px] text-parchment-400 uppercase font-bold tracking-wider flex items-center">
-            <CloudSun className="w-3.5 h-3.5 mr-1 text-gold-coutts" />
-            PRECIPITATION
+        <div className="p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
+          <span className="text-xs text-slate-500 uppercase font-medium flex items-center">
+            <CloudSun className="w-3.5 h-3.5 mr-1 text-slate-500" />
+            Rain Probability
           </span>
-          <div className="text-2xl font-bold text-white">
-            {current?.rainProb ?? 10}<span className="text-sm font-normal text-parchment-400">%</span>
+          <div className="text-2xl font-semibold text-slate-900">
+            {current?.rainProb ?? 10}<span className="text-sm font-normal text-slate-500">%</span>
           </div>
-          <span className="text-[10px] text-parchment-400 block font-sans">6-Hour Probability</span>
+          <span className="text-xs text-slate-500 block">Next 6 hours</span>
         </div>
 
       </div>
 
-      {/* Spray Window Agricultural Intelligence Banner */}
+      {/* Active Spray Window Banner */}
       {activeSprayWindow && (
-        <div className="p-4 rounded-panel bg-obsidian-950 border border-volt/40 shadow-hud space-y-2">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-2">
+        <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 space-y-1.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
             <div className="flex items-center space-x-2">
-              <CheckCircle2 className="w-4 h-4 text-volt flex-shrink-0" />
-              <span className="font-mono text-xs sm:text-sm font-bold text-white uppercase tracking-wider">
-                [SPRAY WINDOW ARMED]: {activeSprayWindow.windowStart} &ndash; {activeSprayWindow.windowEnd} TODAY
+              <CheckCircle2 className="w-4 h-4 text-emerald-700 flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-semibold text-emerald-950">
+                Spray Window Open: {activeSprayWindow.windowStart} &ndash; {activeSprayWindow.windowEnd} Today
               </span>
             </div>
-            <span className="font-mono text-[10px] uppercase font-bold text-obsidian-950 bg-volt px-2 py-0.5 rounded-tech">
-              UK CODE OF PRACTICE VERIFIED
+            <span className="text-[11px] font-medium text-emerald-800 bg-white border border-emerald-200 px-2 py-0.5 rounded">
+              UK Code of Practice Verified
             </span>
           </div>
-          <p className="text-xs text-parchment-300 leading-relaxed font-sans">
+          <p className="text-xs text-emerald-900 leading-relaxed">
             {activeSprayWindow.description}
           </p>
         </div>
@@ -184,12 +181,12 @@ export function MetOfficeWeatherWidget({
 
       {/* Hourly Trend Bar */}
       <div className="space-y-2">
-        <div className="flex items-center justify-between text-xs font-mono">
-          <span className="text-white font-bold tracking-wider uppercase">[10-HOUR FIELD TELEMETRY PROJECTION]</span>
-          <span className="text-parchment-400 text-[11px]">WIND &bull; SPRAY STATUS</span>
+        <div className="flex items-center justify-between text-xs">
+          <span className="text-slate-800 font-medium">10-Hour Field Forecast</span>
+          <span className="text-slate-500">Wind &bull; Spray Condition</span>
         </div>
 
-        <div className="grid grid-cols-5 sm:grid-cols-10 gap-1.5 overflow-x-auto pt-1 font-mono">
+        <div className="grid grid-cols-5 sm:grid-cols-10 gap-1.5 overflow-x-auto pt-1">
           {(weather?.hourly || []).slice(0, 10).map((hour, idx) => {
             const isOptimal = hour.sprayCondition === "Optimal";
             const isModerate = hour.sprayCondition === "Moderate Risk";
@@ -198,29 +195,29 @@ export function MetOfficeWeatherWidget({
               <div
                 key={idx}
                 className={cn(
-                  "p-2 rounded-tech text-center space-y-1 border text-[11px] transition-colors",
+                  "p-2 rounded-lg text-center space-y-1 border text-xs transition-colors",
                   isOptimal
-                    ? "bg-obsidian-950 border-volt/50 text-white"
+                    ? "bg-emerald-50/50 border-emerald-200 text-slate-900"
                     : isModerate
-                    ? "bg-obsidian-950 border-gold-coutts/50 text-white"
-                    : "bg-obsidian-950 border-white/10 text-parchment-300"
+                    ? "bg-amber-50/50 border-amber-200 text-slate-900"
+                    : "bg-slate-50 border-slate-200 text-slate-600"
                 )}
                 title={hour.sprayReason || hour.sprayCondition}
               >
-                <span className="font-bold block text-[10px] text-parchment-400">{hour.time}</span>
-                <span className="font-serif font-bold text-sm block">{hour.temperatureC}°</span>
-                <span className="text-[10px] block text-parchment-300">{hour.windSpeedMph}mph</span>
+                <span className="font-medium block text-[10px] text-slate-500">{hour.time}</span>
+                <span className="font-semibold text-xs block">{hour.temperatureC}°</span>
+                <span className="text-[10px] block text-slate-500">{hour.windSpeedMph}mph</span>
                 <span
                   className={cn(
-                    "text-[9px] font-bold uppercase tracking-wider block px-1 py-0.5 rounded-tech",
+                    "text-[10px] font-medium block px-1 py-0.5 rounded",
                     isOptimal
-                      ? "bg-volt text-obsidian-950 font-bold"
+                      ? "bg-emerald-600 text-white font-semibold"
                       : isModerate
-                      ? "bg-gold-coutts text-obsidian-950 font-bold"
-                      : "bg-terracotta-700 text-white"
+                      ? "bg-amber-500 text-white font-semibold"
+                      : "bg-slate-200 text-slate-700"
                   )}
                 >
-                  {isOptimal ? "SPRAY" : isModerate ? "WARN" : "HALT"}
+                  {isOptimal ? "Spray" : isModerate ? "Caution" : "Halt"}
                 </span>
               </div>
             );
@@ -228,6 +225,6 @@ export function MetOfficeWeatherWidget({
         </div>
       </div>
 
-    </Card>
+    </div>
   );
 }

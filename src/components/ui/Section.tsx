@@ -12,7 +12,7 @@ export interface SectionProps extends Omit<React.HTMLAttributes<HTMLElement>, "t
 
 export function Section({
   className,
-  variant = "obsidian",
+  variant = "white",
   containerSize = "lg",
   badge,
   title,
@@ -22,23 +22,24 @@ export function Section({
   ...props
 }: SectionProps) {
   const variantStyles = {
-    // High-precision dark obsidian
-    obsidian: "bg-obsidian-950 text-parchment-100 border-y border-white/5",
-    
-    // Tactical radar grid
-    grid: "bg-obsidian-950 bg-tactical-grid text-parchment-100 border-y border-white/5",
+    // Pure clean white section
+    white: "bg-white text-slate-900 border-b border-slate-100",
 
-    // Deep British Racing Green
-    forest: "bg-forest-950 text-parchment-100 border-y border-forest-800/80",
-    
-    dark: "bg-obsidian-900 text-parchment-100 border-y border-white/5",
+    // Soft executive light gray
+    parchment: "bg-slate-50/70 text-slate-900 border-y border-slate-200/80",
+    "terracotta-soft": "bg-slate-50 text-slate-900 border-y border-slate-200",
+    pattern: "bg-slate-50/50 text-slate-900 border-y border-slate-200",
 
-    // Legacy light options with high-contrast upgrades
-    parchment: "bg-obsidian-900 text-parchment-100 border-y border-white/5",
-    white: "bg-obsidian-850 text-parchment-100 border-y border-white/10",
-    pattern: "bg-obsidian-950 bg-tactical-grid text-parchment-100 border-y border-white/5",
-    "terracotta-soft": "bg-obsidian-900 text-parchment-100 border-y border-terracotta-900/40",
+    // Deep Heritage British Racing Green (Hero & Anchor Sections)
+    forest: "bg-forest-900 text-white border-y border-forest-950",
+    
+    // Executive Slate (Corporate Dark Anchor)
+    dark: "bg-slate-900 text-white border-y border-slate-950",
+    obsidian: "bg-slate-900 text-white border-y border-slate-950",
+    grid: "bg-slate-50 text-slate-900 border-y border-slate-200",
   };
+
+  const isDarkVariant = variant === "forest" || variant === "dark" || variant === "obsidian";
 
   const containerWidths = {
     sm: "max-w-3xl",
@@ -51,23 +52,33 @@ export function Section({
   const hasHeader = badge || title || subtitle;
 
   return (
-    <section className={cn("py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative", variantStyles[variant], className)} {...props}>
+    <section className={cn("py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative", variantStyles[variant], className)} {...props}>
       <div className={cn("mx-auto relative z-10", containerWidths[containerSize])}>
         {hasHeader && (
           <div
             className={cn(
-              "mb-14 md:mb-18",
+              "mb-12 md:mb-16",
               alignHeader === "center" ? "text-center max-w-3xl mx-auto" : "max-w-3xl"
             )}
           >
             {badge && <div className="mb-4">{badge}</div>}
             {title && (
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight text-white mb-4 leading-tight">
+              <h2
+                className={cn(
+                  "text-3xl sm:text-4xl font-serif font-medium tracking-tight mb-3 leading-tight",
+                  isDarkVariant ? "text-white" : "text-slate-900"
+                )}
+              >
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="text-base sm:text-lg leading-relaxed text-parchment-300">
+              <p
+                className={cn(
+                  "text-base sm:text-lg leading-relaxed",
+                  isDarkVariant ? "text-slate-300" : "text-slate-600"
+                )}
+              >
                 {subtitle}
               </p>
             )}

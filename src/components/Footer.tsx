@@ -15,108 +15,104 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-obsidian-950 text-parchment-200 border-t border-white/10 relative overflow-hidden">
-      
-      {/* Subtle background radar scanline */}
-      <div className="absolute inset-0 bg-tactical-grid opacity-20 pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 relative z-10">
+    <footer className="bg-slate-900 text-slate-300 border-t border-slate-800 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         
         {/* Top Technical Assurance Banner */}
-        <div className="mb-16 p-6 rounded-panel bg-obsidian-900 border border-white/10 grid grid-cols-1 md:grid-cols-4 gap-6 text-xs font-mono">
-          <div className="flex items-center space-x-3">
-            <Radio className="w-4 h-4 text-volt flex-shrink-0" />
+        <div className="mb-14 p-6 rounded-xl bg-slate-850/60 border border-slate-800 grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
+          <div className="flex items-start space-x-3">
+            <Radio className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
             <div>
-              <span className="text-white font-bold block">MET OFFICE DATAHUB</span>
-              <span className="text-parchment-400 text-[11px]">1.1km Spot Radar Ingestion</span>
+              <span className="text-white font-medium block">Met Office DataHub</span>
+              <span className="text-slate-400 text-xs">1.1km Spot Radar Ingestion</span>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
-            <Globe className="w-4 h-4 text-gold-coutts flex-shrink-0" />
+          <div className="flex items-start space-x-3">
+            <Globe className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
             <div>
-              <span className="text-white font-bold block">SENTINEL-2 L2A</span>
-              <span className="text-parchment-400 text-[11px]">10m Multispectral NDVI</span>
+              <span className="text-white font-medium block">Sentinel-2 L2A</span>
+              <span className="text-slate-400 text-xs">10m Multispectral NDVI</span>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
-            <Lock className="w-4 h-4 text-volt flex-shrink-0" />
+          <div className="flex items-start space-x-3">
+            <Lock className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
             <div>
-              <span className="text-white font-bold block">SOVEREIGN UK DATA</span>
-              <span className="text-parchment-400 text-[11px]">100% Farmer-Owned IP</span>
+              <span className="text-white font-medium block">Sovereign UK Data</span>
+              <span className="text-slate-400 text-xs">100% Farmer-Owned IP</span>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
-            <Cpu className="w-4 h-4 text-parchment-300 flex-shrink-0" />
+          <div className="flex items-start space-x-3">
+            <ShieldCheck className="w-5 h-5 text-slate-300 flex-shrink-0 mt-0.5" />
             <div>
-              <span className="text-white font-bold block">AUTONOMY GUARDRAILS</span>
-              <span className="text-parchment-400 text-[11px]">Traffic-Light Tier Control</span>
+              <span className="text-white font-medium block">Autonomy Guardrails</span>
+              <span className="text-slate-400 text-xs">Traffic-Light Human Control</span>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-14 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
           
           {/* Col 1 & 2: Brand and Institutional Mission */}
-          <div className="lg:col-span-2 space-y-5">
+          <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center space-x-3 group inline-block">
-              <div className="w-10 h-10 rounded-tech bg-forest-900 flex items-center justify-center text-parchment-50 border border-forest-600/80 group-hover:border-volt transition-colors">
-                <Sprout className="w-5 h-5 text-volt" />
+              <div className="w-9 h-9 rounded-lg bg-forest-900 flex items-center justify-center text-white border border-forest-700">
+                <Sprout className="w-5 h-5 text-emerald-400" />
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-2xl font-bold tracking-tight text-white leading-none">
                   Steward
                 </span>
-                <span className="font-mono text-[9px] tracking-[0.25em] uppercase font-semibold text-gold-coutts mt-1">
-                  FARMING ADVISORY &bull; UK
+                <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-amber-400 mt-0.5">
+                  Agricultural Advisory &bull; UK
                 </span>
               </div>
             </Link>
 
-            <p className="text-xs sm:text-sm text-parchment-300 leading-relaxed max-w-sm font-sans">
-              The high-precision autonomous agronomy and fiduciary farm operating system for British agriculture. Built to executive standard, backed by accredited human specialists.
+            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+              Proactive farm intelligence and decision-support for British agriculture. Combining machine-grade spatial monitoring with accredited UK human specialists.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono text-parchment-400">
-              <span className="flex items-center text-parchment-300">
-                <ShieldCheck className="w-4 h-4 text-volt mr-1.5" />
-                Defra SFI Compliant
+            <div className="pt-2 flex flex-col space-y-2 text-xs text-slate-400">
+              <span className="flex items-center">
+                <ShieldCheck className="w-4 h-4 text-emerald-400 mr-2" />
+                Defra SFI 2026 Compatible
               </span>
-              <span className="flex items-center text-parchment-300">
-                <MapPin className="w-4 h-4 text-gold-coutts mr-1.5" />
-                United Kingdom Holding Registry
+              <span className="flex items-center">
+                <MapPin className="w-4 h-4 text-amber-400 mr-2" />
+                Ordnance Survey &amp; RPA Parcel Integration
               </span>
             </div>
           </div>
 
           {/* Col 3: Advisory Personnel */}
           <div className="space-y-3">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-gold-coutts">
-              Specialist Roster
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
+              Specialist Advisors
             </h3>
-            <ul className="space-y-2.5 text-xs font-mono text-parchment-300">
+            <ul className="space-y-2.5 text-sm text-slate-400">
               <li>
-                <Link href="/advisors#arable" className="hover:text-volt transition-colors">
-                  [AG-01] Arable &bull; Tom Campbell
+                <Link href="/advisors" className="hover:text-white transition-colors">
+                  Tom Campbell &bull; Arable
                 </Link>
               </li>
               <li>
-                <Link href="/advisors#livestock" className="hover:text-volt transition-colors">
-                  [LS-02] Livestock &bull; Fiona MacLeod
+                <Link href="/advisors" className="hover:text-white transition-colors">
+                  Fiona MacLeod &bull; Livestock
                 </Link>
               </li>
               <li>
-                <Link href="/advisors#mixed" className="hover:text-volt transition-colors">
-                  [MX-03] Mixed &bull; Alistair Reid
+                <Link href="/advisors" className="hover:text-white transition-colors">
+                  Alistair Reid &bull; Mixed Systems
                 </Link>
               </li>
               <li>
-                <Link href="/advisors#dairy" className="hover:text-volt transition-colors">
-                  [DY-04] Dairy &bull; Eleanor Wright
+                <Link href="/advisors" className="hover:text-white transition-colors">
+                  Eleanor Wright &bull; Dairy Systems
                 </Link>
               </li>
               <li>
-                <Link href="/advisors" className="text-volt hover:underline flex items-center">
-                  View Full Credentials &rarr;
+                <Link href="/advisors" className="text-emerald-400 hover:underline">
+                  Meet the Advisory Team &rarr;
                 </Link>
               </li>
             </ul>
@@ -124,33 +120,33 @@ export function Footer() {
 
           {/* Col 4: Platform Engine */}
           <div className="space-y-3">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-gold-coutts">
-              Platform Subsystems
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
+              Platform
             </h3>
-            <ul className="space-y-2.5 text-xs font-mono text-parchment-300">
+            <ul className="space-y-2.5 text-sm text-slate-400">
               <li>
-                <Link href="/how-it-works" className="hover:text-volt transition-colors">
-                  Autonomous Review Engine
+                <Link href="/how-it-works" className="hover:text-white transition-colors">
+                  How It Works
                 </Link>
               </li>
               <li>
-                <Link href="/features" className="hover:text-volt transition-colors">
-                  10-Pillar Agronomy Matrix
+                <Link href="/features" className="hover:text-white transition-colors">
+                  Feature Matrix
                 </Link>
               </li>
               <li>
-                <Link href="/features#sfi" className="hover:text-volt transition-colors">
-                  Defra SFI Stacking Solver
+                <Link href="/features#sfi" className="hover:text-white transition-colors">
+                  SFI Scheme Calculator
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-volt transition-colors">
-                  Enterprise Plans &amp; Add-ons
+                <Link href="/pricing" className="hover:text-white transition-colors">
+                  Pricing &amp; Modules
                 </Link>
               </li>
               <li>
-                <Link href="/signup" className="hover:text-volt transition-colors">
-                  Initiate 30-Day Holding Trial
+                <Link href="/signup" className="hover:text-white transition-colors">
+                  30-Day Free Trial
                 </Link>
               </li>
             </ul>
@@ -158,34 +154,34 @@ export function Footer() {
 
           {/* Col 5: Security & Protocol */}
           <div className="space-y-3">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-gold-coutts">
-              Fiduciary Protocol
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-white">
+              Governance &amp; Trust
             </h3>
-            <ul className="space-y-2.5 text-xs font-mono text-parchment-300">
+            <ul className="space-y-2.5 text-sm text-slate-400">
               <li>
-                <Link href="/about" className="hover:text-volt transition-colors">
-                  Agricultural Pedigree
+                <Link href="/about" className="hover:text-white transition-colors">
+                  About Steward
                 </Link>
               </li>
               <li>
-                <Link href="/about#network" className="hover:text-volt transition-colors">
-                  RCVS &amp; BASIS Human Escalation
+                <Link href="/about#network" className="hover:text-white transition-colors">
+                  Accredited Specialist Network
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="hover:text-volt transition-colors">
+                <Link href="/privacy" className="hover:text-white transition-colors">
                   Data Sovereignty Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-volt transition-colors">
-                  Commercial Terms
+                <Link href="/terms" className="hover:text-white transition-colors">
+                  Terms of Service
                 </Link>
               </li>
               <li>
-                <a href="mailto:enquiries@steward.co.uk" className="hover:text-volt transition-colors flex items-center">
-                  <Mail className="w-3.5 h-3.5 mr-1 text-gold-coutts" />
-                  Executive Desk
+                <a href="mailto:enquiries@steward.co.uk" className="hover:text-white transition-colors flex items-center">
+                  <Mail className="w-3.5 h-3.5 mr-1.5 text-amber-400" />
+                  Contact Support
                 </a>
               </li>
             </ul>
@@ -194,19 +190,19 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-parchment-400 space-y-4 sm:space-y-0">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 space-y-4 sm:space-y-0">
           <p>
-            &copy; {new Date().getFullYear()} STEWARD AGRICULTURAL TECHNOLOGIES LTD &bull; REGISTERED IN ENGLAND &amp; WALES &bull; DATA PROTECTION REF: ZB481092
+            &copy; {new Date().getFullYear()} Steward Agricultural Technologies Ltd. Registered in England &amp; Wales.
           </p>
           <div className="flex space-x-6">
-            <Link href="/privacy" className="hover:text-volt transition-colors">
+            <Link href="/privacy" className="hover:text-slate-400 transition-colors">
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-volt transition-colors">
+            <Link href="/terms" className="hover:text-slate-400 transition-colors">
               Terms
             </Link>
-            <Link href="/about#security" className="hover:text-volt transition-colors">
-              ISO Security
+            <Link href="/about#security" className="hover:text-slate-400 transition-colors">
+              Data Protection
             </Link>
           </div>
         </div>

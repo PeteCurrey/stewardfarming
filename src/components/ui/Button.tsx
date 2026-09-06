@@ -11,48 +11,48 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "volt", size = "md", href, children, ...props }, ref) => {
+  ({ className, variant = "primary", size = "md", href, children, ...props }, ref) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-sans font-semibold tracking-wide transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-tech select-none active:translate-y-[1px]";
+      "inline-flex items-center justify-center font-sans font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-lg select-none";
 
     const sizeStyles = {
-      sm: "text-xs px-3.5 py-1.5 font-mono tracking-wider uppercase",
-      md: "text-xs sm:text-sm px-5 py-2.5",
-      lg: "text-sm sm:text-base px-6 py-3.5 shadow-md",
-      xl: "text-base sm:text-lg px-8 py-4 font-bold tracking-tight shadow-lg",
+      sm: "text-xs px-3 py-1.5",
+      md: "text-sm px-4 py-2",
+      lg: "text-base px-5 py-2.5 shadow-sm",
+      xl: "text-base sm:text-lg px-6 py-3 font-semibold shadow",
     };
 
     const variantStyles = {
-      // High-Octane Agro Volt (Monster Energy electric punch on dark surfaces)
-      volt:
-        "bg-volt text-obsidian-950 hover:bg-[#00FF85] border border-volt-neon/80 shadow-[0_0_16px_rgba(0,230,118,0.35)] hover:shadow-[0_0_24px_rgba(0,230,118,0.5)] focus-visible:ring-volt font-bold",
-      
-      // Coutts Bank Sovereign Gold (Imperial heritage luxury)
-      gold:
-        "bg-gold-coutts text-obsidian-950 hover:bg-[#E5BE48] border border-gold-300 shadow-[0_0_16px_rgba(212,175,55,0.3)] hover:shadow-[0_0_24px_rgba(212,175,55,0.45)] focus-visible:ring-gold-400 font-bold",
-
-      // John Deere British Racing Green
+      // Primary: Deep Heritage British Racing Forest
       primary:
-        "bg-forest-800 text-parchment-50 hover:bg-forest-700 border border-forest-600/80 shadow-precision-sm hover:border-volt/50 focus-visible:ring-forest-500",
+        "bg-forest-900 text-white hover:bg-forest-800 border border-forest-950 shadow-sm focus-visible:ring-forest-800",
 
-      // Precision Dark Chassis Wireframe
+      // Clean corporate green (backward compatibility for volt)
+      volt:
+        "bg-forest-900 text-white hover:bg-forest-800 border border-forest-950 shadow-sm focus-visible:ring-forest-800",
+      
+      // Coutts Bank Sovereign Gold / Polished Brass
+      gold:
+        "bg-gold-500 text-slate-950 hover:bg-gold-600 border border-gold-600 font-semibold shadow-sm focus-visible:ring-gold-500",
+
+      // Clean Crisp White Button with Slate Border
       secondary:
-        "bg-obsidian-800/90 text-parchment-100 hover:bg-obsidian-700 border border-white/15 hover:border-volt/40 backdrop-blur-sm focus-visible:ring-white/30",
+        "bg-white text-slate-800 hover:bg-slate-50 border border-slate-300 shadow-sm focus-visible:ring-slate-300",
 
-      // Precision Outline Wireframe
+      // Clean Slate Outline
       outline:
-        "border border-white/25 text-parchment-100 bg-black/20 hover:bg-white/10 hover:border-white/50 backdrop-blur-sm focus-visible:ring-white",
+        "border border-slate-300 text-slate-700 bg-transparent hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-slate-300",
 
-      // White Contrast Button
+      // White Contrast
       white:
-        "bg-white text-obsidian-950 hover:bg-parchment-100 border border-white shadow-md focus-visible:ring-white",
+        "bg-white text-slate-900 hover:bg-slate-50 border border-slate-200 shadow-sm focus-visible:ring-slate-400",
 
-      // Dark Matte Chassis
+      // Executive Slate 900
       dark:
-        "bg-obsidian-900 text-parchment-200 hover:bg-obsidian-800 border border-white/10 hover:border-gold-coutts/40 focus-visible:ring-gold-coutts",
+        "bg-slate-900 text-white hover:bg-slate-800 border border-slate-950 shadow-sm focus-visible:ring-slate-800",
 
       ghost:
-        "text-parchment-200 hover:text-volt hover:bg-white/5 focus-visible:ring-volt",
+        "text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus-visible:ring-slate-400",
     };
 
     const combinedClassName = cn(baseStyles, sizeStyles[size], variantStyles[variant], className);

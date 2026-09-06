@@ -9,43 +9,47 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function Card({
   className,
-  variant = "hud",
+  variant = "default",
   hoverEffect = false,
   cornerTicks = false,
   children,
   ...props
 }: CardProps) {
   const variantStyles = {
-    // Machine-grade dark HUD chassis (John Deere precision × Obsidian)
-    hud: "bg-obsidian-900/90 border border-white/10 text-parchment-100 shadow-warm-md backdrop-blur-md",
+    // Clean corporate white card (Default)
+    default: "bg-white border border-slate-200 text-slate-900 shadow-sm",
 
-    // Coutts Imperial Gold trim card
+    // Backward-compatibility: clean modern white card
+    hud: "bg-white border border-slate-200 text-slate-900 shadow-sm",
+
+    // Coutts Gold trim card
     "hud-gold":
-      "bg-obsidian-900/90 border border-gold-coutts/35 text-parchment-100 shadow-hud-gold backdrop-blur-md",
+      "bg-white border border-amber-200 text-slate-900 shadow-sm",
 
-    // High-Octane Agro Volt telemetry card
+    // Clean green trim card
     "hud-volt":
-      "bg-obsidian-900/90 border border-volt/35 text-parchment-100 shadow-hud backdrop-blur-md",
+      "bg-white border border-emerald-200 text-slate-900 shadow-sm",
 
-    // Coutts Private Bank luxury light card
+    // Coutts luxury light card
     "coutts-light":
-      "bg-[#FAF7F2] border border-[#DDD0BA] text-charcoal-800 shadow-coutts-card",
+      "bg-stone-50/70 border border-stone-200 text-slate-900 shadow-sm",
 
-    // Backward compatibility variants
-    default: "bg-obsidian-900/90 border border-white/10 text-parchment-100 shadow-warm-md",
-    linen: "bg-obsidian-850/95 border border-white/10 text-parchment-100 shadow-warm",
-    dark: "bg-obsidian-950 border border-forest-800/80 text-parchment-100 shadow-warm-md",
-    "terracotta-tint": "bg-obsidian-900/90 border border-terracotta-600/40 text-parchment-100 shadow-warm",
-    "gold-tint": "bg-obsidian-900/90 border border-gold-500/40 text-parchment-100 shadow-warm",
+    // Clean subtle linen
+    linen: "bg-white border border-slate-200 text-slate-900 shadow-sm",
+
+    // Anchor dark corporate card
+    dark: "bg-slate-900 border border-slate-800 text-white shadow-md",
+
+    "terracotta-tint": "bg-rose-50/50 border border-rose-200 text-slate-900 shadow-sm",
+    "gold-tint": "bg-amber-50/50 border border-amber-200 text-slate-900 shadow-sm",
   };
 
   return (
     <div
       className={cn(
-        "rounded-panel p-6 transition-all duration-200",
+        "rounded-xl p-6 transition-all duration-200",
         variantStyles[variant],
-        cornerTicks && "corner-ticks",
-        hoverEffect && "hover:border-volt/60 hover:shadow-[0_4px_24px_-2px_rgba(0,230,118,0.18)] hover:-translate-y-[2px]",
+        hoverEffect && "hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5",
         className
       )}
       {...props}
@@ -74,7 +78,7 @@ export function CardTitle({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
-      className={cn("text-xl font-serif font-bold text-parchment-50 tracking-tight", className)}
+      className={cn("text-xl font-serif font-medium text-slate-900 tracking-tight", className)}
       {...props}
     >
       {children}
@@ -88,7 +92,7 @@ export function CardDescription({
   ...props
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={cn("text-sm text-parchment-300 leading-relaxed", className)} {...props}>
+    <p className={cn("text-sm text-slate-600 leading-relaxed", className)} {...props}>
       {children}
     </p>
   );

@@ -8,17 +8,13 @@ import {
   Trees,
   Milk,
   CheckCircle2,
-  AlertTriangle,
   Calendar,
   ArrowRight,
   ShieldCheck,
   PhoneCall,
-  Info,
   Clock,
   Compass,
-  FileCheck,
   Radio,
-  Lock,
 } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
@@ -41,7 +37,6 @@ interface AdvisorData {
   name: string;
   role: string;
   badgeText: string;
-  code: string;
   badgeVariant: "gold" | "forest" | "terracotta" | "volt";
   farmTypeLabel: string;
   tagline: string;
@@ -58,9 +53,8 @@ const ADVISORS: AdvisorData[] = [
     key: "arable",
     name: "Tom Campbell",
     role: "Arable & Combinable Crops Specialist",
-    badgeText: "Arable Specialist",
-    code: "AG-01 // ARABLE",
-    badgeVariant: "gold",
+    badgeText: "BASIS & FACTS Certified",
+    badgeVariant: "forest",
     farmTypeLabel: "Arable",
     tagline: "Focused on clean rotations, spray timing, and SFI margins per hectare.",
     about:
@@ -99,15 +93,15 @@ const ADVISORS: AdvisorData[] = [
       },
       {
         sender: "advisor",
-        text: "Good morning. Looking at the Met Office spot radar for North Field (Clay Loam, 28ha), wind is currently 11mph from the SW with gusts up to 18mph — too high for safe drift compliance.",
+        text: "Good morning. Met Office radar shows current wind at 13mph with gusts to 19mph in your parish — too high for standard drift limits.",
         time: "07:16",
-        badge: "Drift Advisory",
+        badge: "Spray Window Alert",
       },
       {
         sender: "advisor",
-        text: "However, barometric stability improves significantly this afternoon. Between 14:00 and 19:30, wind drops below 6mph and humidity rises to 68%. That is your optimal low-drift window today. I have drafted your chemical application log with the statutory product details.",
-        time: "07:16",
-        actionNote: "Green Task logged: T1 Application record drafted for your approval",
+        text: "However, a clean 4-hour window opens from 14:00 to 18:00 today when wind drops to 5-6mph and relative humidity settles at 65%. Ground temp is 9.8°C. I've prepared your draft spray log with your last batch of prothioconazole ready for your 1-tap sign-off.",
+        time: "07:17",
+        actionNote: "Draft spray record prepared: North Field (14.2ha) — pending approval.",
       },
     ],
     ctaText: "Start Arable Trial with Tom",
@@ -116,57 +110,56 @@ const ADVISORS: AdvisorData[] = [
     id: "livestock",
     key: "livestock",
     name: "Fiona MacLeod",
-    role: "Livestock & Herd Husbandry Specialist",
-    badgeText: "Livestock Specialist",
-    code: "LS-02 // LIVESTOCK",
-    badgeVariant: "volt",
+    role: "Livestock & Upland Systems Specialist",
+    badgeText: "RCVS Partner",
+    badgeVariant: "forest",
     farmTypeLabel: "Livestock",
-    tagline: "Dedicated to herd health, grazing rotations, and statutory movement compliance.",
+    tagline: "Prioritising herd health records, grazing efficiency, and market timing.",
     about:
-      "Fiona is built around the daily realities of UK sheep, beef, and hill livestock production. She understands grazing plate meter curves, sward height management, statutory meat and milk withdrawal periods, BCMS/ScotEID movement notifications, and livestock mart pricing.",
+      "Fiona is calibrated for UK beef suckler, finishing, and commercial sheep enterprises across both lowland and upland systems. She focuses on grazing budgets, liveweight gain trajectories, statutory movement reporting, veterinary medicine compliance, and deadweight market averages.",
     specialisms: [
-      "Pasture allocation, plate meter calculations & DM budgeting",
-      "Statutory medicine book & meat withdrawal countdowns",
-      "BCMS cattle passport & ScotEID movement compliance",
-      "Seasonal tupping, lambing, and calving calendar planning",
-      "Forage D-value analysis and winter ration balancing",
-      "AHDB regional deadweight beef and lamb auction pricing",
+      "BCMS cattle movement & ScotEID statutory reporting compliance",
+      "Veterinary medicine book recording & withdrawal period clocks",
+      "Rotational grazing sward budgets (plate meter dry matter targets)",
+      "UK deadweight beef and lamb auction mart price benchmarking",
+      "Red Tractor livestock audit compliance & casualty log management",
+      "SFI livestock actions: herbal leys, rough grazing, and low inputs",
     ],
     monitoringItems: [
       {
-        title: "Medicine Withdrawal Dates",
-        detail: "Calculates statutory meat withholding periods for every treated group and flags clearance dates.",
+        title: "Medicine Withdrawal Clocks",
+        detail: "Tracks active meat and milk withdrawal countdowns per individual ear-tag or management group.",
       },
       {
-        title: "Grazing Paddock Rotation",
-        detail: "Estimates dry matter intake against sward heights to recommend ideal rest periods between moves.",
+        title: "Statutory Reporting Windows",
+        detail: "Notifies before the statutory 3-day (birth) or 7-day (movement) BCMS registration deadlines expire.",
       },
       {
-        title: "Movement Deadlines",
-        detail: "Alerts you within 24 hours of stock movements to ensure BCMS/ScotEID reporting rules are satisfied.",
+        title: "Grassland Growth Curves",
+        detail: "Models daily grass growth (kg DM/ha/day) against herd stocking rates to plan paddock moves.",
       },
       {
-        title: "Flock Welfare Milestones",
-        detail: "Tracks flystrike risk indices based on local humidity and temperature profiles.",
+        title: "Auction Mart Deadweight Benchmarks",
+        detail: "Compares local mart quotes against regional averages to identify optimal sale windows.",
       },
     ],
     chatPreview: [
       {
         sender: "farmer",
-        text: "Drenched the replacement ewe lambs with flukicide yesterday. When are they clear for the butcher if we decide to cull any?",
-        time: "08:20",
+        text: "We treated two steers in Pen 3 with Micotil on Tuesday. When can they safely go to the abattoir?",
+        time: "08:42",
       },
       {
         sender: "advisor",
-        text: "Good morning. I've pulled up your treatment record: Group '2024 Ewe Lambs' (42 head) drenched with Fasinex 240 (Triclabendazole) on 12 August at 16:30.",
-        time: "08:21",
-        badge: "Statutory Withdrawal",
+        text: "Micotil 300 (tilmicosin) has a strict statutory 60-day meat withdrawal period under UK veterinary regulations.",
+        time: "08:43",
+        badge: "Statutory Medicine Rule",
       },
       {
         sender: "advisor",
-        text: "Statutory meat withdrawal for Fasinex 240 is 56 days. The clear-to-slaughter date is 7 October at 23:59. I have updated your permanent farm medicine book and set a reminder alert 3 days prior.",
-        time: "08:21",
-        actionNote: "Statutory medicine log recorded. Calendar countdown active.",
+        text: "Treated Tuesday 25th August means their withdrawal ends at 23:59 on Saturday 24th October. Ear tags UK 124892 400192 and 400193 are locked in your herd register and cannot be drafted into a slaughter consignment before Sunday 25th October.",
+        time: "08:44",
+        actionNote: "Herd Register Updated: Withdrawal countdown active (60 days remaining).",
       },
     ],
     ctaText: "Start Livestock Trial with Fiona",
@@ -175,26 +168,25 @@ const ADVISORS: AdvisorData[] = [
     id: "mixed",
     key: "mixed",
     name: "Alistair Reid",
-    role: "Mixed Farm Systems Specialist",
-    badgeText: "Mixed Farm Specialist",
-    code: "MX-03 // MIXED",
-    badgeVariant: "terracotta",
+    role: "Mixed Farming & Whole-Farm Systems Specialist",
+    badgeText: "Whole-Farm SFI",
+    badgeVariant: "gold",
     farmTypeLabel: "Mixed",
-    tagline: "Balancing whole-farm nutrient cycles, break crops, and multi-tier subsidies.",
+    tagline: "Unifying combinable cropping with livestock foraging and soil biology.",
     about:
-      "Alistair represents the interconnected thinking required on mixed holdings. He looks at the entire farm ecosystem: how sheep grazing on herbal leys improves the following wheat crop's nitrogen index, how FYM from winter cattle housing reduces the synthetic P&K fertilizer bill, and how whole-farm SFI options stack seamlessly.",
+      "Alistair is calibrated for diversified UK holdings balancing combinable cereals with beef or sheep enterprises. He specializes in whole-farm nutrient recycling (FYM/slurry into arable soils), dual-purpose cover crops, Countryside Stewardship and SFI scheme stacking, and gross margin balance across arable and stock.",
     specialisms: [
-      "Integrated crop-livestock rotation & fertility building",
-      "Farmyard manure (FYM) & slurry nutrient budgeting",
-      "Herbal ley establishment (SFI SAM3) with rotational grazing",
-      "Cross-enterprise cash flow and working capital forecasting",
-      "Whole-farm Defra Countryside Stewardship & SFI bundling",
-      "Red Tractor multi-enterprise combined inspection audit packs",
+      "Whole-holding SFI stacking & Countryside Stewardship coordination",
+      "Livestock manure nutrient budgeting (RB209 phosphate & potash credits)",
+      "Forage break crops: stubble turnips, forage rape, and winter grazing",
+      "Cross-enterprise labour planning during harvest and lambing/calving",
+      "Soil organic matter (SOM) tracking and cover crop biomass modeling",
+      "Farm business resilience & CAP-to-ELMs transition modelling",
     ],
     monitoringItems: [
       {
-        title: "Manure Nutrient Value",
-        detail: "Calculates available N, P, and K in your livestock dung heaps to offset synthetic fertilizer bills.",
+        title: "Nutrient Recycling Credits",
+        detail: "Calculates replacement fertilizer value of applied FYM and slurry to reduce chemical NPK bills.",
       },
       {
         title: "Break-Crop Grazing Windows",
@@ -235,8 +227,7 @@ const ADVISORS: AdvisorData[] = [
     key: "dairy",
     name: "Eleanor Wright",
     role: "Dairy Systems & Nutrition Specialist",
-    badgeText: "Dairy Specialist",
-    code: "DY-04 // DAIRY",
+    badgeText: "Bovine Nutrition",
     badgeVariant: "gold",
     farmTypeLabel: "Dairy",
     tagline: "Maximising milk contract bonuses, herd longevity, and grassland forage quality.",
@@ -276,7 +267,7 @@ const ADVISORS: AdvisorData[] = [
       },
       {
         sender: "advisor",
-        text: "Good afternoon. Your Arla contract penalty threshold sits at 200k, so you remain in bonus territory, but that 55k rise in 7 days warrants immediate targeted screening.",
+        text: "Good afternoon. Your contract penalty threshold sits at 200k, so you remain in bonus territory, but that 55k rise in 7 days warrants immediate targeted screening.",
         time: "14:16",
         badge: "Cell Count Advisory",
       },
@@ -305,32 +296,26 @@ export function AdvisorsClient() {
   };
 
   return (
-    <div className="flex flex-col bg-obsidian-950 text-parchment-100">
+    <div className="flex flex-col bg-white text-slate-900">
       
       {/* HERO / INTRODUCTION HEADER */}
-      <section className="pt-32 pb-16 bg-obsidian-950 bg-tactical-grid border-b border-white/10 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+      <section className="pt-32 pb-16 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           
-          <Badge variant="gold" pulse>
-            The Steward Advisory Roster
+          <Badge variant="forest">
+            The Steward Advisory Team
           </Badge>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white leading-tight max-w-4xl mx-auto tracking-tight">
-            Specialised Agricultural Intelligence.{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-coutts via-gold-300 to-gold-brass">
-              Calibrated to Your Exact Holding.
-            </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-slate-900 leading-tight max-w-4xl mx-auto tracking-tight">
+            Specialist Farm Advisors. Calibrated to Your Exact Holding.
           </h1>
 
-          <p className="text-base sm:text-xl text-parchment-300 max-w-3xl mx-auto leading-relaxed font-sans">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             British farming is never one-size-fits-all. Steward configures a dedicated specialist advisor around the specific seasonal rhythms, soils, crops, animals, and statutory schemes of your enterprise.
           </p>
 
           {/* Interactive Farm Type Selector */}
-          <div className="pt-8 max-w-3xl mx-auto">
-            <p className="text-xs uppercase font-mono tracking-widest text-parchment-400 mb-3">
-              [SELECT ENTERPRISE DOSSIER TO INSPECT]:
-            </p>
+          <div className="pt-6 max-w-2xl mx-auto">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {ADVISORS.map((advisor) => {
                 const isActive = activeTab === advisor.id;
@@ -339,19 +324,14 @@ export function AdvisorsClient() {
                     key={advisor.id}
                     onClick={() => scrollToAdvisor(advisor.id)}
                     className={cn(
-                      "p-3.5 rounded-panel border text-sm font-mono transition-all duration-150 flex flex-col items-center justify-center space-y-1 focus:outline-none focus:ring-2 focus:ring-volt",
+                      "p-3 rounded-lg border text-sm transition-all duration-150 flex flex-col items-center justify-center space-y-0.5",
                       isActive
-                        ? "bg-obsidian-900 text-white border-volt shadow-hud scale-[1.02]"
-                        : "bg-obsidian-950 text-parchment-300 border-white/10 hover:bg-obsidian-900 hover:border-white/30"
+                        ? "bg-white text-forest-950 border-forest-800 shadow-sm font-semibold ring-1 ring-forest-800"
+                        : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
                     )}
                   >
-                    <span className="font-bold text-sm uppercase tracking-wider">{advisor.farmTypeLabel}</span>
-                    <span
-                      className={cn(
-                        "text-[11px]",
-                        isActive ? "text-volt font-bold" : "text-parchment-400"
-                      )}
-                    >
+                    <span className="text-sm font-medium">{advisor.farmTypeLabel}</span>
+                    <span className="text-xs text-slate-500">
                       {advisor.name}
                     </span>
                   </button>
@@ -364,75 +344,68 @@ export function AdvisorsClient() {
       </section>
 
       {/* ADVISOR PROFILES (4 FULL SECTIONS) */}
-      <div className="divide-y divide-white/10">
+      <div className="divide-y divide-slate-200">
         {ADVISORS.map((advisor) => (
           <section
             key={advisor.id}
             id={advisor.id}
-            className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-obsidian-950 relative"
+            className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white"
           >
-            <div className="max-w-7xl mx-auto space-y-16">
+            <div className="max-w-6xl mx-auto space-y-12">
               
               {/* Top Profile Header Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 {/* Left Column: Portrait & Credentials */}
-                <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left space-y-6">
-                  <div className="relative">
-                    <AdvisorPortrait
-                      type={advisor.key}
-                      name={advisor.name}
-                      size="lg"
-                      className="shadow-2xl"
-                    />
-                    <div className="absolute -bottom-3 -right-3 bg-obsidian-950 text-gold-coutts px-3 py-1 rounded-tech text-[10px] uppercase font-mono font-bold tracking-wider border border-gold-coutts/40 shadow-sm">
-                      VERIFIED ADVISOR
-                    </div>
-                  </div>
+                <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left space-y-4">
+                  <AdvisorPortrait
+                    type={advisor.key}
+                    name={advisor.name}
+                    size="lg"
+                    className="shadow-sm"
+                  />
 
-                  <div className="space-y-1.5">
-                    <div className="flex items-center space-x-2 justify-center sm:justify-start font-mono">
-                      <Badge variant={advisor.badgeVariant} size="sm">
-                        {advisor.code}
-                      </Badge>
-                    </div>
-                    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white pt-1">
+                  <div className="space-y-1">
+                    <Badge variant={advisor.badgeVariant} size="sm">
+                      {advisor.badgeText}
+                    </Badge>
+                    <h2 className="text-2xl font-serif font-medium text-slate-900 pt-1">
                       {advisor.name}
                     </h2>
-                    <p className="text-xs font-mono uppercase tracking-wider text-gold-coutts">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-forest-700">
                       {advisor.role}
                     </p>
                   </div>
 
-                  <p className="text-xs text-parchment-300 italic border-l-2 border-gold-coutts pl-3 leading-relaxed font-sans">
+                  <p className="text-sm text-slate-600 italic border-l-2 border-slate-300 pl-3 leading-relaxed">
                     &quot;{advisor.tagline}&quot;
                   </p>
 
-                  <Button href="/signup" variant="volt" size="lg" className="w-full sm:w-auto">
+                  <Button href="/signup" variant="primary" size="md" className="w-full sm:w-auto">
                     {advisor.ctaText} &rarr;
                   </Button>
                 </div>
 
                 {/* Right Column: Deep Profile & Core Specialisms */}
-                <div className="lg:col-span-8 space-y-8">
-                  <div className="space-y-4">
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white flex items-center">
-                      <Compass className="w-5 h-5 mr-2 text-gold-coutts" />
-                      Specialist Dossier
+                <div className="lg:col-span-8 space-y-6">
+                  <div className="space-y-2">
+                    <h3 className="font-serif text-xl font-medium text-slate-900 flex items-center">
+                      <Compass className="w-5 h-5 mr-2 text-forest-800" />
+                      Specialist Profile
                     </h3>
-                    <p className="text-base text-parchment-200 leading-relaxed font-sans">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                       {advisor.about}
                     </p>
                   </div>
 
                   <div className="space-y-3 pt-2">
-                    <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
-                      CORE ADVISORY SPECIALISMS:
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-800">
+                      Core Advisory Specialisms:
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-parchment-200 font-sans">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
                       {advisor.specialisms.map((spec, sIdx) => (
-                        <div key={sIdx} className="flex items-start space-x-2.5 bg-obsidian-900 p-3 rounded-panel border border-white/10">
-                          <CheckCircle2 className="w-4 h-4 text-volt mt-0.5 flex-shrink-0" />
+                        <div key={sIdx} className="flex items-start space-x-2.5 bg-slate-50 p-3 rounded-lg border border-slate-200">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
                           <span>{spec}</span>
                         </div>
                       ))}
@@ -443,19 +416,13 @@ export function AdvisorsClient() {
               </div>
 
               {/* Bottom Row: Proactive Monitoring List & Sample Chat Mockup */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pt-8 border-t border-white/10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-8 border-t border-slate-200">
                 
                 {/* Proactive Monitoring Subsystems */}
-                <div className="lg:col-span-6 space-y-6">
+                <div className="lg:col-span-6 space-y-4">
                   <div>
-                    <div className="inline-flex items-center space-x-2 mb-2 font-mono">
-                      <Radio className="w-4 h-4 text-volt" />
-                      <span className="text-xs uppercase tracking-wider font-bold text-volt">
-                        AUTONOMOUS MONITORING SUBSYSTEMS
-                      </span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                      What {advisor.name.split(" ")[0]} monitors for your holding:
+                    <h3 className="text-lg font-serif font-medium text-slate-900">
+                      What {advisor.name.split(" ")[0]} monitors on your holding:
                     </h3>
                   </div>
 
@@ -463,15 +430,15 @@ export function AdvisorsClient() {
                     {advisor.monitoringItems.map((item, mIdx) => (
                       <div
                         key={mIdx}
-                        className="p-4 rounded-panel bg-obsidian-900 border border-white/10 hover:border-volt/40 transition-colors"
+                        className="p-4 rounded-lg bg-slate-50 border border-slate-200 hover:border-slate-300 transition-colors"
                       >
                         <div className="flex items-center space-x-2 mb-1">
-                          <span className="w-2 h-2 rounded-full bg-volt" />
-                          <h4 className="font-mono font-bold text-xs uppercase tracking-wider text-white">
+                          <span className="w-2 h-2 rounded-full bg-emerald-600" />
+                          <h4 className="font-semibold text-xs text-slate-900">
                             {item.title}
                           </h4>
                         </div>
-                        <p className="text-xs text-parchment-300 leading-relaxed pl-4 font-sans">
+                        <p className="text-xs text-slate-600 leading-relaxed pl-4">
                           {item.detail}
                         </p>
                       </div>
@@ -480,94 +447,55 @@ export function AdvisorsClient() {
                 </div>
 
                 {/* Sample Mobile Interaction Preview */}
-                <div className="lg:col-span-6 space-y-6">
+                <div className="lg:col-span-6 space-y-4">
                   <div>
-                    <div className="inline-flex items-center space-x-2 mb-2 font-mono">
-                      <Clock className="w-4 h-4 text-gold-coutts" />
-                      <span className="text-xs uppercase tracking-wider font-bold text-gold-coutts">
-                        TELEMETRY EXCHANGE SAMPLE
-                      </span>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                      Real-time advice on your mobile or cab screen:
+                    <h3 className="text-lg font-serif font-medium text-slate-900">
+                      In-app advice &amp; approval sample:
                     </h3>
                   </div>
 
-                  <div className="rounded-panel bg-obsidian-900 border border-white/10 p-5 shadow-2xl space-y-4">
-                    <div className="flex items-center justify-between pb-3 border-b border-white/10 font-mono">
-                      <div className="flex items-center space-x-2.5">
+                  <div className="rounded-xl bg-slate-50 border border-slate-200 p-5 shadow-sm space-y-3">
+                    <div className="flex items-center justify-between pb-3 border-b border-slate-200 text-xs">
+                      <div className="flex items-center space-x-2">
                         <AdvisorPortrait type={advisor.key} name={advisor.name} size="sm" />
                         <div>
-                          <p className="text-xs font-serif font-bold text-white leading-none">
-                            {advisor.name}
-                          </p>
-                          <p className="text-[10px] text-volt font-medium">
-                            {advisor.code} &bull; ONLINE
-                          </p>
+                          <span className="font-semibold text-slate-900 block">{advisor.name}</span>
+                          <span className="text-[11px] text-slate-500">{advisor.role}</span>
                         </div>
                       </div>
-                      <span className="text-[10px] bg-obsidian-950 px-2 py-0.5 rounded-tech border border-white/10 text-parchment-400">
-                        STEWARD TELEMETRY
+                      <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded text-[11px] font-medium border border-emerald-200">
+                        Online
                       </span>
                     </div>
 
-                    <div className="space-y-3.5 pt-1">
-                      {advisor.chatPreview.map((msg, cIdx) => {
-                        const isAdvisor = msg.sender === "advisor";
-
-                        return (
-                          <div
-                            key={cIdx}
-                            className={cn(
-                              "flex flex-col",
-                              isAdvisor ? "items-start" : "items-end"
-                            )}
-                          >
-                            <div
-                              className={cn(
-                                "max-w-[88%] p-3.5 rounded-panel text-xs leading-relaxed shadow-sm space-y-1.5",
-                                isAdvisor
-                                  ? "bg-obsidian-950 text-parchment-200 border border-white/10 rounded-tl-none"
-                                  : "bg-forest-900 text-white border border-forest-700 rounded-tr-none"
-                              )}
-                            >
-                              {msg.badge && (
-                                <div className="inline-block text-[9px] uppercase font-mono font-bold tracking-wider text-gold-coutts bg-gold-coutts/10 px-2 py-0.5 rounded-tech border border-gold-coutts/30">
-                                  {msg.badge}
-                                </div>
-                              )}
-                              <p className="font-sans">{msg.text}</p>
-                              {msg.actionNote && (
-                                <div className="pt-1.5 border-t border-white/10 flex items-center text-[11px] font-mono text-volt">
-                                  <FileCheck className="w-3.5 h-3.5 mr-1 text-volt flex-shrink-0" />
-                                  <span>{msg.actionNote}</span>
-                                </div>
-                              )}
-                            </div>
-                            <span className="text-[10px] font-mono text-parchment-400 mt-1 px-1">
-                              {msg.time}
+                    <div className="space-y-3 text-xs">
+                      {advisor.chatPreview.map((msg, cIdx) => (
+                        <div
+                          key={cIdx}
+                          className={cn(
+                            "p-3 rounded-lg max-w-[90%]",
+                            msg.sender === "farmer"
+                              ? "ml-auto bg-slate-200 text-slate-900"
+                              : "mr-auto bg-white border border-slate-200 text-slate-800 shadow-sm"
+                          )}
+                        >
+                          {msg.badge && (
+                            <span className="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-amber-50 text-amber-800 border border-amber-200 mb-1">
+                              {msg.badge}
                             </span>
-                          </div>
-                        );
-                      })}
+                          )}
+                          <p className="leading-relaxed">{msg.text}</p>
+                          {msg.actionNote && (
+                            <p className="mt-2 pt-2 border-t border-slate-100 text-[11px] font-medium text-emerald-800">
+                              ✓ {msg.actionNote}
+                            </p>
+                          )}
+                          <span className="text-[10px] text-slate-400 block text-right mt-1">
+                            {msg.time}
+                          </span>
+                        </div>
+                      ))}
                     </div>
-
-                    <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-parchment-400 font-mono">
-                      <span className="italic">Type advisory query or initiate voice brief...</span>
-                      <div className="w-7 h-7 rounded-tech bg-volt text-obsidian-950 flex items-center justify-center font-bold">
-                        &uarr;
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-2 flex justify-between items-center text-xs font-mono text-parchment-400">
-                    <span className="flex items-center">
-                      <ShieldCheck className="w-4 h-4 text-volt mr-1" />
-                      RCVS &bull; BASIS Human Escalation 1-Tap
-                    </span>
-                    <Button href="/signup" variant="gold" size="sm">
-                      {advisor.ctaText}
-                    </Button>
                   </div>
                 </div>
 
@@ -577,30 +505,6 @@ export function AdvisorsClient() {
           </section>
         ))}
       </div>
-
-      {/* HUMAN EXPERT ESCALATION CALLOUT */}
-      <section className="py-20 bg-obsidian-900 text-parchment-100 border-t border-white/10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <Badge variant="gold" pulse>Accredited Specialist Protocol</Badge>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">
-            Backed by Accredited British Agricultural Professionals.
-          </h2>
-          <p className="text-base sm:text-lg text-parchment-300 max-w-2xl mx-auto leading-relaxed font-sans">
-            Your Steward advisor knows its boundaries. Whenever an unusual clinical presentation,
-            contested tenancy dispute, or complex drainage claim occurs, you are immediately routed
-            to verified RCVS vets and BASIS agronomists.
-          </p>
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/signup" variant="volt" size="lg">
-              Start Free 30-Day Trial
-            </Button>
-            <Button href="/about#network" variant="secondary" size="lg">
-              Examine Human Specialist Network
-            </Button>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }
