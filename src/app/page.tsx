@@ -48,9 +48,9 @@ export default function HomePage() {
           fetchPriority="high"
         />
 
-        {/* Slight Dark Overlays — gentle tint to ensure text clarity without obscuring the bright farmyard, house, and machinery */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-slate-950/30 to-black/10 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-black/20 pointer-events-none" />
+        {/* Minimal Soft Overlay — lets the landscape, farmhouse, tractors, and yard shine clearly with ultra-light feathering */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/40 via-slate-950/15 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/25 via-transparent to-black/10 pointer-events-none" />
 
         {/* Hero content container — matches navbar max-w-7xl + padding for logo alignment */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-left space-y-8">
