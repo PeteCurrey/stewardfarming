@@ -37,7 +37,7 @@ export default function HomePage() {
         1. HERO SECTION — Clean Modern Corporate
         ========================================================================
       */}
-      <section className="relative min-h-[92vh] flex flex-col items-center justify-center overflow-hidden bg-slate-900">
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-slate-900">
 
         {/* Background Image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
