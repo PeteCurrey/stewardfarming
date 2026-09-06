@@ -42,14 +42,15 @@ export default function HomePage() {
         {/* Background Image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2560&q=85"
-          alt="British farmland at sunrise"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-40 scale-100"
+          src="/images/hero_farmer_yard.jpg"
+          alt="British farmer standing proudly in farm yard with modern stone farmhouse and machinery"
+          className="absolute inset-0 w-full h-full object-cover object-[75%_center] lg:object-center pointer-events-none opacity-85 scale-100"
           fetchPriority="high"
         />
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/80 pointer-events-none" />
+        {/* Gradient Overlays — directional shading to ensure left-aligned text readability while preserving the farmer and farm scene on the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-900/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60 pointer-events-none" />
 
         {/* Hero content container — matches navbar max-w-7xl + padding for logo alignment */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-left space-y-8">
