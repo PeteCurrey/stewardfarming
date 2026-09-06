@@ -44,31 +44,31 @@ export default function HomePage() {
         <img
           src="/images/hero_farmer_yard.jpg"
           alt="British farmer standing proudly in farm yard with modern stone farmhouse and machinery"
-          className="absolute inset-0 w-full h-full object-cover object-[75%_center] lg:object-center pointer-events-none opacity-85 scale-100"
+          className="absolute inset-0 w-full h-full object-cover object-[75%_center] lg:object-center pointer-events-none opacity-100 scale-100"
           fetchPriority="high"
         />
 
-        {/* Gradient Overlays — directional shading to ensure left-aligned text readability while preserving the farmer and farm scene on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-900/30 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60 pointer-events-none" />
+        {/* Slight Dark Overlays — gentle tint to ensure text clarity without obscuring the bright farmyard, house, and machinery */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-slate-950/30 to-black/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-black/20 pointer-events-none" />
 
         {/* Hero content container — matches navbar max-w-7xl + padding for logo alignment */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-left space-y-8">
 
           {/* Clean Corporate Pill */}
           <div className="inline-flex items-center">
-            <span className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-medium px-4 py-1.5 rounded-full">
+            <span className="inline-flex items-center space-x-2 bg-slate-900/60 backdrop-blur-md border border-white/20 text-white text-xs font-medium px-4 py-1.5 rounded-full shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-400" />
               <span>British Agricultural Advisory &bull; Defra SFI 2026 Ready</span>
             </span>
           </div>
 
           {/* Authoritative Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-extralight text-white leading-[1.08] tracking-tight max-w-3xl">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-extralight text-white leading-[1.08] tracking-tight max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             Agricultural Intelligence for British Farming Enterprises.
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl font-normal">
+          <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-xl font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
             Personalised to your holding, acreage, and RPA field boundaries. Real-time Met Office spray radar, SFI subsidy optimization, and automated compliance — supported by accredited UK agronomists and vets.
           </p>
 
