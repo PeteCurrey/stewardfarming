@@ -22,7 +22,14 @@ export function Navbar() {
   const pathname = usePathname();
   const { user, farm, signOut } = useAuth();
 
-  const isHomePage = pathname === "/";
+  const isMarketingHeroPage = [
+    "/",
+    "/advisors",
+    "/features",
+    "/pricing",
+    "/how-it-works",
+    "/about",
+  ].includes(pathname);
   const isDashboardRoute =
     pathname.startsWith("/dashboard") || pathname.startsWith("/onboarding");
 
@@ -38,13 +45,13 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isDarkNav = isHomePage && !scrolled;
+  const isDarkNav = isMarketingHeroPage && !scrolled;
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
-        scrolled || !isHomePage
+        !isDarkNav
           ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm py-3"
           : "bg-transparent border-b border-white/10 py-4"
       )}

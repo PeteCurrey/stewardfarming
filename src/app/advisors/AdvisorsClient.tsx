@@ -298,24 +298,44 @@ export function AdvisorsClient() {
   return (
     <div className="flex flex-col bg-white text-slate-900">
       
-      {/* HERO / INTRODUCTION HEADER */}
-      <section className="pt-32 pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          
-          <Badge variant="forest">
-            The Steward Advisory Team
-          </Badge>
+      {/* HERO / INTRODUCTION HEADER — Full screen with British Agronomy background */}
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-slate-900">
+        {/* Background Image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2560&q=85"
+          alt="Golden British wheat fields at dawn representing agricultural advisory"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-85 scale-100"
+          fetchPriority="high"
+        />
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-slate-900 leading-tight max-w-4xl mx-auto tracking-tight">
+        {/* Directional Soft Overlays for Text Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-slate-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/30 pointer-events-none" />
+
+        {/* Content Container — Left-aligned matching navbar logo */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-left space-y-8">
+          
+          <div className="inline-flex items-center">
+            <span className="inline-flex items-center space-x-2 bg-slate-900/60 backdrop-blur-md border border-white/20 text-white text-xs font-medium px-4 py-1.5 rounded-full shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span>The Steward Advisory Team &bull; 4 Calibrated Disciplines</span>
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-extralight text-white leading-[1.08] tracking-tight max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             Specialist Farm Advisors. Calibrated to Your Exact Holding.
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl font-sans font-light text-slate-100 max-w-2xl leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
             British farming is never one-size-fits-all. Steward configures a dedicated specialist advisor around the specific seasonal rhythms, soils, crops, animals, and statutory schemes of your enterprise.
           </p>
 
           {/* Interactive Farm Type Selector */}
-          <div className="pt-6 max-w-2xl mx-auto">
+          <div className="pt-4 max-w-3xl">
+            <p className="text-xs uppercase tracking-wider font-semibold text-slate-300 mb-3">
+              Select an advisor discipline to inspect credentials:
+            </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {ADVISORS.map((advisor) => {
                 const isActive = activeTab === advisor.id;
@@ -324,14 +344,14 @@ export function AdvisorsClient() {
                     key={advisor.id}
                     onClick={() => scrollToAdvisor(advisor.id)}
                     className={cn(
-                      "p-3 rounded-lg border text-sm transition-all duration-150 flex flex-col items-center justify-center space-y-0.5",
+                      "p-3.5 rounded-xl border text-sm transition-all duration-150 flex flex-col items-start justify-center space-y-1 text-left backdrop-blur-md",
                       isActive
-                        ? "bg-white text-forest-950 border-forest-800 shadow-sm font-semibold ring-1 ring-forest-800"
-                        : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+                        ? "bg-white text-slate-900 border-white shadow-lg font-semibold ring-2 ring-white/50"
+                        : "bg-slate-900/70 text-white border-white/20 hover:bg-slate-900/90 hover:border-white/40"
                     )}
                   >
-                    <span className="text-sm font-medium">{advisor.farmTypeLabel}</span>
-                    <span className="text-xs text-slate-500">
+                    <span className="text-sm font-semibold">{advisor.farmTypeLabel}</span>
+                    <span className={cn("text-xs", isActive ? "text-slate-600" : "text-slate-300")}>
                       {advisor.name}
                     </span>
                   </button>

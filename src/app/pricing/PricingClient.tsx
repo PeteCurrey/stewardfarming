@@ -154,22 +154,41 @@ export function PricingClient() {
   return (
     <div className="flex flex-col bg-white text-slate-900">
       
-      {/* HEADER */}
-      <section className="pt-32 pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Badge variant="forest">Simple Transparent Pricing</Badge>
+      {/* HEADER — Full Screen Hero with British Farm Estate Background */}
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-slate-900">
+        {/* Background Image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2560&q=85"
+          alt="Panoramic British agricultural estate and fields at sunrise"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-85 scale-100"
+          fetchPriority="high"
+        />
+
+        {/* Directional Soft Overlays for Text Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-slate-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/30 pointer-events-none" />
+
+        {/* Content Container — Left-aligned matching navbar logo */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-left space-y-8">
+          <div className="inline-flex items-center">
+            <span className="inline-flex items-center space-x-2 bg-slate-900/60 backdrop-blur-md border border-white/20 text-white text-xs font-medium px-4 py-1.5 rounded-full shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span>Transparent Sovereign Pricing &bull; Zero Contract Lock-In</span>
+            </span>
+          </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-slate-900 leading-tight tracking-tight">
-            One Core Subscription Per Holding. Add Only What You Need.
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-extralight text-white leading-[1.08] tracking-tight max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+            One Core Subscription. Add Only What You Need.
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl font-sans font-light text-slate-100 max-w-2xl leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
             Every holding receives the full agricultural advisory core. Configure optional precision telemetry add-ons tailored to your machinery, imagery, and grant needs.
           </p>
 
           {/* Billing Interval Switcher */}
-          <div className="pt-6 flex items-center justify-center space-x-3 text-sm">
-            <span className={cn(!isAnnual ? "text-slate-900 font-semibold" : "text-slate-500")}>
+          <div className="pt-2 inline-flex items-center space-x-3 text-sm bg-slate-900/70 backdrop-blur-md border border-white/20 px-4 py-2.5 rounded-xl shadow-sm">
+            <span className={cn(!isAnnual ? "text-white font-semibold" : "text-slate-300")}>
               Monthly Rolling
             </span>
             <button
@@ -177,7 +196,7 @@ export function PricingClient() {
               onClick={() => setIsAnnual(!isAnnual)}
               className={cn(
                 "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none",
-                isAnnual ? "bg-forest-900" : "bg-slate-300"
+                isAnnual ? "bg-emerald-500" : "bg-slate-600"
               )}
               role="switch"
               aria-checked={isAnnual}
@@ -190,10 +209,10 @@ export function PricingClient() {
               />
             </button>
             <div className="flex items-center space-x-2">
-              <span className={cn(isAnnual ? "text-slate-900 font-semibold" : "text-slate-500")}>
+              <span className={cn(isAnnual ? "text-white font-semibold" : "text-slate-300")}>
                 Annual Billing
               </span>
-              <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+              <span className="text-xs font-semibold text-emerald-300 bg-emerald-950/80 border border-emerald-500/40 px-2 py-0.5 rounded-full">
                 Save 15%
               </span>
             </div>

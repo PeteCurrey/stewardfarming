@@ -204,16 +204,59 @@ export function FeaturesClient() {
   return (
     <div className="flex flex-col bg-white text-slate-900">
       
-      {/* Header */}
-      <section className="pt-32 pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Badge variant="forest">The Feature Matrix</Badge>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-slate-900 leading-tight">
+      {/* Header — Full Screen Hero with Modern Agricultural Technology Background */}
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-slate-900">
+        {/* Background Image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=2560&q=85"
+          alt="Modern agricultural machinery harvesting grain fields under dramatic sky"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-85 scale-100"
+          fetchPriority="high"
+        />
+
+        {/* Directional Soft Overlays for Text Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-slate-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/30 pointer-events-none" />
+
+        {/* Content Container — Left-aligned matching navbar logo */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-left space-y-8">
+          <div className="inline-flex items-center">
+            <span className="inline-flex items-center space-x-2 bg-slate-900/60 backdrop-blur-md border border-white/20 text-white text-xs font-medium px-4 py-1.5 rounded-full shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span>The Feature Matrix &bull; Sovereign UK Agricultural Systems</span>
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-extralight text-white leading-[1.08] tracking-tight max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             Engineered for Modern British Agriculture.
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+
+          <p className="text-base sm:text-xl font-sans font-light text-slate-100 max-w-2xl leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
             Every feature in Steward is grounded in UK agricultural practice, statutory compliance rules, and field-tested farm management workflows.
           </p>
+
+          <div className="pt-4 flex flex-wrap gap-2 max-w-3xl">
+            {CATEGORIES.map((cat) => {
+              const Icon = cat.icon;
+              const isActive = activeTab === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveTab(cat.id)}
+                  className={cn(
+                    "flex items-center space-x-2 px-4 py-2.5 rounded-xl text-sm transition-all backdrop-blur-md border",
+                    isActive
+                      ? "bg-white text-slate-900 border-white font-semibold shadow-lg ring-2 ring-white/50"
+                      : "bg-slate-900/70 text-white border-white/20 hover:bg-slate-900/90 hover:border-white/40"
+                  )}
+                >
+                  <Icon className={cn("w-4 h-4", isActive ? "text-emerald-700" : "text-emerald-400")} />
+                  <span>{cat.name}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </section>
 

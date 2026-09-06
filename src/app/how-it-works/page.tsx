@@ -40,22 +40,47 @@ export const metadata: Metadata = {
 export default function HowItWorksPage() {
   return (
     <div className="flex flex-col bg-white text-slate-900">
-      {/* 
-        ========================================================================
-        HEADER
-        ========================================================================
-      */}
-      <section className="pt-32 pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Badge variant="forest">System Architecture</Badge>
+      {/* HEADER — Full Screen Hero with British Farm Operations Background */}
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-slate-900">
+        {/* Background Image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=2560&q=85"
+          alt="Tractor cultivating lush green British farmland in the morning light"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-85 scale-100"
+          fetchPriority="high"
+        />
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-medium text-slate-900 tracking-tight leading-tight">
+        {/* Directional Soft Overlays for Text Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-slate-900/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/30 pointer-events-none" />
+
+        {/* Content Container — Left-aligned matching navbar logo */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-left space-y-8">
+          <div className="inline-flex items-center">
+            <span className="inline-flex items-center space-x-2 bg-slate-900/60 backdrop-blur-md border border-white/20 text-white text-xs font-medium px-4 py-1.5 rounded-full shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span>System Architecture &bull; Traffic-Light Autonomy</span>
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-extralight text-white tracking-tight leading-[1.08] max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             How Steward Works Alongside Your Daily Routine.
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl font-sans font-light text-slate-100 leading-relaxed max-w-2xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
             Grounded in traditional British agricultural husbandry, accelerated by machine-grade data integration, and governed by strict human control.
           </p>
+
+          <div className="pt-2 flex flex-col sm:flex-row items-start gap-3">
+            <Button href="/signup" variant="white" size="md" className="font-semibold">
+              <span>Get Started</span>
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+            <Button href="/advisors" variant="outline" size="md" className="text-white border-white/30 hover:bg-white/10 hover:border-white">
+              Meet Your Advisor
+            </Button>
+          </div>
         </div>
       </section>
 
