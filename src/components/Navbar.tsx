@@ -67,7 +67,7 @@ export function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className={cn(
-                "font-serif text-2xl font-bold tracking-tight leading-none",
+                "font-sans text-2xl font-extralight tracking-wider leading-none",
                 isDarkNav ? "text-white" : "text-slate-900"
               )}>
                 Steward
