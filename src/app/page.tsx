@@ -52,10 +52,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/80 pointer-events-none" />
 
         {/* Hero content container */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-center space-y-8">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 text-left space-y-8">
 
           {/* Clean Corporate Pill */}
-          <div className="inline-flex items-center justify-center">
+          <div className="inline-flex items-center">
             <span className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-medium px-4 py-1.5 rounded-full">
               <span className="w-2 h-2 rounded-full bg-emerald-400" />
               <span>British Agricultural Advisory &bull; Defra SFI 2026 Ready</span>
@@ -63,32 +63,32 @@ export default function HomePage() {
           </div>
 
           {/* Authoritative Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-medium text-white leading-[1.08] tracking-tight max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-medium text-white leading-[1.08] tracking-tight max-w-3xl">
             Agricultural Intelligence for British Farming Enterprises.
           </h1>
 
-          <p className="text-base sm:text-xl text-slate-200 leading-relaxed max-w-2xl mx-auto font-normal">
+          <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl font-normal">
             Personalised to your holding, acreage, and RPA field boundaries. Real-time Met Office spray radar, SFI subsidy optimization, and automated compliance — supported by accredited UK agronomists and vets.
           </p>
 
-          {/* Clean Corporate CTA Cluster */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-            <Button href="/signup" variant="white" size="xl" className="w-full sm:w-auto font-semibold">
+          {/* CTA Cluster — left-aligned, smaller */}
+          <div className="pt-2 flex flex-col sm:flex-row items-start gap-3">
+            <Button href="/signup" variant="white" size="md" className="font-semibold">
               <span>Start 30-Day Free Trial</span>
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
             <Button
               href="/how-it-works"
               variant="outline"
-              size="xl"
-              className="w-full sm:w-auto text-white border-white/30 hover:bg-white/10 hover:border-white"
+              size="md"
+              className="text-white border-white/30 hover:bg-white/10 hover:border-white"
             >
               How It Works
             </Button>
           </div>
 
           {/* 3 Core Trust Pillars */}
-          <div className="pt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
+          <div className="pt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl text-left">
             <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80 backdrop-blur-sm space-y-1">
               <div className="flex items-center justify-between text-xs text-slate-400">
                 <span>Met Office Spot Radar</span>

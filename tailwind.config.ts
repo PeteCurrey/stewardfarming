@@ -106,7 +106,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["Fraunces", "Georgia", "serif"],
-        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        sans: ["Work Sans", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
         mono: ["JetBrains Mono", "SF Mono", "Menlo", "monospace"],
       },
       borderRadius: {
